@@ -1,0 +1,3508 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amssymb,longtable}
+\usepackage{hyperref,enumerate}
+\usepackage[eulergreek]{sansmath}
+
+\usepackage{amsmath,amsthm,amsxtra}
+\usepackage{amsfonts,eucal,mathrsfs,todonotes}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{xcolor}
+% \usepackage{stix}
+\usepackage{upgreek}
+\usepackage[notref,notcite]{showkeys}
+
+\numberwithin{equation}{section}
+
+
+\definecolor{ddorange}{rgb}{1,0.5,0}
+\definecolor{ddcyan}{rgb}{0,0.2,1.0}
+
+
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\CE}[2]{\calC \calE([#1,#2])}
+\newcommand{\ENHCE}[2]{\calC \calE^{\mathrm{enh}}([#1,#2])}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\scrI}{\mathscr{I}}
+\newcommand{\scrL}{\mathscr{L}}
+\newcommand{\Lip}{\mathrm{Lip}}
+\newcommand{\Lipb}{\mathrm{Lip}_{\mathrm{b}}}
+\newcommand{\sign}{\text{sign}\,}
+\newcommand{\ssubset}{\subset\joinrel\subset}
+
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\q}{\mathfrak{q}}
+
+\newcommand{\eps}{\varepsilon}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\I}{I}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\dnabla}{\overline\nabla}
+\newcommand{\supp}{\text{supp}\,}
+\renewcommand{\t}{\textbf{t}}
+\newcommand{\s}{\textbf{s}}
+\renewcommand{\r}{\textbf{r}}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pr}{\text{pr}}
+%\newcommand{\teta}{\vartheta}
+\newcommand{\x}{{\rm\bf x}}
+\newcommand{\y}{{\rm\bf y}}
+\newcommand{\z}{{\rm\bf z}}
+\newcommand{\bxi}{\boldsymbol{\xi}}
+\newcommand{\bta}{\boldsymbol{\eta}}
+\newcommand{\bzeta}{\boldsymbol{\zeta}}
+\newcommand{\bLambda}{\boldsymbol{\Lambda}}
+
+\newcommand{\OLI}[1]{{\color{blue}#1}}
+\newcommand{\alert}{\color{red}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+ %\newcommand{\upphi}{\upshape \Phi}
+ %\newcommand{\uppsi}{\upshape \Psi}
+ %\newcommand{\upalpha}{\upshape \alpha}
+
+%%% MACROS from PRST 
+%%%%%%%%%%%%%%%%%%%% Specific notations %%%%%%%%%
+
+\newcommand{\QED}{\mbox{}\hfill\rule{5pt}{5pt}\medskip\par}
+\newcommand{\ep}{\varepsilon}
+\let\e\ep
+\let\eps\ep
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Bteta}{{\boldsymbol\vartheta}}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\foraa}{\text{for a.e.\ }}
+\def\One{\mathbbm{1}}
+\def\dd{\mathrm{d}}
+\DeclareMathSymbol{\mtimes}{\mathord}{symbols}{"0A}
+\newcommand{\argmin}{\mathop{\rm argmin}}
+\newcommand{\dom}{\mathop{\rm dom}}
+\newcommand{\edg}{E}
+\newcommand{\edgY}{Y {\times} Y}
+\newcommand{\CB}{\mathrm{C}_{\mathrm{b}}}
+\newcommand{\ona}{\dnabla}
+\newcommand{\odiv}[1]{\dnabla \cdot(#1)}
+\renewcommand{\odiv}[1]{\mathop{\overline{\mathrm{div}}}#1}
+\newcommand{\odivn}{\overline{\mathrm{div}}}
+\newcommand{\DVT}[3]{\mathscr{W}(#1,#2,#3)}
+\newcommand{\CER}[2]{\mathcal{A}{(#1,#2)}}
+\newcommand{\CEIR}[1]{\mathcal{A}{(#1)}}
+\newcommand{\ADM}[4]{\mathscr{A}{(#1,#2;#3,#4)}}
+\newcommand{\DVTn}{\mathscr{W}}
+\newcommand{\VarW}[3]{\mathbb W(#1;[#2,#3])}
+\newcommand{\VarWn}{\mathbb W}
+\newcommand{\Vk}[2]{\mathsf{V}_{#1}(#2)}
+\newcommand{\Vkn}[1]{\mathsf{V}_{#1}}
+\newcommand{\Mk}[2]{\mathsf{M}_{#1}(#2)}
+\newcommand{\Mkn}[1]{\mathsf{M}_{#1}}
+\newcommand{\Vlim}{\mathsf{V}}
+\newcommand{\Mlim}{\mathsf{M}}
+\newcommand{\GMM}[2]{\mathrm{GMM}(#1;#2)}
+\newcommand{\GMMT}[4]{\mathrm{GMM}(#1;(#2, #3),#4)}
+\newcommand{\nuovorel}{\mathscr{S}^-}% {_{\DVTn,\calS}}
+\newcommand{\BV}{\mathrm{BV}}
+\newcommand{\AC}{\mathrm{AC}}
+\newcommand{\jump}[1]{\mathrm{J}_{#1}}
+\newcommand{\Cc}{\mathrm{C}_{\mathrm{c}}}
+\newcommand{\Cb}{\mathrm{C}_{\mathrm{b}}}
+\newcommand{\Bb}{\mathrm{B}_{\mathrm b}}
+\newcommand{\Bc}{\mathrm{B}_{\mathrm c}}
+\newcommand{\Co}{\mathrm{C}_{0}}
+\newcommand{\Fish}{\mathscr{D}}
+\def\nlambda{n}
+\DeclareMathOperator\conv{conv}
+\newcommand{\sfp}{\mathsf{p}}
+
+\newcommand{\weakto}{\rightharpoonup}
+\newcommand{\weaksto}{\stackrel*\rightharpoonup}
+\newcommand{\weaksigmatoabs}{\stackrel{\sigma}{\rightharpoonup}}
+\newcommand{\hj}{\bj'}
+\newcommand\cj{\tilde \bjmath}
+\newcommand\cbj{\tilde \bjmath}
+\newcommand\cw{w^\flat} %{\widetilde w}
+\newcommand\hw{\widehat w}
+\newcommand\symmap{\mathsf s_\#}
+\newcommand\symmapn{\mathsf s}
+\newcommand\wt{\widetilde}
+\newcommand\Lebesgue{\mathcal L}
+
+
+\newcommand{\CEI}[1]{\mathcal{CE}(#1)}
+\newcommand{\CEP}[4]{\mathcal{CE}(#1,#2; #3,#4)}
+\newcommand{\CEIP}[3]{\mathcal{CE}(#1;#2,#3)}
+\newcommand{\CEn}{\mathcal{CE}}
+
+%%%%%%%%%%%%%%%%%%%% Piecewise interpolations %%%%%%%%%
+\newcommand{\piecewiseConstant}[2]{\overline{#1}_{\kern-1pt#2}}
+\newcommand{\pwC}{\piecewiseConstant}
+\newcommand{\underpiecewiseConstant}[2]{\underline{#1}_{\kern-1pt#2}}
+\newcommand{\upwC}{\underpiecewiseConstant}
+\newcommand{\sft}{\mathsf{t}}
+\newcommand{\ttau}{t_{\tau}}
+\newcommand{\Utau}{\rho_\tau}
+\newcommand{\pwM}[2]{\widetilde{#1}_{\kern-1pt#2}}
+%\newcommand{\gen}{\mathscr{Y}}
+\def\gen(#1,#2){\calS_{#1}(#2)}
+\newcommand\genn[1]{\calS_{#1}}
+\newcommand{\nuovo}{\mathscr{S}}
+\let\ol\overline
+
+
+\newcommand{\KV}{K_V}
+\newcommand{\Kop}{\boldsymbol K}
+\newcommand{\Kops}{\boldsymbol K^*}
+\newcommand{\Qop}{\boldsymbol Q}
+\newcommand{\Qops}{\boldsymbol Q^*}
+
+\newcommand{\pdot}{\boldsymbol{\cdot}}
+
+
+%%%%%%%%%%%%Giuseppe's Macros
+\newcommand{\teta}{\boldsymbol \vartheta}
+\newcommand{\serifsigma}{{\sansmath \sigma}}
+\newcommand{\tetapi}{\boldsymbol{\teta}_{\kappa}}
+\newcommand{\tetapil}{\boldsymbol{\teta}_{\kappa}^d}
+\newcommand{\tetapie}{\boldsymbol{\teta}_{\kappa_\eps}}
+\newcommand{\tetapien}{\boldsymbol{\teta}_{\eps_n}}
+\newcommand{\pinfty}{{+\infty}}
+\newcommand{\mres}{\kern1pt\mathbin{\vrule height 1.6ex depth 0pt width
+    0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
+\newcommand{\topref}[2]{\stackrel{\eqref{#1}}#2}
+\newcommand{\Dom}{\calM^+}
+\newcommand{\half}{\relax} %{\frac 12}
+\newcommand{\thalf}{\relax} %{\tfrac 12}
+\newcommand{\frA}{\mathfrak A}
+\newcommand{\frB}{\mathfrak B}
+\newcommand{\frc}{\mathfrak c}
+\newcommand{\frk}{\mathfrak k}
+\newcommand{\frl}{\mathfrak l}
+\newcommand{\frs}{\mathfrak s}
+\newcommand{\frf}{\mathfrak f}
+\newcommand{\frm}{\mathfrak m}
+\newcommand{\kernel}[2]{\boldsymbol {#1}_{#2}}
+\def\calS{\mathscr E}
+\def\calF{\mathscr F}
+\def\calR{\mathscr R}
+\def\Aalpha{\upalpha}
+\newcommand{\Lebone}{\scrL}
+\newcommand{\bnu}{\boldsymbol\upnu}
+\newcommand{\bj}{{\boldsymbol j}}
+\newcommand{\bsigma}{{\boldsymbol \varsigma}}
+\newcommand{\bjmath}{{\boldsymbol\jmath}}
+
+\newcommand{\rfield}{\mathrm F_0}
+\newcommand{\field}{\mathrm F}
+\newcommand{\OrmD}{\rmD}
+\newcommand{\Gop}{\boldsymbol G}
+\newcommand{\Fop}{\boldsymbol F}
+\newcommand{\restr}[1]{\lower3pt\hbox{$|_{#1}$}}
+\newcommand{\nchi}{{\raise.3ex\hbox{$\chi$}}}
+%%%%%
+
+
+\newcommand{\scrR}{\mathscr{R}}
+\newcommand{\scrD}{\mathscr{D}}
+\newcommand{\scrE}{\mathscr{E}}
+\newcommand{\jj}{{\boldsymbol{j}}}
+\newcommand{\bg}{{\boldsymbol{g}}}
+\newcommand{\nn}{{\boldsymbol{n}}}
+\newcommand{\bss}{{\boldsymbol{s}}}
+\newcommand{\bG}{{\boldsymbol{G}}}
+\newcommand{\Ed}{{E'}}
+\newcommand{\dV}{\mathsf{d}}
+\newcommand{\Mloc}{\mathcal{M}_{\mathrm{loc}}}
+\newcommand{\pairing}[4]{ \sideset{_{#1 }}{_{ #2}}  {\mathop{\langle #3 , #4  \rangle}}}
+\newcommand{\ej}{\eps_n}
+\newcommand{\psih}{\mathfrak{f}}%{\mathfrak{f}_{\uppsi^*}}
+\newcommand{\nbl}[1]{\|#1\|_{\mathrm{BL}} }
+\newcommand{\ssigma}{\boldsymbol \sigma}
+\newcommand{\nnu}{\boldsymbol \nu}
+\newcommand{\bbeta}{\boldsymbol \beta}
+\newcommand{\zzeta}{\boldsymbol \zeta}
+\newcommand{\eeta}{\boldsymbol \eta}
+
+\newcommand{\rmL}{\mathrm{L}}
+\newcommand{\rmX}{\mathrm{X}}
+
+\newcommand{\down}{\downarrow}
+%\newcommand{\Ep}{E'}
+
+\newcommand{\RBS}{\color{black}} %{\color{ddcyan}}
+\newcommand{\RCR}{\color{magenta}}
+\newcommand{\RNEW}{\color{black}} %{\color{ddcyan}}
+
+ \newcommand{\TODOBS}[1]{\todo[inline, color=red!40]{#1}}
+ \newcommand{\TODOR}[1]{\todo[inline, color=magenta!20]{#1}}
+  \newcommand{\TODO}[1]{\todo[inline, color=cyan!20]{#1}}
+   \newcommand{\TODOH}[1]{\todo[inline, color=yellow!20]{#1}}
+  \newcommand{\RRR}{\color{magenta}}
+ \newcommand{\EEE}{\color{black}}
+ \newcommand{\WARNING}{\color{red}}
+ \newcommand{\dpi}{{\color{magenta} d}}
+
+\numberwithin{equation}{section}
+
+
+\title[]{Gradient-flow structures for singular jump processes}
+
+
+\begin{document}
+
+
+\author{Jasper Hoeksema}
+%
+\address{}
+\email{}
+
+
+
+\author{Riccarda Rossi}
+%
+\address{R.\ Rossi, DIMI, Universit\`a degli studi di Brescia. Via Branze 38, I--25133 Brescia -- Italy}
+\email{riccarda.rossi\,@\,unibs.it}
+
+
+
+\author{Oliver Tse}
+%
+\address{}
+\email{}
+
+
+
+
+\maketitle
+
+
+\centerline{Ricky, February 16th--27th, 2024}
+
+
+
+\begin{abstract}
+
+\end{abstract}
+
+
+\section{Introduction}
+We focus on Markov jump processes 
+\[
+aaa
+\]
+featuring a \emph{singular} jump kernel, namely...
+\par
+We aim to impart to these processes a (generalized) gradient-flow structure in terms of a suibable
+Energy-Dissipation balance.
+In particular, we are going to obtain  solutions to this variational formulation as limits of a solutions to a suitably regularized jump process.
+%%%%
+%%%%
+%
+\subsection*{\bf Plan of the paper.}
+\subsection*{\bf List of symbols.}
+Throughout the paper we will use the following notation.
+\begin{center}\bigskip
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+\begin{small}
+\begin{longtable}{lll}
+$\Lebone$ & Lebesgue measure on $\R$ & 
+\\
+$\ona$, $\odiv$ & graph gradient and divergence &\eqref{eq:def:ona-div}
+\\
+$ \Bb(Y;\R^m)$ & bounded Borel $\R^m$-valued maps & 
+\\
+$ \Bc(Y;\R^m)$ & bounded and compactly supported  Borel $\R^m$-valued maps & 
+%$\upalpha(\cdot,\cdot)$ & multiplier in flux rate $\bnu_\rho$ & Ass.~\ref{ass:Psi}\\
+%$\upalpha^\infty$, $\upalpha_*$ & recession function, Legendre transform & Section~\ref{subsub:convex-functionals} \\
+%$\upalpha[\cdot|\cdot]$, $\hat\upalpha$ &  measure map, perspective function & Section~\ref{subsub:convex-functionals} \\
+%$\CER ab$ & set of curves $\rho$ with finite action & \eqref{def:Aab}\\
+%  $ \|\kappa_V\|_\infty$  \EEE & upper bound on $\kappa$ & Ass.~\ref{ass:V-and-kappa}\\
+%$% \Cc,\, 
+%  \Cb % \,\Co
+%  $ & space of bdd, ct.\ functions with supremum norm\\
+%$\CE ab$ & set of pairs $(\rho,\bj )$ satisfying the continuity equation & Def.~\ref{def-CE}\\
+%%$\varGamma$ & lower-semicontinuous extension of $p$ & \eqref{eq:varGamma}\\
+%  $\rmD_\upphi(u,v)$, $\rmD^\pm_\upphi(u,v)$ & integrands
+%             % argument of the integral
+%             defining the Fisher information $\Fish$ & \eqref{subeq:D}\\
+%$\Fish$ & Fisher-information functional & Def.~\ref{def:Fisher-information}\\
+%$\edg = V\times V$ & space of edges & Ass.~\ref{ass:V-and-kappa}\\
+%$\calS$, $\rmD (\calS)$ & driving  entropy \EEE functional and its domain & \eqref{eq:def:S} \& Ass.~\ref{ass:S}\\
+%$\rmF$ & vector field & \eqref{eq:184}\\
+%  $\teta_\rho^\pm$,
+%  % $\vec \teta_\rho$
+%                & $\rho$-adjusted jump rates & \eqref{def:teta}\\
+%$\tetapi$ & equilibrium jump rate & \eqref{nu-pi}\\
+%$\kappa$ & jump kernel &\eqref{eq:def:generator} \& Ass.~\ref{ass:V-and-kappa}\\
+%$\kernel\kappa\gamma$ & $\gamma \otimes \kappa$ & \eqref{eq:84}\\
+%$\mathscr L$ & Energy-Dissipation balance functional &\eqref{eq:def:mathscr-L}\\
+%  $\calM(\Omega;\R^m)$, $\calM^+(\Omega)$ & vector (positive) measures on $\Omega$ & Sec.~\ref{ss:3.1}\\
+%$\bnu_\rho$ & edge measure in definition of $\calR^*$, $\calR$ &\eqref{eq:def:R*-intro}, \eqref{eq:def:R-intro}, \eqref{eq:def:alpha}\\
+%%$p$ & $p = \Psi^*\circ \Psi'$ & \eqref{def:p}\\
+%$Q$, $Q^*$ & generator and dual generator & \eqref{eq:fokker-planck}\\
+%$\calR$, $\calR^*$ & dual pair of dissipation potentials & \eqref{eq:def:R*-intro}, \eqref{eq:def:R-intro}, Def.~\ref{def:R-rigorous}\\
+%$\R_+ := [0,\infty)$ \\
+%$\sfs$ & symmetry map $(x,y) \mapsto (y,x)$ & \eqref{eq:87}\\
+%$\nuovorel$ & relaxed slope & \eqref{relaxed-nuovo}\\
+%  $\Upsilon$ & perspective function associated with
+%               $\Psi$ and $\upalpha$& \eqref{Upsilon}\\
+%$V$ & space of states & Ass.~\ref{ass:V-and-kappa}\\
+%$\upphi$ &  density of $\calS$ & \eqref{eq:def:S} \& Ass.~\ref{ass:S}\\
+%$\Psi$, $\Psi^*$ & dual pair of dissipation functions & Ass.~\ref{ass:Psi}, Lem.~\ref{l:props:Psi}\\
+%$\DVTn$ & Dynamic-Variational Transport cost & \eqref{def:W-intro} \& Sec.~\ref{sec:cost}\\
+%  $\VarWn$ & $\DVTn$- action  & \eqref{def-tot-var}\\
+%$\sfx,\sfy$ & coordinate maps $(x,y) \mapsto x$ and $(x,y)\mapsto y$ & \eqref{eq:87}\\
+\end{longtable}
+\end{small}
+\end{center}
+
+\TODOR{add symbols}
+
+
+\section{Preliminaries of measure theory}
+
+%\TODOR{We don't need to require $V$ complete, right? RIFLETTICI}
+
+\paragraph{\bf Finite measures.}
+Let $(Y,d)$ be separable metric space, and let 
+$\mathfrak{B}(Y)$ be its associated Borel $\sigma$-algebra. 
+We denote by 
+ $\calM(Y;\R^m)$  the space of  $\sigma$-additive measures  on
+ $\mu: \frB(Y) \to \R^m$ 
+ of \emph{finite} total variation
+ $\|\mu\|_{TV}: =|\mu|(Y)<\pinfty$, where for every $B\in\frB(Y)$
+ \[
+   |\mu|(B): = \sup \left\{ \sum_{i=0}^\pinfty |\mu(B_i)|\, : \ B_i \in \frB_Y,\, \ B_i \text{ pairwise disjoint}, \ B = \bigcup_{i=0}^\pinfty B_i \right\}.
+ \]
+ The set function  $|\mu|: \frB(Y) \to [0,\pinfty)$  is a positive
+ finite
+ measure on $\frB(Y)$ \cite[Thm.\ 1.6]{AmFuPa05FBVF}
+ and $(\calM(Y;\R^m),\|\cdot\|_{TV})$ is a Banach space.
+ In the case $m=1$, we will simply write $\calM(Y)$,
+ and we shall denote the space of \emph{positive} finite
+% (resp.~probability) 
+measures on $\frB(Y)$ by $\calM^+(Y)$.
+% (resp.~$\calP(Y)$).
+   For $m>1$,
+ we will identify any element $\mu \in \calM(Y;\R^m)$ with  a vector
+ $(\mu^1,\ldots,\mu^m)$, with $\mu^i \in \calM(Y)$ for all
+ $i=1,\ldots, m$.
+ If $\varphi
+ =(\varphi^1,\ldots,\varphi^m)\in \Bb(Y;\R^m)$ (the set of bounded $\R^m$-valued
+ $\frB$-measurable
+ maps), the duality between $\mu \in \calM(Y;\R^m)$ and $\varphi$
+ can be expressed by 
+\begin{equation}
+\label{vector-duality-measures}
+ \langle\mu,\varphi\rangle : = \int_{Y} \varphi \cdot \mu (\dd x) =
+ \sum_{i=1}^m \int_Y  \varphi^i(x) \mu^i(\dd x).
+ %\qquad \text{for all } \varphi = (\varphi^1,\ldots,\varphi^m)\in \Co(Y;\R^m) \,.
+ \end{equation}
+% \TODO{do we need the Lebesgue decomposition for Radon measures as well?}
+%%%
+\paragraph{\bf Radon measures.}
+We call \emph{Borel measure} any measure $\mu: \mathfrak{B}(Y) \to [0,+\infty]$. If a Borel measure is finite on the compact subsets of $Y$, we will call it a \emph{positive Radon measure}.
+We  call \emph{Radon (vector) measure} any  set function $\mu : \mathfrak{B}_{\mathrm{c}}(Y) \to \R^m$ (where $\mathfrak{B}_{\mathrm{c}}(Y) $ denotes the family of relatively compact Borel subsets of $Y$)  \RNEW such that its restriction to $\frB(K) $,
+for any \emph{compact} set $K\subset Y$, \EEE  is a finite (vector) measure. We denote by $\Mloc^+(Y)$, $\Mloc(Y)$, and $\Mloc(Y;\R^m) $  the spaces of positive, real-valued, and vector-valued Radon measures. 
+For $\mu \in  \Mloc(Y;\R^m) $  and $\varphi \in \Cc(Y;\R^m)$, the set of continuous $\R^m$-valued functions with compact support the integral in \eqref{vector-duality-measures}
+is still well defined and induces a duality pairing between $ \Mloc(Y;\R^m) $  and $\varphi \in \Cc(Y;\R^m)$. 
+ \par
+We recall that, in addition, if $Y$ is a \emph{locally compact} separable (l.c.s.\ for short) metric space, any $\mu \in \Mloc^+(Y)$  is inner regular, 
+namely \RCR for every $E \in \mathfrak{B}(Y)$
+\begin{equation}
+\label{inner-regularity}
+\mu(E) = \sup\{ \mu(K) \, : \ K \subset E, \ K \text{ compact}\}\,,
+\end{equation} \EEE
+cf.\ e.g.\ \cite[Prop.\ 1.43]{AmFuPa05FBVF}. 
+% \TODO{do we still need inner regularity? used it in the proof of  Lemma \ref{l:crucial-F}...}
+%\TODO{CHECK SCHWARZ, Polish sufficient?}
+%\TODO{We can state it in this way, because any Radon measure is $\sigma$-finite, right?}
+ \paragraph{\bf Restriction, Lebesgue decomposition.} For every $\mu\in \Mloc(Y;\R^m)$ and $B\in \frB(Y)$
+ we will denote by $\mu\mres B$ the restriction of $\mu$ to $B$, i.e.\ 
+ $\mu\mres B(A):=\mu(A\cap B)$ for every $A\in \frB(Y)$.
+ Let $(X,\mathfrak A)$ be another measurable space and let $\sfp:X\to
+ Y$
+ a measurable map. 
+ For every $\mu\in \Mloc(X;\R^m)$ we will denote by
+ $\sfp_\sharp\mu$ the push-forward measure obtained by setting
+ \begin{equation}
+   \label{eq:82}
+   \sfp_\sharp\mu(B):=\mu(\sfp^{-1}(B))\quad\text{for every }B\in \frB(Y).
+ \end{equation}
+ For every pair $\mu\in \Mloc(Y;\R^m)$ and $\gamma\in \Mloc^+(Y)$
+ there exist a unique (up to the modification
+ in a $\gamma$-negligible set) $\gamma$-locally integrable map
+ $\frac{\dd\mu}{\dd\gamma}:
+ Y\to\R^m$, a $\gamma$-negligible set $N\in \frB$
+ and a unique measure $\mu^\perp\in \Mloc(Y;\R^m)$
+ yielding the \emph{Lebesgue decomposition}
+ \begin{equation}
+   \label{eq:Leb}
+   \begin{gathered}
+     \mu=\mu^{\mathrm{a}}+\mu^\perp,\quad \mu^{\mathrm{a}}=\frac{\dd\mu}{\dd\gamma}\,\gamma=
+     \mu\mres(Y\setminus N),\quad \mu^\perp=\mu\mres N,\quad
+     \gamma(N)=0\\
+     |\mu^\perp|\perp \gamma,\quad |\mu|(Y)=\int_Y
+     \left|\frac{\dd \mu}{\dd\gamma}\right|\,\dd\gamma+|\mu^\perp|(Y).
+   \end{gathered}
+ \end{equation}
+%%%%
+\paragraph{\bf Convergences of measures.}
+The space 
+$\calM(Y;\R^m)$ is clearly endowed with the notion of convergence induced by the total variation norm  $\|\cdot\|_{TV}$; we shall refer to it as \emph{strong convergence}. On
+$\calM(Y;\R^m)$ we will 
+  also consider \emph{setwise convergence}, defined, for $(\mu_n)_n, \mu \in \calM(Y;\R^m)$, by 
+  \begin{equation}
+  \label{setwise-convergence}
+  \mu_n \to \mu \text{ \emph{setwise} }  \quad \text{if}  \quad \lim_{n\to\infty}  \mu_n(B) = \mu(B) \quad \text{for all } B \in \frB(Y)\,.
+  \end{equation}
+  \RCR In fact, the associated topology is the coarsest one on $\calM(Y;\R^m)$ making all the functions $ \frB(Y)\ni B
+  \mapsto  \mu(B) $ continuous. 
+ \EEE
+  Among the various characterizations of setwise convergence, we recall  \cite[\S 4.7(v)]{Bogachev07} that \eqref{setwise-convergence} is equivalent to 
+ \begin{enumerate}
+   %  (namely the convergence notion induced by the coarsest topology that makes the maps $\mu \mapsto \mu(B)$, for any $B \in \frB$, continuous);  \EEE
+ \item \emph{Convergence in duality with $\Bb(Y;\R^m)$}:
+   \begin{equation}
+     \label{eq:70}
+     \lim_{n\to\pinfty}\langle \mu_n,\varphi\rangle=
+     \langle \mu,\varphi\rangle
+     \qquad
+     \text{for every $\varphi\in \Bb(Y;\R^m)$}.
+   \end{equation}
+ \item \emph{Weak topology convergence in $ \calM(Y;\R^m)$}:
+   the sequence $\mu_n$ converges to $\mu$ w.r.t.\ the weak topology
+   of the Banach space $(\calM(Y;\R^m);\|\cdot\|_{TV})$.
+   \end{enumerate}
+   Furthermore,  \RNEW we recall that, 
+   by  \cite[Thm.\ 4.7.25)]{Bogachev07}, given a sequence $(\mu_n)_n \subset \calM(Y;\R^m) $, 
+   the following properties are equivalent: \EEE
+   \begin{itemize}
+   \item[(i)]    $(\mu_n)_n$ is relatively compact w.r.t.\ setwise convergence;
+   \item[(ii)]    
+   \RNEW   there exists $\gamma \in \calM^+(Y)$ such that \EEE
+      \begin{equation}
+         \label{eq:73}
+         \forall\,\eps>0\ \exists\,\delta>0:
+         \quad
+         B\in \frB(Y),\ \gamma(B)\le \delta\quad
+         \Rightarrow\quad
+         \sup_{n}\mu_n(B)\le \eps;
+       \end{equation}
+          \item[(iii)]  \RNEW  there exists $\gamma \in \calM^+(Y)$ such that $\mu_n \ll \gamma$ for all $n\in \N$ and the sequence $\left(\frac{\dd \mu_n}{\dd \gamma}\right)_n$
+          admits a subsequence weakly converging in the topology of $\rmL^1(Y,\gamma;\R^m)$.
+       \end{itemize}
+       \EEE
+       \par
+  Finally, we recall that  a sequence $(\mu_n)_n \subset \calM(Y;\R^m)$ converges \emph{narrowly} to some $\mu \in  \calM(Y;\R^m)$
+if \eqref{eq:70} holds for every $\varphi \in \Cb(Y;\R^m)$, the space of continuous \emph{bounded} $\R^m$-valued functions. 
+  \par
+  When, in addition, $Y$ is also locally compact, on
+$\Mloc(Y;\R^m)$ we will consider
+\begin{itemize}
+%\item[-] setwise convergence on relatively compact subsets of $Y$, i.e.\ 
+%\[ 
+%\lim_{n\to\infty}  \mu_n(B) = \mu(B) \quad \text{for all } B \in \frB_{\mathrm{c}}(Y);
+%\]
+\item[-] \emph{vague} convergence, namely convergence in duality against  all functions  $\varphi \in \Cc(Y;\R^m)$. 
+\end{itemize}
+
+%\TODO{do we need at all  setwise convergence on relatively compact sets?}
+
+
+%%%%%%
+\paragraph{\bf Convex functionals of measures} We will work with functionals depending on pairs of Radon measures
+defined in this way:
+let 
+$\Upsilon:\R^m\to [0,\pinfty]$ be proper,  convex and lower semicontinuous
+and let us denote
+by $\Upsilon^\infty:\R^m\to [0,\pinfty]$ its recession function
+\begin{equation}
+  \label{recession-upsi}
+  \Upsilon^\infty(z):=\lim_{t\to\pinfty}\frac{\Upsilon(tz)}t=\sup_{t>0}\frac{\Upsilon(tz)-\Upsilon(0)}t\,.
+\end{equation}
+We note that $\Upsilon^\infty$ is  convex, lower semicontinuous, and positively $1$-homogeneous,  with $\Upsilon^\infty(0)=0$. Hence, we define  \EEE
+\begin{equation}
+\label{def:F-F}
+\begin{aligned}
+&
+\calF_\Upsilon:\Mloc(Y;\R^m) \times \Mloc^+(Y)\mapsto [0,\pinfty], \qquad
+\\
+&
+\calF_\Upsilon(\mu|\nu) :=
+\int_Y \Upsilon \Bigl(\frac{\dd \mu}{\dd \nu}\Bigr)\,\dd\nu+
+\int_Y \Upsilon^\infty\Bigl(\frac{\dd \mu^\perp}{\dd |\mu^\perp|}\Bigr) \,
+\dd |\mu^\perp|,\qquad \text{for }\mu=\frac{\dd \mu}{\dd \nu}\nu+\mu^\perp.
+\end{aligned}
+% \in \calM(Y;\R^m),\ \gamma\in \calM^+(Y),
+% \begin{cases}
+%   \displaystyle
+%   \int_Y F\Bigl(\frac{\dd \mu}{\dd \gamma}\Bigr) \, \dd
+%   \gamma&\text{if }\mu\ll\gamma,\\
+%   +\infty&\text{otherwise.}
+% \end{cases}
+\end{equation}
+\par
+In \cite[Lemma 2.3]{PRST22} we collected some properties of functionals of this class, albeit defined on 
+$\calM(Y;\R^m) \times \calM^+(Y)$; most of them extend to the present case. We  highlight the properties that will be used in what follows: in particular,
+lower semicontinuity extends to \emph{vague} convergence. \RNEW The proof of the following result will be carried out in Appendix \ref{s:a.1} ahead. \EEE
+% \TODO{highlight that this is an extension of the result in Ambro}
+\begin{lemma}
+\label{l:crucial-F}
+The functional $\calF_\Upsilon:\Mloc(Y;\R^m) \times \Mloc^+(Y)\mapsto [0,\pinfty]$ enjoys the following properties:
+\begin{enumerate}
+\item \RNEW if $\Upsilon(0)=0$, then for every $\mu \in \Mloc(Y;\R^m) $ and $\nu,\, \nu' \in \Mloc^+(Y)$ there holds
+\begin{equation}
+\label{AC-monotonicity}
+\nu \leq \nu' \ \Longrightarrow  \ \calF_\Upsilon(\mu|\nu') \leq  \calF_\Upsilon(\mu|\nu); \EEE 
+\end{equation} \EEE
+ \item if $\Upsilon$ is superlinear, then
+\begin{equation}
+\label{superlinearity}
+  \calF_\Upsilon(\mu|\nu)<\infty\quad\Longrightarrow\quad
+  \mu\ll\nu,\quad
+  \calF_\Upsilon(\mu|\nu)=
+\int_Y \Upsilon \Bigl(\frac{\dd \mu}{\dd \nu}\Bigr)\,\dd\nu;
+\end{equation}
+\item if $ \Upsilon$  positively $1$-homogeneous, then
+    $\Upsilon\equiv \Upsilon^\infty$, $\calF_\Upsilon(\cdot|\nu)  \doteq \calF_\Upsilon$ is
+    independent of $\nu$ and  satisfies
+    \begin{equation}
+      \label{eq:78}
+       \calF_\Upsilon(\mu) \EEE =\int_Y
+      \Upsilon\left(\frac{\dd\mu}{\dd\gamma}\right)
+      \,\dd\gamma\quad
+      \text{for every }\gamma\in \Mloc^+(Y)\text{ such that } \mu\ll\gamma;
+    \end{equation}
+    \item  $\calF_\Upsilon(\cdot|\cdot)$ is  sequentially  lower
+    semicontinuous in $\Mloc(Y;\R^m) \times \Mloc^+(Y)$ with respect
+    to vague convergence.
+\end{enumerate}
+\end{lemma}
+%\TODO{move proof to an appendix}
+
+
+%Note that when $\Upsilon$ is superlinear then $\uppsi^\infty(x)=\pinfty$
+%in $\R^m\setminus\{0\}$
+%\begin{equation}
+%  \label{eq:5}
+%  \text{$\uppsi$ superlinear,}\quad
+%
+%\end{equation}
+%convex functionals of measures. Main result: lower semicontinuity w.r.t.\ vague convergence.
+\paragraph{\bf Concave transformations of vector measures}
+We will also need to extend  a construction set forth in \cite[Sec.\ 2.3]{PRST22}
+for vector and positive finite measures, to  the case of vector and positive \emph{Radon} measures. Namely,
+ let  $\R_+:=[0,\pinfty[$, $\R^m_+:=(\R_+)^m$, and let
+$\upalpha:\R^m_+\to\R_+$ be a continuous and concave function. It is
+obvious that $\upalpha$ is non-decreasing with respect to each variable.
+As in \eqref{recession-upsi}, the recession function $\upalpha^\infty$ is defined
+by
+\begin{equation}
+  \label{eq:1}
+  \upalpha^\infty(z):=\lim_{t\to\pinfty}\frac{\upalpha(tz)}t=\inf_{t>0}\frac{\upalpha(tz)-\upalpha(0)}t,\quad
+  z\in \R^m_+.
+\end{equation}
+We define 
+\begin{equation}
+  \label{alpha-mu-gamma}
+  \begin{aligned}
+  &
+  \Aalpha:\Mloc(Y;\R^m_+)\times\Mloc^+(Y)\to\Mloc^+(Y), 
+  \\
+  &
+  \Aalpha[\mu|\gamma]:=
+  \upalpha\Bigl(\frac{\dd\mu}{\dd\gamma}\Bigr)\gamma+
+  \upalpha^\infty\Bigl(\frac{\dd\mu}{\dd
+    |\mu^\perp|}\Bigr)|\mu^\perp|\quad
+  \mu\in \Mloc(Y;\R^m_+),\ \gamma\in \Mloc^+(Y),
+  \end{aligned}
+\end{equation}
+where  $\mu=\frac{\dd\mu}{\dd\gamma}\gamma+\mu^\perp$ is the
+Lebesgue decomposition of $\mu$ with respect to ~$\gamma$. 
+
+
+\section{Setup and gradient system structure}
+\label{s:3}
+%%%
+We start by collecting our conditions on the  vertex space $V$,
+ on the reference measure $\pi$, which will be invariant under the evolution
+generated by our generalized gradient system, and on the family of singular kernels $(\kappa(x,\cdot))_{x\in V} $ (whose `singularity' is  encoded in the fact that 
+for each $x\in V$ $\kappa(x,\cdot)$ is a positive Radon measure on $V\setminus \{x\}$). 
+Recall that $E =V \times V$ is the space of edges; 
+a special role will be played by the subset obtained removing from $E$ its diagonal
+\[
+\Ed: = E \setminus \{ (x,x)\, : \ x \in V\}
+\] 
+and by the measure  $\tetapi$ on $\Ed$ defined by 
+\begin{equation}
+\label{teta-coupling}
+	\tetapi(\dd x\dd y) := \kappa(x,\dd y)\pi(\dd x), \qquad \tetapi(A{\times}B) = \int_{A} \kappa (x,B) \pi(\dd x) 
+\end{equation}
+for all \emph{disjoint} (Borel) subsets $A,B \subset V$.
+\RCR We postpone to Lemma \ref{l:properties-tetakappa} a thorough discussion of the properties of 
+$\tetapi$ deriving from Assumption \ref{Ass:V} below. For its statement  we need to introduce  \EEE
+%it will be  useful to use 
+the symmetry map
+$s: E \to E$, 
+ $s(x,y):=(y,x)$. 
+ \begin{assumption}[Vertex space and kernels]
+ \label{Ass:V}
+ \sl
+We suppose that
+\begin{enumerate}
+\item the vertex space
+\begin{equation}
+\label{ass:V}
+(V,\dV) \text{ is a locally compact separable metric space, with Borel $\sigma$-algebra $\mathfrak{B}(V)$; }
+\end{equation}
+\item the reference measure
+$\pi \in \calM^+(V)$ is a finite positive measure
+\item the kernels 
+ $(\kappa(x,\cdot))_{x\in V} $ form a  Borel family of measures in $\Mloc^+(V{\setminus} \{x\})$, i.e.\
+ \begin{subequations}
+ \label{lambda-conditions}
+\begin{equation}
+\label{true-measurability}
+ \text{ for all } f \in \Bc(E') 
+\text{ the map } V \ni x \mapsto \int_{V{\setminus}\{x\}} f(x,y) \kappa(x,\dd y) \text{ is Borel,}
+\end{equation}
+such that  for all $x\in V$
+\begin{equation}
+\label{bounds}
+\forall\, \eps>0 \ \int_{V{\setminus}B_\varepsilon(x)}\kappa(x,\dd y) <+\infty \qquad  \text{ with  } \qquad \lim_{\varepsilon\down 0}\int_{V\setminus B_\varepsilon(x)} \kappa(x,\dd y) = +\infty.
+\end{equation}
+\RCR Furthermore,
+% there exists a Borel function $\lambda: E \to [0,\infty)$, such that 
+%\[
+%\exists\, c_\lambda >0 \ \forall\, (x,y) \in E \qquad \lambda(x,y) \geq c_\lambda \dV(x,y)\,,
+%\]
+%fulfilling
+\begin{equation}
+\label{mitigation of singularity}
+\sup_{x\in V}\int_{V\setminus\{x\}} (1{\wedge} d^2(x,y)) \,\kappa(x,\dd y) =: c_\kappa <+\infty.
+\end{equation}
+\end{subequations} \EEE
+\item Finally,  the \emph{detailed balance condition} holds, i.e.\
+ the coupling 
+$\tetapi \in \Mloc^+(\Ed)$ defined by  \eqref{teta-coupling}
+satisfies 
+\begin{equation}
+\label{DBC}
+s_\# \tetapi = \tetapi
+\end{equation}
+\end{enumerate}
+ \end{assumption}
+ \RNEW
+ As an immediate consequence of \eqref{mitigation of singularity} we have that,
+ while for every $x\in V$ $\kappa(x,\cdot)$ is positive Radon measure on $V\setminus \{x\}$,
+the measure
+\RCR $(1{\wedge} d^2(x,y))\kappa(x,\cdot )$ extends to the whole $V$. \EEE
+\RNEW Likewise, 
+  the formula 
+ \begin{equation}
+ \label{tetapi-lambda}
+ \tetapil (A) :=  \iint_A \RCR (1{\wedge} d^2(x,y)) \EEE \, \tetapi (\dd x \dd y) \text{ for all } A \in \mathfrak{B}(E), \text{ defines a (\emph{finite}) measure in } \calM^+(E),
+ \end{equation}
+ where the extension to the whole if $E$ is carried out by setting
+ \[
+  \tetapil(E{\setminus}\Ed ) := \lim_{r\downarrow 0}\int_{V} \int_{B_r(x){\setminus}\{x\}}  \RCR (1{\wedge} d^2(x,y)) \EEE  \,\kappa(x,\dd y) \, \dd x \,.
+ \]
+ \begin{remark}
+ \label{rmk:lambda}
+ \upshape
+Let us dig deeper  on our conditions on the kernels  $(\kappa(x,\cdot))_{x\in V} $:
+ \begin{enumerate}
+ \item
+ In fact, by the local compactness of $V$, the measurability requirement \eqref{true-measurability} is equivalent to having
+ that the map
+ \[
+ V \ni x \mapsto \int_{V{\setminus}\{x\}}  \RCR (1{\wedge} d^2(x,y)) \EEE  f(x,y) \kappa(x,\dd y) \text{ is Borel  \emph{for all }}  f \in \Bb(E').
+ \]
+% \item We can suppose without loss of generality that the function $\lambda$ is also \emph{symmetric}.  Indeed, let $\lambda_{\mathrm{sym}}(x,y): = \tfrac12 (\lambda(x,y){+}\lambda(y,x))$: relying on the detailed balance condition \eqref{DBC} we immediately check that 
+% \[
+% \int_{V\setminus\{x\}} (1{\wedge} \lambda_{\mathrm{sym}}^2(x,y)) \,\kappa(x,\dd y) =  \int_{V\setminus\{x\}} (1{\wedge} \lambda^2(x,y)) \,\kappa(x,\dd y)\,.
+% \]
+ \item Condition \eqref{mitigation of singularity} serves the purpose of \emph{taming} the singularity of the kernels at the diagonal of $E$. In fact, since $\lambda$ dominates $d$, 
+ \eqref{mitigation of singularity} implies that 
+ \[
+ \sup_{x\in V}\int_{V\setminus\{x\}} (1{\wedge} d^2(x,y)) \,\kappa(x,\dd y)\leq \frac{c_\kappa}{c_\lambda^2}<+\infty\,,
+ \]
+ so that, in particular, the second of \eqref{bounds} is mitigated by the estimate
+ \begin{subequations}
+ \label{consequences-of-mitigation}
+ \begin{equation}
+ \label{conse-1}
+ \lim_{\eps \downarrow 0} \sup_{x\in V}  \RCR \int_{B_1\setminus B_\varepsilon(x)}  d^2(x,y)\kappa(x,\dd y)<+\infty\,.
+ \end{equation}
+In turn, since for $R \gg 1$ we have \RCR $ (1{\wedge} d^2(x,y)) = 1$ \EEE for all $y\in V\setminus B_R(x)$,  \eqref{mitigation of singularity}  also guarantees that
+ \begin{equation}
+ \label{conse-2}
+    \lim_{R \to \infty} \sup_{x\in V}\int_{V\setminus B_R(x)}  \kappa(x,\dd y)<+\infty\,.
+\end{equation}
+\end{subequations}
+We remark that properties \eqref{consequences-of-mitigation} are weaker than the uniform integrability condition required in 
+\cite[Assumption 1.1]{Erbar14} in the Euclidean setting of $V=\R^d$, $ d(x,y) = |x{-}y|$, namely that
+\[
+\lim_{R \to \infty} \sup_{x\in V}  \left(  \int_{V\setminus B_{1/R}(x)}  |x-y|^2 \,\kappa(x,\dd y)  {+}   \int_{V\setminus B_{R}(x)}
+\kappa(x,\dd y)    \right)  =0\,.
+\]
+\end{enumerate}
+ \end{remark}
+ \RCR \noindent Before moving on,  let us  pin down an easy, albeit crucial, property of $\tetapi$.
+ \TODOR{\EEE If we decide to kill Lemma \ref{l:cutoff}, then we can also kill Lemma \ref{l:properties-tetakappa}...}
+ \begin{lemma}
+ \label{l:properties-tetakappa}
+ Under Assumption \ref{ass:V},   the coupling measure  $\tetapi\in \Mloc^+(\Ed)$ enjoys the following property
+%   defined by \eqref{teta-coupling} is a Radon measure on $\Ed$ 
+\begin{equation}
+\label{null-property}
+\text{for all } N,B \in \mathfrak{B}(V) \text{ with } N \cap B = \emptyset\,: 
+\quad \pi(N) =0 \ \Rightarrow \ \tetapi(N{\times}B) = \tetapi(B{\times}N)=0\,.
+\end{equation}
+In particular, suppose that a given property  $\mathfrak{P} $ holds $\pi$-almost everywhere in $V$. Then, the property 
+$\mathfrak{P}^{\wedge} $ defined for all  $ (x,y) \in E$   by 
+\begin{equation}
+\label{Pwedge}
+\mathfrak{P}^{\wedge} (x,y):= \mathfrak{P}(x) \wedge  \mathfrak{P}(y) \quad  \text{ holds } \tetapi\text{-almost everywhere in } \Ed\,.
+\end{equation} 
+ \end{lemma}
+ \begin{proof}
+Let $(\eps_n)_n$ be a null sequence. By Fatou's Lemma 
+\[
+\tetapi(N{\times}B) = \int_N \int_B \kappa(x,\dd y ) \pi(\dd x ) \leq \liminf_{n\to\infty} \int_{N} \int_{B{\setminus}B_{\eps_n}(x)} \kappa(x,\dd y )  \pi (\dd x )\,.
+\]
+On the other hand, for $\eps_n<1$ we have, by  \eqref{mitigation of singularity}, 
+\[
+\begin{aligned}
+\int_{N} \int_{B{\setminus}B_{\eps_n}(x)}\, \kappa(x,\dd y )  \pi (\dd x )  & \leq \int_{N} \int_{V{\setminus}B_{\eps_n}(x)} \frac1{1{\wedge}  d^2(x,y)}
+  (1{\wedge} d^2(x,y)) \,\kappa(x,\dd y)\,   \pi (\dd x ) 
+ \\ &  \leq c_\kappa \left(\frac1{\eps_n^2} {+} 1\right) \pi (N) =0\,,
+ \end{aligned}
+\]
+and \eqref{null-property} follows. 
+\par
+In order to check \eqref{Pwedge}, suppose that $\mathfrak{P}$ holds for all $x\in B$, with   $B\in \mathfrak{B}(V)$ such that  $\pi(V{\setminus}B)=0$.
+Then, $\mathfrak{P}^{\wedge}$ holds for all $(x,y)\in B\times B$, and by \eqref{null-property} we have 
+\[
+\tetapi (\Ed {\setminus} (B{\times}B
+)) \leq \tetapi (B{\times}(V{\setminus}B)) + \tetapi ((V{\setminus}B){\times}B) =0\,. %+ \tetapi (\Ed \cap [(V{\setminus}B){\times}(V{\setminus}B)])  =0\,.
+\]
+ \end{proof}
+ \EEE
+% \TODO{I am not fully satisfied with the above remark, it still misses our motivation for allowing a general $\lambda$, in place of $d$. But indeed I am missing it myself. 
+% If we assume that $\lambda \geq d$, we can't appreciate the fact that $\lambda $ is general when $d(x,y) \to \infty$, because then $1\wedge \lambda^2(x,y) =1$ and $\lambda$ 
+% doesn't show up in the condition. When $d(x,y) \to 0$, then in principle we don't know that $\lambda(x,y) \to 0$, do we? Then, in the integral condition 
+% on $V\setminus B_\varepsilon(x)$, with $\epsilon \down 0$, we can't establish that $1\wedge \lambda^2(x,y) =\lambda^2(x,y)$. We can only deduce \eqref{conse-1}....
+% \\
+% All in all, I can't yet fully understand the usage of a general $\lambda$....
+% \\
+% Finally, later on (on page \pageref{crucial-bound-kappaeps}) I have  another, maybe trivial, question on \eqref{mitigation of singularity}....
+% }
+% 
+% \TODOBS{Oliver agrees with the above. In the setting of Assumption \ref{ass:V}(3), it is not meaningful to allow for a general $\lambda$. It would be if, in place of 
+% constraining $\lambda$ by $\lambda \geq c d$, we allowed for more flexibility. Ideally, $\lambda$ should behave in this way:
+% \[
+% \lambda(x,y) \sim d(x,y) \  \text{if } d(x,y) \to 0
+%\qquad 
+% \lambda(x,y) \sim \frac1{d(x,y)} \  \text{if } d(x,y) \to +\infty
+% \]
+% Typical example:
+% \[
+% \lambda^2(x,y)= \frac{1{\wedge}d^2(x,y)}{1+d^2(x,y)}
+% \]
+% This would indeed be a generalization, which would however significantly affect the remainder of the analysis, starting from the choice of test functions for the CE.
+% \\
+% How about: 
+% \\
+% (1) keeping $\lambda$ general for the moment
+% \\
+% (2) fixing all details in the present setup
+% \\
+% (3) checking the more general setup in the end. If it is feasible, we could add the discussion in a section of `Generalizations' with the subsection `Integrability properties of the kernels'
+% ???
+%  }
+ 
+
+ 
+ %\\
+% Instead, it seems to me that we need to require $\lambda$ continuous, see the comments at the beginning of Sec.\ $4$}
+ 
+
+ 
+
+
+
+Our variational structure  will also be  based on a driving energy functional, on a dissipation potential, and on a flux density map whose properties are collected below.
+\begin{assumption}[Energy]
+\label{Ass:E} 
+\sl
+The energy functional
+$\scrE: \mathcal{M}^+(V) \to [0,+\infty]$  is of the form
+\[
+\scrE(\rho) = \begin{cases}
+\displaystyle \int_V \upphi\left(\frac{\dd\rho}{\dd \pi} \right)\, \dd \pi & \text{if } \rho \ll \pi,
+\\
++\infty  & \text{otherwise.}
+\end{cases}
+\]
+We require the energy density to fulfill
+\begin{equation}
+\label{ass-phi}
+\begin{gathered}
+\upphi \in \mathrm{C}([0,+\infty] ) \cap \mathrm{C}^1(]0,+\infty] ), \  \text{$\upphi$ convex with  $\min \upphi =0$,}
+\\
+\lim_{r\to+\infty}  \frac{\upphi(r)}{r} =+\infty.
+\end{gathered}
+\end{equation}
+\end{assumption}
+%\RCR remark that  $\uppsi^*$ is non-decreasing on $ [0,+\infty)$ \EEE
+\begin{assumption}[Dissipation]
+\label{Ass:D}
+\sl
+The dual dissipation density $\uppsi^*:\R \to [0,+\infty)$ is convex, differentiable, even, with $\uppsi^*(0)=0$ and 
+\begin{align}
+\label{growth-psistar}
+&
+ \lim_{|\xi|\to+\infty} \frac{\uppsi^*(\xi)}{|\xi|} =+\infty,
+\\
+&
+ \label{quadratic-at-0}
+\RCR \lim_{\xi \to 0} \frac{\uppsi^*(\xi)}{|\xi|^2} =c_0 \in ]0,+\infty[\,. \EEE
+ \end{align}
+ \end{assumption}
+%
+\begin{assumption}[Flux density]
+\label{Ass:flux-density}
+The  mapping $\upalpha: [0,+\infty)\times [0,+\infty) \to [0,+\infty)$ is non-degenerate (not identically null),
+%in the sense that 
+%\begin{equation}
+%\label{non-deg-alpha}
+%\alpha(r,s)>0 \quad \text{if  } |r{-}s| 
+%\end{equation}
+ continuous, concave, symmetric, with 
+\begin{equation}
+\label{props-alpha}
+\upalpha(u_1,u_2) = \upalpha(u_2,u_1) \qquad\forall\, (u_1,u_2) \in  [0,+\infty)\times [0,+\infty)\,.
+\end{equation}
+\end{assumption}
+%%%%
+\RCR
+Before moving  on, let us pin down two key consequences of Assumption \ref{Ass:D} that will be extensively used later on. Other outcomes will be highlighted
+in Section \ref{s:6.1}. 
+\begin{lemma}
+The function $\uppsi^*$ is non-decreasing on $[0,\infty)$ and 
+there exists a convex, even, and superlinear function $\psih : \R \to [0,+\infty)$ such that
+\begin{subequations}
+\label{needed-control}
+\begin{equation}
+\label{needed-control-normal}
+\uppsi^*(\eta\xi) \leq \eta^2 \psih(\xi) \qquad \text{for all } \eta \in [-1,1], \ \xi \in \R\,
+\end{equation}
+or, equivalently,
+\begin{equation}
+\label{needed-control-bound}
+\forall\, \xi \in \R \ \forall\, M>0 \ \forall\, \beta \in [{-}M, M] \,: \qquad \uppsi^*(\beta\xi) \leq \frac1{M^2}\eta^2 \psih(M\xi )\,. 
+\end{equation}
+\end{subequations}
+\end{lemma}
+\begin{proof}
+Since $0=\uppsi^*(0) = \min_{\R} \uppsi^*$, we have $(\uppsi^*)'(0)=0$ and thus $(\uppsi^*)'(\xi)\geq 0$ for all $\xi \geq 0$. Hence, the monotonicity  statement for 
+$\uppsi^*$. 
+\par
+Now, from \eqref{quadratic-at-0} we infer that 
+\begin{equation}
+\label{easy-conseq}
+\exists\, r>0 \ \ \forall\, \eta \in  [{-}r,r]\,:  \   \frac12 c_0 |\eta|^2\uppsi^*(\eta)\leq \frac32 c_0 |\eta|^2\,.
+\end{equation}
+To show \eqref{needed-control-normal} we distinguish two cases: 
+\begin{enumerate}
+\item $|\eta \xi| \leq r$: then 
+\begin{equation}
+\label{est4needed-1}
+\uppsi^*(\eta \xi) \leq  \frac32 c_0 \eta^2 \xi^2\,. %\leq  \frac32 c_0 |\beta|^2  \frac{2}{c_0} \uppsi^*(\xi) = 3  |\beta|^2 \uppsi^*(\xi) \,.
+\end{equation}
+\item $|\eta \xi| > r$: then, 
+\begin{equation}
+\label{est4needed-2}
+\uppsi^*(\eta \xi) \overset{(1)}{=}\uppsi^*(|\eta \xi|)\overset{(2)}{\leq}\uppsi^*( \xi)  \overset{(3)}{\leq}\frac{|\eta\xi|}{r}\uppsi^*( \xi)    \overset{(4)}{\leq}  \frac{|\xi|^2}{r} |\eta|^2 \uppsi^*( \xi)  
+\,,
+\end{equation}
+where {\footnotesize (1)} follows from the evenness of $\uppsi^*$, {\footnotesize (2)} from its monotonicity on $[0,+\infty)$, and  {\footnotesize (3), (4)}  from the fact that $\tfrac{|\eta \xi|} r>1$. 
+\end{enumerate}
+All in all, we conclude that 
+\[
+\uppsi^*(\eta \xi) \leq  \eta^2 \left( \frac32 c_0  \xi^2 {+}  \frac{|\xi|^2}{r}  \uppsi^*( \xi)  \right) \doteq  \eta^2 \psih(\xi) \,.
+\]
+It is immediate to check that the thus defined function $\psih : \R \to [0,+\infty)$ is convex, even and with superlinear growth at infinity. This finishes the proof. 
+\end{proof}
+
+%\begin{remark}
+%\label{rmk:primal-condition}
+%\upshape
+%It is immediate to check that \eqref{needed-control} is equivalent to the following condition, involving the primal dissipation potential $\uppsi$ and the convex conjugate $\psih^*$ of $\psih$
+%\begin{equation}
+%\label{primal-condition}
+%\uppsi(v) \geq \eta^2 \psih^*\left(\frac v\eta \right)  \qquad \text{for all } \eta \in [-1,1], \ v \in \R\,.
+%\end{equation}
+%\end{remark} 
+%\TODO{it seems to me that, while having \eqref{primal-condition} is useful, it is better to formulate \eqref{needed-control} as a hyp.}
+
+%
+%\TODO{should we keep \eqrefl{formal_definition}?
+\paragraph{\bf The primal and dual dissipation potentials: formal definition.}
+\RNEW After specifying our conditions  the  triple $(\kappa, \uppsi, \upalpha)$, we are in a position to 
+ (formally) introduce  the dissipation potentials $\scrR$ and 
+$\scrR^*$ via 
+%: \calM^+(V)\times \Mloc(\Ed) \to [0,+\infty)$ and $\scrR^*: \calM^+(V)\times \Cc(\Ed) \to [0,+\infty)$
+\begin{equation}
+\label{formal_definition}
+\begin{aligned}
+&
+\scrR(\rho,\jj): = \frac12 \iint_{E'} \uppsi \left( 2 \frac{\dd \jj}{\dd \bnu_\rho} \right) \, \bnu_\rho(\dd x \dd y) \quad\text{with } \bnu_\rho(\dd x \dd y) =\upalpha(u(x),u(y)) \, \tetapi (\dd x, \dd y ) \text{ and } u = \frac{\dd \rho}{\dd \pi}
+\\
+&
+\scrR^*(\rho,\xi): = \frac12 \iint_{E'} \uppsi^*(\xi)  \,\bnu_\rho(\dd x \dd y)\,.
+\end{aligned}
+\end{equation}
+Their rigorous definition is postponed to Def.\ \ref{def:primal-and-dual} ahead. \EEE
+%\TODO{In principle, we should at first define $\calR^*$ on $\calM^+(V)\times \Cc(\Ed)$, right?}
+
+%\TODO{Add  useful related results if needed}
+
+
+\subsection{The continuity equation}
+Recall the definition of the `graph gradient' 
+$\ona$ 
+%\footnote{\GGG The definition of divergence is the same, but I
+%  inverted the order in the integrand, just to help the
+%  intuition that when $j\ge0$ the opposite divergence is
+%  the inflow minus the outflow. This is what
+%  appears in the ODE $\partial_t \rho=-\odiv \bj $.
+%  If you think that it is confusing, we can revert to the original
+%formula. \MARK{I would prefer the original formulation; from what is here I found it difficult to reconstruct what is meant by the `divergence' (with or without the minus sign?)}
+% Maybe we can keep the original formulation, and add the remark that ` $j\ge0$ the opposite divergence is
+%  the inflow minus the outflow. This is what
+%  appears in the ODE $\partial_t \rho=-\odiv \bj $' after introducing the continuity equation..}
+\begin{subequations}
+\label{eq:def:ona-div}
+\begin{align}
+\label{eq:def:ona-grad}
+(\ona \varphi)(x,y) &:= \varphi(y)-\varphi(x) &&\text{for any Borel function }\varphi: V \to \R\,,
+\intertext{and of  the `graph divergence operator' $ \odiv:\Mloc(\edg)\to\Mloc(V)$}                                     
+       \label{eq:def:div}
+  (\odiv \bj )(\dd x) &:= \int_{y\in V}
+                         \bigl[\bj (\dd x,\dd y)-\bj (\dd y,\dd
+                         x)\bigr]
+                                              &&\text{for any }\bj \in \Mloc(\edg)\,.
+\end{align}
+\end{subequations}
+Clearly, we have that 
+\begin{equation}
+  \label{eq:nabladiv}
+  \iint_\edg \ona\varphi(x,y)\,\bj (\dd x,\dd y)=
+  -\int_V \varphi(x) \,\odiv \bj (\dd x)\quad
+  \text{for every }\varphi\in \Cc(V).
+\end{equation}
+ Hereafter, for a given function $\mu :I \to \calM(V)$, or
+  $\mu : I  \to \calM(\edg)$, with $I=[a,b]\subset\R$,
+  we shall often
+  write $\mu_t$ in place of $\mu(t)$ for  a given $t\in I$ and denote
+  the time-dependent function $\mu $ by  $(\mu_t)_{t\in I}$.
+ Test functions for the continuity equation will be chosen in this space
+ \begin{subequations}
+ \label{Lip-bounded}
+\begin{align}
+&
+\label{Lip-bounded-a}
+\Lip_{\mathrm{b}}(V) := \Lip(V) \cap \mathrm{B}_{\mathrm{b}}(V),
+\intertext{\RNEW which we consider  with the   norm}
+&
+\label{Lip-bounded-b}
+\RNEW \| \varphi \|_{\Lip_{\mathrm{b}}(V)}: = \sup_{x\in V} |\varphi(x)| +  \sup_{x,y \in V, \ x \neq y} \frac{|\dnabla\varphi\,(x,y)|}{1{\wedge}d(x,y)}\,.
+\end{align}
+\end{subequations}
+\RNEW Observe that the above norm in indeed equivalent to the usual norm for $\Lip_{\mathrm{b}}(V)$, defined as 
+ $ \sup_{x\in V} |\varphi(x)| +  \sup_{x \neq y \in V} \frac{|\dnabla\varphi\,(x,y)|}{d(x,y)}$.
+ In fact, we have opted for the definition in 
+ \eqref{Lip-bounded-b} only to have more transparent estimates, cf.\  Remark \ref{rmk:lip-test-functions} ahead. \EEE
+ %see Remark \ref{rmk:lip-test-functions} ahead. \EEE 
+We are now in a position to introduce the continuity equation we will work with in this paper.
+\begin{definition}[Solutions to the continuity equation]
+\label{def:CE}
+Let $[a,b] \subset \R$.
+We denote by $\CE ab$  the set of pairs $(\rho,\jj)$ such that
+\begin{itemize}
+    \item[-] $\rho= (\rho_t)_{t\in [a,b]} $ is a family of time-dependent measures in $\mathcal{M}^+(V)$;
+    \item[-] $\jj = (\jj_t)_{t\in [a,b]}$ is a measurable family of measures in  $\calM_{\mathrm{loc}}(\Ed)$ such that 
+    \begin{equation}
+    \label{crucial-bound-j}
+\int_a^b \iint_\Ed \RCR (1{\wedge}d(x,y))\EEE \, |\jj_t|(\dd x \dd y)\,\dd t<+\infty
+    \end{equation}
+    \item[-] the continuity equation holds in this sense: For all $\varphi \in \Lip_{\mathrm{b}}(V) \text{ and all } [s,t]\subset [a,b]$,
+    \begin{equation}
+    \label{CE}
+   \begin{aligned}
+		\int_V \varphi(x)\, \rho_t(\dd x)  - \int_V \varphi(x)\, \rho_s(\dd x)   = \int_s^t \iint_\Ed \dnabla\varphi\,(x,y)\,\jj_r(\dd x\dd y)\,\dd r.
+ % \\ & \text{ for all } \varphi \in \mathrm{B}_{\mathrm{b}}(V) \cap \mathrm{Lip}(V) \text{ and all } [s,t]\subset [a,b]\,.
+  \end{aligned}
+	\end{equation}
+\end{itemize}	
+In what follows, we will use the  short-hand notation $\bj_{\Lebone}$ for the measure on $[a,b]\times E'$ given by 
+$\bj_{\Lebone}(A): = \iiint_{A} \bj_t(\dd x \dd y) \, \dd t$ for all $A\in \frB([a,b]{\times} E')$. 
+\end{definition}
+\RNEW 
+\begin{remark}
+\label{rmk:lip-test-functions}
+\upshape
+By our choice of test functions, the integral on the right-hand side of \eqref{CE} is well defined. Indeed, for every $[s,t]\subset [a,b]$ we have 
+\begin{equation}
+\label{obvious-estimate}
+\left| \int_s^t \iint_\Ed \dnabla\varphi\,(x,y)\,\jj_r(\dd x\dd y)\,\dd r \right| \leq \| \varphi \|_{\Lip_{\mathrm{b}}(V)} \int_a^b 
+ \iint_\Ed  \cdot (1{\wedge}d(x,y))   \, |\jj_t|(\dd x \dd y)\,\dd t<+\infty
+\end{equation}
+thanks to \eqref{crucial-bound-j}.
+\end{remark} \EEE
+
+%\TODOBS{If we allowed for more general integrability properties of the kernels (see previous red box), then the set of test functions should be 
+%\[
+%\Lip_{\lambda}(V) =\{ \varphi \in \mathrm{B}_{\mathrm{b}}(V)\, : \ 
+%  \sup_{x,y \in V, \ x \neq y} \frac{|\dnabla\varphi\,(x,y)|}{\lambda(x,y)}<+\infty \}\,.
+%\]
+%Since $\lambda \sim \frac1{d}$ at infinity, in practice we are imposing that 
+%\[
+%|\dnabla\varphi\,(x,y)| \leq \sim \frac{C}{d} \quad \text{if } d \to \infty...
+%\]
+%which is definitely very strong. Perhaps, density results are hopeless... which means that in this new setup we would only prove the energy-dissipation inequality....
+%}
+%\begin{remark}
+%\label{rmk:extension}
+%\upshape
+%In fact, the continuity equation \eqref{CE} could be extended to all functions
+%\begin{equation}
+%\label{Lipschitz-like}
+%\varphi \in \Bb(V) \text{ fulfilling }
+%	\|\varphi\|_\lambda := \sup_{x\ne y}\frac{|\varphi(y)-\varphi(x)|}{1{\wedge} \lambda(x,y)} <+\infty\,;
+%\end{equation}
+%clearly, since $\lambda \geq c_{\lambda} \dV$, any $\varphi \in \Lip_{\mathrm{b}}(V) $ satisfies \eqref{Lipschitz-like}. 
+%Indeed, for all  such $\varphi$ 
+%we have  that
+%\[
+%    \left| \int_0^T \iint_\Ed \dnabla\varphi\,(x,y)\,\jj_t(\dd x\dd y)\right| \le
+%  \|\varphi\|_\lambda    \int_0^T \iint_\Ed (1{\wedge} \lambda(x,y))\,|\jj_t|(\dd x\dd y) <+\infty
+%\]
+%thanks to \eqref{crucial-bound}. 
+%\end{remark}
+ %  \TODO{Should we directly work with the space of functions \eqref{Lipschitz-like}?}
+
+
+It can easily checked that the concatenation of two solutions to the continuity equation is again a solution to the continuity equation,
+and that the family of solutions is closed 
+under time rescaling.
+\begin{lemma}[Concatenation and time rescaling]
+\label{l:concatenation&rescaling}
+\begin{enumerate}
+\item Let $(\rho^i,\bj^i) \in \CE 0{T_i}$, $i=1,2$, with $\rho_{T_1}^1 = \rho_0^2$. Define $(\rho_t,\bj_t)_{t\in [0,T_{1}+T_2]}$ by 
+\[
+\rho_t: = \begin{cases}
+\rho_t^1 & \text{ if } t \in [0,T_1],
+\\
+\rho_{t-T_1}^2 & \text{ if } t \in [T_1,T_1+T_2],
+\end{cases}
+\qquad \qquad 
+\bj_t: = \begin{cases}
+\bj_t^1 & \text{ if } t \in [0,T_1],
+\\
+\bj_{t-T_1}^2 & \text{ if } t \in [T_1,T_1+T_2]\,.
+\end{cases}
+\]
+Then, $(\rho,\bj ) \in \CE 0{T_1+T_2}$.
+\item
+Let $\mathsf{t} : [0,\hat{T}] \to [0,T]$ be strictly increasing and absolutely continuous, with inverse $\mathsf{s}: [0,T]\to [0,\hat{T}]$. Then, $(\rho, \bj ) \in \CE 0T$ if and only if 
+$\hat \rho: = \rho \circ \mathsf{t}$ and $\hat \bj : = \mathsf{t}' (\bj  {\circ} \mathsf{t})$  fulfill $(\hat \rho, \hat \bj ) \in \CE 0{\hat T}$. 
+\end{enumerate}
+\end{lemma}
+
+%\TODO{Instead, we  no longer have that the mapping $t\mapsto \rho_t$ is continuous w.r.t.\ the TV-metric. I expect (but have not checked all details) that 
+%\cite[Lemma 4.4]{PRST22}
+%should carry over  to this setup by replacing the $\mathrm{TV}$-norm by the following distance construction. Instead, unlike in   \cite[Cor.\ 4.3]{PRST22} we can't extend 
+%the CE to all Lip functions}
+
+We consider the  norm on $\calM(V)$ obtained by taking the duality against bounded Lipschitz functions:
+\begin{equation}
+\label{nbl-norm}
+\nbl{\rho}: = \sup\left \{ \left| \int_V \varphi(x) \rho(\dd x ) \right| \, : \varphi \in \Lip_{\mathrm{b}}(V), \RNEW \ \|\varphi\|_{\Lip_{\mathrm{b}}(V)}\leq 1  \EEE  \right\}\,.
+\end{equation}
+
+%\TODOBS{It is not even clear if, replacing $ \Lip_{\mathrm{b}}(V)$ by $ \Lip_{\lambda}(V),$ we would get a norm... lack of density results?}
+We have the following result, to be compared with \cite[Lemma 4.4]{PRST22}. 
+\begin{lemma}
+\label{l:continuous-represent}
+Let 
+$(\rho_t)_{t\in I} \subset \calM^+(V)$ and $(\bj_t)_{t\in I}$ be measurable families
+that are integrable with respect to ~$\Lebone$, fulfilling
+  \begin{equation}
+    -\int_a^b \eta'(t) \left( \int_V \zeta(x) \rho_t (\dd x ) \right) \dd
+    t = \int_a^b \eta(t)\Big(\iint_\edg \dnabla\zeta(x,y)\,  \bj_t(\dd
+    x\,\dd y)\Big)\,\dd t
+    \,,\label{eq:90}
+  \end{equation}
+  holds for every $\eta \in
+  \mathrm{C}_\mathrm{c}^\infty((a,b))$ and $\zeta \in \Lip_{\mathrm{b}}(V)$.
+  \par
+   Then there exists a unique curve $[a,b] \ni t
+  \mapsto \tilde{\rho}_t \in \calM^+ (V)$ such that $\tilde{\rho}_t =
+  \rho_t$ for $\Lebone$-a.e. $t\in [a,b]$. The curve $\tilde\rho$ is continuous in the $\nbl{\cdot}$-norm,  fulfills the estimate
+  \begin{equation}
+  \label{est:ct-eq-BL}	
+    \nbl{\tilde \rho_{t_2}-\tilde \rho_{t_1}} \leq 
+    \RCR
+  \int_{t_1}^{t_2} \iint_{E'}  (1{\wedge}d(x,y)) \,  |\bj_t|(\dd x \dd y)\, \dd t  
+  \EEE \qquad
+  \text{ for  all }  t_1 \leq t_2 \in [a,b]\,. 
+\end{equation}
+%  and satisfies
+%  \begin{equation}
+%    \label{maybe-useful}
+%    \int_V \varphi(t_2,\cdot) \,\dd\tilde\rho_{t_2} - \int_V \varphi(t_1,\cdot) \,\dd\tilde\rho_{t_1}
+%    = \int_{t_1}^{t_2} \int_V \partial_t \varphi \,\dd\tilde\rho_t\,\dd t
+%    +
+%    \iint_{J\times \edg} \dnabla \varphi \,\dd \bj_\Lebone
+%  \end{equation}
+%  for all $\varphi \in \mathrm{C}^1([a,b];\Lip_{\mathrm{b}}(V))$ and $J=[t_1,t_2]\subset
+%  [a,b]$.  
+\end{lemma}
+\RNEW The \emph{proof} follows the very same lines as that of  \cite[Lemma 4.4]{PRST22}, and it is thus omitted; we only remark that 
+\eqref{est:ct-eq-BL}	 is an immediate consequence of estimate \eqref{obvious-estimate}. \EEE
+%(common dominating measure, continuous representative)  carry over to this setup... however, I imagine that we will be able to sho}
+
+
+
+
+
+
+%definition. properties: 
+
+\subsection{The primal and dual dissipation potentials}
+Based on Assumptions \ref{Ass:V},  \ref{Ass:D},  and 
+\ref{Ass:flux-density},  we rigorously define the primal 
+dissipation
+ and dual dissipation
+ potentials
+$
+\scrR$ and $\scrR^*$ formally introduced in \eqref{formal_definition}. 
+ As in \cite{PRST22}, first of all with any $\rho \in \calM^+(V)$ we associate the couplings
+ $ \teta_{\rho}^\pm$ defined 
+  on $E'$ by 
+\begin{equation}
+\label{rig-def:tetarho}
+\begin{aligned}
+  \teta_{\rho}^-(\dd x\,\dd y) :=
+  % {}&
+  \rho(\dd x)\kappa(x,\dd y),\qquad
+  %=
+  %\rho(\delta\otimes\kappa)(\dd x,\dd y),\\
+  \teta_{\rho}^+(\dd x\,\dd y) :=
+  %{}&
+  \rho(\dd y)\kappa(y,\dd x)=
+  %=
+  %\rho(\kappa\otimes \delta)(\dd x,\dd y)=
+  s_{\#}\teta_\rho^-(\dd x\,\dd y),
+\end{aligned}
+\end{equation}
+Observe that $\teta_\rho^\pm \in  \Mloc(E')$. We prove, for later use, the following continuity result, to be compared with \cite[Lemma 2.4]{PRST22}.
+\begin{lemma}
+\label{l:3.4}
+Let $(\rho_n)_n,\rho \in \calM^+(V)$ satisfy $\rho_n\to \rho$ setwise. Then, $\teta_{\rho_n}^\pm \to \tetapi$ vaguely in $\Mloc(E')$. 
+\end{lemma}
+\begin{proof}
+Clearly, it is sufficient to prove the assertion for $(\teta_{\rho_n}^-)_n$. 
+Let us fix $f\in \Cc(E')$: then, the map $x \mapsto \int_{V{\setminus}\{x\}} f(x,y) \kappa(x,\dd y)$ is a bounded Borel function on $V$. Indeed, for every $x\in V$ there exists $\eta>0$
+such that $\mathrm{supp}(f(x,\cdot)) \subset V{\setminus}B_\eta(x)$, so that 
+\[
+ \left| \int_{V{\setminus}\{x\}} f(x,y) \kappa(x,\dd y) \right| =\left| \int_{V{\setminus}B_\eta(x)} f(x,y) \kappa(x,\dd y) \right| 
+\leq \|f\|_\infty \int_{V{\setminus}B_\eta(x)}  \kappa(x,\dd y) 
+\]
+with $\|f\|_\infty: = \sup_{(x,y)\in E'} |f(x,y)|$. Therefore,
+\[
+\begin{aligned}
+&
+\iint_{E'} f(x,y) \, \teta_{\rho_n}^- (\dd x \dd y) = \int_{V} \left(  \int_{V{\setminus}\{x\}} f(x,y) \,\kappa(x,\dd y) \right) \, \rho_n(\dd x) 
+\\
+&
+\longrightarrow  \int_{V} \left(  \int_{V{\setminus}\{x\}} f(x,y) \,\kappa(x,\dd y) \right) \, \rho(\dd x)  = \iint_{E'} f(x,y) \, \teta_{\rho}^- (\dd x \dd y) \,.
+\end{aligned}
+\]
+\end{proof}
+Based on the construction of $\teta_\rho^\pm$, 
+ we may rigorously define the measure $\bnu_\rho \in  \Mloc(E')$ from \eqref{formal_definition}
+\RNEW  as concave transformation of the couplings $\teta_\rho^\pm$
+  (cf.\ construction set forth in \eqref{alpha-mu-gamma}), \EEE namely
+\begin{equation}
+\label{rig-nu-rho}
+\bnu_\rho: =  \Aalpha[\teta_\rho^-,\teta_\rho^+|\tetapi]
+\end{equation}
+where we have used the simplified notation $\Aalpha[\teta_\rho^-,\teta_\rho^+|\tetapi]$ in place of 
+$\Aalpha[(\teta_\rho^-,\teta_\rho^+)|\tetapi]$. 
+In the definition of $\scrR$ we will also resort to the construction from \eqref{def:F-F}.
+\begin{definition}
+\label{def:primal-and-dual}
+We define $\scrR: \calM^+(V)\times \Mloc(E') \to [0,+\infty]$ and $\scrR^*: \calM^+(V)\times \Cc(E') \to [0,+\infty)$ via 
+\begin{align}
+&
+\label{rigR}
+\scrR(\rho,\bj): =  \frac12 \calF_\uppsi(2\bj |\bnu_\rho)\,,
+\\
+&
+\label{Rig-Rstar}
+\scrR^*(\rho,\xi): = \frac12 \iint_{\Ed} \uppsi^*(\xi)  \,\bnu_\rho(\dd x \dd y)\,,
+\end{align}
+\end{definition}
+The following result collects some key facts about $\scrR$. Firstly, we  provide an equivalent representation, cf.\  
+\eqref{equivalent-upsilon} below,
+for 
+$\scrR$ involving the convex and lower semicontinuous function
+$\Upsilon: [0,+\infty) \times [0,+\infty) \times \R \to [0,+\infty]$
+\begin{align}
+\nonumber
+&
+\Upsilon(u,v,w): = \hat\uppsi (w,\upalpha(u,v))
+\intertext{with  $\hat
+    \uppsi:\R^{2}\to[0,\infty]$ 
+    the 1-homogeneous, convex, perspective function associated  with \EEE
+    $\uppsi$ by}
+ &
+ \nonumber
+     \hat \uppsi(z,t):=
+      \begin{cases}
+        \uppsi(z/t)t&\text{if }t>0,\\
+        \uppsi^\infty(z)&\text{if }t=0,\\
+        \pinfty&\text{if }t<0.
+      \end{cases}
+\end{align}
+Based on \eqref{equivalent-upsilon} we may prove \eqref{R-lsc}, which extends the sequential lower semicontinuity of $\scrR(\rho, \cdot)$, addressed in \cite[Lemma 4.10]{PRST22},
+from setwise 
+ to   \emph{vague} convergence. 
+\begin{lemma}
+The following properties hold:
+\begin{enumerate}
+\item
+For $\scrR$ we have the equivalent representation
+\begin{equation}
+\label{equivalent-upsilon}
+\scrR(\rho,\bj) = \frac12 \calF_\Upsilon ((\teta_\rho^-,\teta_\rho^+,2 \bj)|\tetapi);
+\end{equation}
+\item if $(\rho,\bj)$ fulfill $\scrR(\rho,\bj)<+\infty$ and $\rho \ll \pi$, then $\bj \ll \tetapi$ and 
+\begin{equation}
+\label{nice-representation}
+\scrR(\rho,\bj)  =  \begin{cases}
+    \displaystyle
+    \frac12\iint_{E_\upalpha}% {_\upalpha(u)}
+    \Psi\Bigl(\frac{w(x,y)}{\upalpha(u(x),u(y))}\Bigr)\upalpha(u(x),u(y))\,\tetapi(\dd
+    x,\dd y) &\text{if }|\bj |(\Ed\setminus E_\upalpha)
+    % {_\upalpha(u))
+    =0,\\
+    \pinfty&\text{if }|\bj |(\Ed\setminus E_\upalpha)>0, %_\upalpha(u))>0.
+  \end{cases}
+\end{equation}
+where $w=\frac{\dd( 2\bj)}{\dd \tetapi}$ and $E_\upalpha: = \{ (x,y)\in \Ed\, : \ \upalpha(u(x),u(y))>0\}$;
+ \item for all  $(\rho_n)\, \rho \in \calM^+(V)$ and $(\bj_n)_n,\, \bj \in \Mloc(E') $ there holds
+ \begin{equation}
+ \label{R-lsc}
+\left[ \rho_n \to \rho \text{ setwise  and } \bj_n \to \bj \text{ vaguely } \right] \Longrightarrow \liminf_{n\to\infty} \scrR(\rho_n,\bj_n) \geq \scrR(\rho,\bj)\,.
+ \end{equation}
+ \end{enumerate}
+\end{lemma}
+\begin{proof}
+Formula \eqref{equivalent-upsilon} follows by the same arguments as in \cite[Sec.\ 4.2]{PRST22}; likewise, the proof of the first part of Claim \textbf{(2)}
+follows by   \cite[Lemma 4.10]{PRST22}. 
+\par
+Now, 
+when $\rho \ll \pi$ then we also have $\teta_\rho^\pm \ll \tetapi$ and (recalling that $\teta_\rho^+= s_{\#}\teta_\rho^-$)
+\[
+\frac{\dd \teta_\rho^-}{\dd \tetapi}(x,y) = u(x), \qquad \frac{\dd \teta_\rho^-}{\dd \tetapi}(x,y) = u(y),
+\]
+so that 
+\[
+\bnu_\rho(\dd x \, \dd y) = \alpha \left(\frac{\dd \teta_\rho^-}{\dd \tetapi},\frac{\dd \teta_\rho^+}{\dd \tetapi} \right) \,\tetapi(\dd x \dd y) = \alpha(u(x),u(y)) \,  \tetapi(\dd x \dd y) \,.
+\]
+Since
+ $\bj\ll \tetapi$, we can write $2\jj = w \tetapi$, so that 
+ \[
+\Upsilon \left(\frac{\dd \teta_\rho^-}{\dd \tetapi} ,\frac{\dd \teta_\rho^+}{\dd \tetapi},\frac{\dd 2\jj}{\dd \tetapi} \right)(x,y) =\hat{\uppsi}(w(x,y),\alpha( u(x),u(y)))
+\] 
+  and \eqref{nice-representation} follows by the definition of the perspective function $\hat\psi$. 
+  \par
+  Finally, let $(\rho_n)\, \rho \in \calM^+(V)$ and $(\bj_n)_n,\, \bj \in \Mloc(E') $ be as in \eqref{R-lsc}. By Lemma \ref{l:3.4} we infer that
+  $(\teta_{\rho_n}^-,\teta_{\rho_n}^+,2\bj_n) \to (\teta_\rho^-,\teta_\rho^+,2\bj)$ vaguely in $\Mloc(E';\R^3)$, and the  assertion follows 
+  from Lemma \ref{l:crucial-F}.
+\end{proof}
+
+
+%$ \scrR^*: \calM^+(V)\times \Cc(E') \to [0,+\infty)$.
+
+
+
+
+
+
+\subsection{The $\scrR$-$\scrR^*$ formulation}
+Prior to specifying our notion of weak solution, we need to property introduce the Fisher information. 
+Formally, it is given by 
+\[
+\Fish(\rho) = \scrR^*\Bigl(\rho,-\thalf \ona \upphi(u)\Bigr)
+=
+ \frac12
+\iint_\edg \Psi^*\bigl( -\thalf(\upphi'(u(y))-\upphi'(u(x))\bigr) \bnu_\rho(\dd x \, \dd y),\qquad \rho = u\pi\, .
+\]
+However, note that $\upphi$ need not be differentiable at $0$. Hence,  in order to
+ rigorously define $\Fish$ in the present context, we mimick the ideas of \cite{PRST22}. Firstly, we introduce the function
+$\Lambda_\upphi: \R_+\times \R_+ \to [-\infty,+\infty]$
+\[
+\Lambda_\upphi (u,v): =\begin{cases}
+\phi'(v)-\phi'(u) & \text{if } u,v \in \R_+\times \R_+ \setminus \{ (0,0)\},
+\\
+0 & \text{if } u=v=0\,
+\end{cases}
+\]
+where we have set $\upphi'(0) := \lim_{r\downarrow 0} \upphi'(r) \in [-\infty,+\infty) $. 
+Hence, we define the function $\mathrm{D}_\upphi^+: \R_+\times \R_+ \to [0,+\infty]$ by
+\[
+\mathrm{D}_\upphi^+(u,v): = \begin{cases}
+\uppsi^*\left( \Lambda_\upphi (u,v) \right) \upalpha (u,v) & \text{if } \upalpha (u,v)>0,
+\\
+0 
+& \text{if } u=v=0,
+\\
++\infty & \text{if } \upalpha(u,v)=0 \text{ with } u \neq v\,.
+\end{cases}
+\]
+Finally, we consider
+\[
+\text{the \emph{lower semicontinous envelope} } \mathrm{D}_\upphi: \R_+\times \R_+ \to [0,+\infty]  \text{ of }   \mathrm{D}_\upphi^+\,.
+\]
+\begin{definition}[Fisher information]
+\label{Def:Fisher}
+The Fisher information $\Fish: \mathrm{dom}(\scrE)\to [0,+\infty]$ is defined as
+\[
+\Fish(\rho): = 
+\begin{cases}
+\frac12 \iint_{E'}  \mathrm{D}_\upphi(u(x),u(y)) \, \tetapi(\dd x \dd y) \qquad \text{if  } \rho = u \pi \text{ and  $ \mathrm{D}_\upphi(u(x),u(y)) \in L^1(E',\tetapi)$,}
+\\
++\infty \text{ otherwise.}
+\end{cases} 
+\]
+\end{definition}
+
+
+
+
+
+
+
+
+We now highlight the crucial lower semicontinuity property of $\mathscr{D}$. 
+\begin{proposition}
+\label{prop:Fisher-lsc}
+Suppose that  \RNEW either $\pi$ is purely atomic, or that the function  $\mathrm{D}_\upphi: \R_+\times \R_+ \to [0,+\infty]$ is convex. \EEE
+ Then,
+for all  $(\rho_n)_n\, \rho \in \mathrm{dom}(\scrE)$ we have 
+\[
+\rho_n\to \rho \text{ setwise in } \calM^+(V) \ \Longrightarrow \ \liminf_{n\to\infty} \scrD(\rho_n)\geq \scrD(\rho)\,.
+\]
+\end{proposition}
+\RNEW The \emph{proof} follows the same lines as the argument for \cite[Prop.\ 5.3]{PRST22}, hence it is omitted. \EEE  
+
+%\TODO{I don't see any changes to be
+%made to  the proof of Prop.\ 5.3, do you? I think it carries over to the singular setting...}
+
+%\TODO{Is this still true?}
+
+Finally, we are in a position to formalize our concept of solution for the evolution system associated with 
+$(V,\kappa,\upphi,\uppsi,\upalpha)$. 
+\begin{definition} %[$(\calS,\calR,\calR^*)$ Energy-Dissipation balance]
+\label{def:R-Rstar-balance}
+%Let the Generalized Gradient Flow $\GGF$ satisfy Property \ref{PROPERTY:chain-rule}. 
+We say that a 
+curve $\rho: [0,T] \to \calM^+(V)$ is a  solution
+of the $(\scrE,\scrR,\scrR^*)$ evolution system,
+if it
+ satisfies the following conditions:
+\begin{enumerate}
+%\item \label{def:RR*-1} $t \mapsto \calS(\rho_t)$ is absolutely continuous;
+%\item \label{def:RR*-2}
+\item $\calS(\rho_0)<\pinfty$;
+\item There exists a measurable family $(\bj_t)_{t\in [0,T]} \subset \Mloc(\Ed)$
+such that $(\rho,\bj)\in \CE0T$ \RNEW and the pair $(\rho,\bj)$ complies with the  {\em $(\scrE,\scrR,\scrR^*)$
+  Energy-Dissipation balance}:  \EEE
+\begin{equation}
+\label{R-Rstar-balance}
+\int_s^t \left( \scrR(\rho_r, \bj_r) + \Fish(\rho_r) \right) \dd r+ \calS(\rho_t)   = \calS(\rho_s)   \qquad \text{for all } 0 \leq s \leq t \leq T.
+\end{equation}
+\end{enumerate}
+\end{definition}
+
+
+%\TODOBS{Indeed, we should introduce 2 solution concepts, because, - see Theorem \ref{th:main} - we are going to have two distinct existence results.
+%More precisely, we should 
+% distinguish the above solution concept from the STRONGER one consisting of: (1) $\calS(\rho_0)<\pinfty$; (2) There exists a measurable family $(\bj_t)_{t\in [0,T]} \subset \Mloc(\Ed)$
+%such that $(\rho,\bj)\in \CE0T$
+%(3) the pair $(\rho, \bj)$ complies with the pointwise Energy-Dissipation balance}
+
+%\TODOBS{We should find names for this notion of solution, and the above one.... and, possibly, be consistent with what we introduced in \cite{PRST22}, but I don't know if
+%we'll manage that...
+%\\
+%Provisionally, I suggest to call `enhanced solutions' the solutions satisfying \eqref{enh-EDB}...
+%}
+
+\section{Main result}
+\label{s:4}
+We will prove our existence result for the evolution system associated with $(V,\kappa,\upphi,\uppsi,\upalpha)$ by approximating the singular
+kernels $(\kappa(x,\cdot))_{x\in V}$ via a family of regularized kernels.
+More precisely, we define 
+\begin{equation}
+\label{kappa-eps-reg}
+	\kappa_\varepsilon(x,\dd y) := \frac{1\wedge\dpi^2(x,y)}{\varepsilon + (1{\wedge}\dpi^2(x,y))} \kappa(x,\dd y) \qquad \text{for all } x \in V
+\end{equation}
+%Observe that, while for every $x\in V$ $\kappa(x,\cdot)$ is positive Radon measure on $V\setminus \{x\}$,
+%the measure
+% $\kappa_\eps(x,\dd y)$ extends to the whole $V$
+% for all $x\in V$
+ In this way, we clearly obtain a \emph{finite} measure on the whole of $V$, fulfilling  
+\begin{equation}
+\label{crucial-bound-kappaeps}
+\kappa_\varepsilon(x,\cdot) \le \frac1\eps (1{\wedge}\dpi^2(x,\cdot)) \kappa(x,\cdot) \qquad \text{for all } \eps>0.
+\end{equation}
+%%\TODO{is it trivial that  for every $x\in V$ $\kappa_\eps(x,\dd y)$ can be considered as a measure on the whole of $V$? I think that it should follow
+%%from the fact that we consider $1\wedge\lambda^2(x,\cdot)  \kappa(x,\dd \cdot) $ as a measure on the whole of $V$..
+%%is this an obvious consequence of \eqref{mitigation of singularity}?}
+%Hence,
+%\[
+%\lim_{r\to 0} \int_{B_r(x)} \kappa^\varepsilon(x,\dd y)  \leq \frac1\eps \lim_{r\to 0} \int_{B_r(x)} (1{\wedge}\lambda^2(x,y)) \kappa(x,\dd y ) \leq C\,.
+%\] 
+%All in all, combining \eqref{crucial-bound-kappaeps} and 
+Thus, by 
+\eqref{mitigation of singularity} we infer that 
+\begin{equation}
+\label{back-2-bounded-kernel}
+\|\kappa_\eps\|_\infty : = \sup_{x \in V} \kappa_\eps(x,V) \leq \frac1\eps c_\kappa\,.
+\end{equation}
+For later use, we also observe that,  since $\kappa_\eps (x, \cdot) \leq \kappa (x,\cdot)$, there holds
+\begin{equation}
+\label{mitigated-bound}
+\sup_{x\in V} \int_{V}  (1{\wedge}\dpi^2(x,y)) \kappa_\eps(x,\dd y) \leq c_\kappa\,.
+\end{equation}
+We will denote by $\tetapie$ the induced coupling 
+\begin{equation}
+\label{tetapie}
+\tetapie (\dd x \dd y) =\kappa_\eps(x, \dd y  ) \pi (\dd x );
+\end{equation}
+ observe that, now, $\tetapie \in \calM(E)$ and, clearly, it still satisfies the detailed balance \eqref{DBC}. 
+\par
+Let $\scrR_\eps: \calM^+(V) \times \calM(E) \to [0,+\infty]$ and $\scrR_\eps^*  : \calM^+(V)\times \Cb(E) \to [0,+\infty)$  the primal and dual  dissipation potentials associated with $\tetapie$ via Definition \ref{def:primal-and-dual}
+(with  $\iint_{\Ed}$ replaced  by $\iint_{E}$), and let $\scrD_\eps$ the corresponding Fisher information functional 
+\RNEW
+\[
+\Fish_\eps(\rho): = 
+\begin{cases}
+\frac12 \iint_{E}  \mathrm{D}_\upphi(u(x),u(y)) \, \tetapie(\dd x \dd y) \qquad \text{if  } \rho = u \pi \text{ and  $ \mathrm{D}_\upphi(u(x),u(y)) \in L^1(E,\tetapie)$,}
+\\
++\infty \text{ otherwise.}
+\end{cases} 
+\]
+\EEE
+%clearly, in the definitions of $\scrR_\eps$ and  $\scrD_{\eps}$ we may replace $\iint_{\Ed}$ by $\iint_{E}$. 
+We may thus consider the $(\scrE,\scrR_\eps,\scrR_\eps^*)$ energy-dissipation balance
+modelled on \eqref{R-Rstar-balance}. 
+\par
+Under  Assumptions \ref{Ass:V},  \ref{Ass:E},   \ref{Ass:D},  and \ref{Ass:flux-density}, also 
+in view of \eqref{back-2-bounded-kernel} 
+ the  regularized  system $(V,\kappa_\eps,\upphi,\uppsi,\upalpha)$ complies with the assumptions of \cite[Thm.\ 5.7]{PRST22},
+  ensuring the existence of 
+a  solution to the   $(\scrE,\scrR_\eps,\scrR_\eps^*)$ evolution system in the sense of Def.\ \ref{def:R-Rstar-balance}. 
+We point out that such solution in fact fulfills the continuity equation in an enhanced   sense, 
+namely  \eqref{CE} holds, along any sub-interval $ [s,t]\subset [a,b]$, for all test functions $\varphi \in \Bb(V)$. 
+% in particular, 
+%the set of test functions for \eqref{CE} extends to $\Bb(V)$. 
+ %which we recall in the following
+%\begin{definition}
+%\label{def:CE-enh}
+%For a given $[a,b] \subset \R$.
+%We denote by $\ENHCE ab$  the set of pairs $(\rho,\jj)$ such that $(\rho_t)_{t\in [a,b]} $ is a family of time-dependent measures in $\mathcal{M}^+(V)$ and
+%\begin{itemize}
+%\item[-] $\jj = (\jj_t)_{t\in [a,b]}$ is a measurable family of measures in  $\calM(E)$ such that 
+%    \begin{equation}
+%    \label{crucial-bound}
+%\int_0^T \iint_E |\jj_t|(\dd x \dd y)\,\dd t<+\infty
+%    \end{equation}
+%    \item[-] the continuity equation \eqref{CE} holds, along any sub-interval $ [s,t]\subset [a,b]$, for all test functions $\varphi \in \Bb(V)$. 
+%\end{itemize}	
+%\end{definition}
+%%%
+%We setup the approximation and recall the existence result from [PRST]. with bounds. 
+\RNEW
+Besides stating the existence of solutions, the following result also subsumes the maximum principle proved in \cite[Thm.\ 6.5]{PRST22}. 
+   \EEE
+\begin{theorem}{\cite[Thm.\ 5.10, Thm.\ 6.5]{PRST22}}
+\RNEW Let  $(V,\kappa,\upphi,\uppsi,\upalpha)$ comply with
+ Assumptions \ref{Ass:V},  \ref{Ass:E},   \ref{Ass:D}, and \ref{Ass:flux-density}.
+In addition, suppose that 
+either $\pi$ is atomic, or the function 
+$\mathrm{D}_\upphi: \R_+\times \R_+ \to [0,+\infty]  $
+ is convex. \EEE
+ Then,
+ \begin{enumerate}
+ \item For every $\rho^0\in \calM^+(V)$ with \RNEW  $\scrE(\rho^0)<+\infty$ \EEE there exists a curve $\rho: [0,T]\to \calM^+(V)$, with $\rho(0)=\rho^0$, solving the  $(\scrE,\scrR_\eps,\scrR_\eps^*)$ evolution system, i.e.\ there exists a measurable family $\jj = (\jj_t)_{t\in [a,b]} \subset \calM(E)$, with 
+ $ (\rho,\jj) \in  \ENHCE 0T$, such that the pair  $ (\rho,\jj) $
+ \RBS is an \emph{enhanced} solution of the 
+  the $(\scrE,\scrR_\eps,\scrR_\eps^*)$ system. \EEE
+ \item If  $\rho^0 = u^0 \pi$ with $u^0 \in L^\infty(V,\pi)$ such that
+ \begin{equation}
+ \exists\, 0 \leq  \underline{U} < \overline{U} \ \text{ for $\pi$-a.a.\ $x\in V$:} \qquad 
+  0 \leq \underline{U} \leq u^0(x) \leq \overline{U}\,,
+  \end{equation}
+  then 
+  $\rho = u \pi$ satisfies
+  \begin{equation}
+  \label{boundedness}
+   0 \leq \underline{U} \leq u_t(x) \leq \overline{U} \qquad \text{for } (\scrL{\times}\pi)\text{-a.a. } (t,x) \in (0,T){\times}V\,.
+  \end{equation}
+ \end{enumerate}
+\end{theorem}
+\par
+\paragraph{\bf Approximation of solutions to the singular system.}
+%\TODO{Here  introduce the Orlicz space  $\rmL^{\upphi^*}(V,\pi)$and state our last assumption, namely the density of $\mathrm{Lip}_{\mathrm{b}}(V) $ in $\rmL^{\upphi^*}(V,\pi)$..}
+%%%
+ Let $(\ej)_{n\in \N} \subset (0,+\infty)$ be a null sequence. Correspondingly, let 
+ $(\rho^{\ej},\jj^{\ej})_n \subset  \CE 0T$,
+ \RCR satisfying the continuity equation for all test functions $\varphi \in \Bb(V)$, \EEE
+  be solutions of the   $(\scrE,\scrR_{\ej},\scrR_{\ej}^*)$  evolution systems starting from initial data $(\rho_n^0)_n
+ \subset \calM^+(V)$ satisfying suitable conditions.
+ With the main result of this paper we are going to prove 
+that, up to a subsequence, the pairs $(\rho^{\ej},\jj^{\ej})_n $ converge as $n\to\infty$ to a solution of the   $(\scrE,\scrR,\scrR^*)$  system.
+We recall that, denoting $\Lebone$ the Lebesgue measure $\Lebone|_{(0,T)}$, a measurable family $\nu = (\nu_t)_{t\in [0,T]} \in \Mloc(Y)$,
+with $Y\in \{ V,E, \Ed\}$, induces a measure in $\Mloc([0,T]{\times} Y)$ by setting $\nu_\Lebone (\dd t \dd x \dd y): = \nu_t(\dd x \dd y) \,\Lebone (\dd t)$. 
+
+\par
+ Before giving the main result of this paper,  we need to introduce one more condition, besides  Assumptions  \ref{Ass:V},  \ref{Ass:E},  \ref{Ass:D}, and \ref{Ass:flux-density}. 
+ \RCR Prior to stating it, let us settle some preliminary definitions.
+  %
+% \TODOR{At this point, the argument bifurcates. There are two possible set of assumptions, corresponding to two possible arguments for the EXTENDED continuity equation. Now I am going to present both options. We need to decide if we want to present both of them....}
+%%
+%\noindent 
+% \RCR \textbf{Option $1$:}
+%In order to state our additional assumption, 
+% we consider 
+% the subset 
+%   \begin{equation}
+%   \label{X-subset}
+%    \mathcal{X} := \left\{ \varphi\in \rmL^{1}(V,\pi) : \iint_\Ed \uppsi^*(\dnabla\varphi(x,y))\,  \tetapi(\dd x \dd y)  <\infty \right\} \subset \rmL^{1}(V,\pi)\,.
+%   \end{equation}
+%%   \TODO{Is $    \mathcal{X} $ a 
+%%   reflexive Banach space???
+%%This  is not clear to me...   %  \mathcal{X}$ is closed under convex combinations, but all linear combinations? 
+%%    hence it is not clear to me if it is meaningful to 
+%%   equip it  with the norm
+%%   \[
+%%    \|\varphi\|_\mathcal{X} := \|\varphi\|_{\rmL^{\upphi^*}(V;\pi)} + \|\dnabla\varphi\|_{\rmL^{\uppsi^*}(\Ed;\tetapi)}.
+%%   \]
+%%   In Section 6 I have tried to avoid referring to the Banach structure of $\mathcal{X}$....
+%%   }
+%We are now in a position to state our last condition for Theorem \ref{th:main}; we postpone a discussion of its validity to  Section \ref{s:lip}. 
+%%%%%t
+% \begin{assumption}
+% \label{Ass:F}
+% We require that 
+% \begin{enumerate}
+% \item
+% The space $\Lip_{\mathrm{b}}(V) $ is  sequentially dense in $\mathcal{X} \cap \Bb(V)$ w.r.t.\ the 
+% weak topology of $\rmL^{1}(V,\pi)$;
+% \item $\mathcal{X} $ is sequentially  dense in $\rmL^{1}(V,\pi)$ w.r.t.\ the weak topology of  $\rmL^{1}(V,\pi)$.
+%\end{enumerate}
+% \end{assumption}   
+% \EEE
+% \TODOR{By the way, I don't think that it would suffice (without further assumptions), to directly require that   $\Lip(V) $ is sequentially dense in $\rmL^{1}(V,\pi)$...}
+% 
+ \noindent 
+ \RCR 
+  First of all, on the measure space 
+  $(
+ \Ed, \mathfrak{B}(\Ed), \tetapi  )$
+  we introduce the \emph{Orlicz space}    associated with the \emph{Young} function $\uppsi^*$, namely
+\[
+ \rmL^{\uppsi^*}(\Ed;\tetapi): = \biggl\{ y \in \rmL^1(\Ed;\tetapi)\, : \ \exists\, \ell> 0 \ \iint_{\Ed} \uppsi^*\left(\frac{y(x,y)}{\ell}\right) \, \tetapi(\dd x \dd y) <+\infty\biggr\}\,,
+ \]
+with the associated Luxemburg norm
+\[
+\|y \|_{\rmL^{\uppsi^*}(\Ed;\tetapi)} : = \inf\left\{ \ell > 0 \, : \   \iint_{\Ed} \uppsi^*\left(\frac{y(x,y)}{\ell}\right) \, \tetapi(\dd x \dd y)  \leq 1\right \}\,;
+\]
+ we refer to, e.g.,  \cite{RaoRen} for a comprehensive  presentation of Orlicz spaces. We will also consider the space
+ \begin{equation}
+ \label{X-L-Orli}
+ \rmX^{\uppsi^*}: = \Bigl\{ \varphi \in \Bb(V)\,: \ \overline{\nabla}\varphi \in \rmL^{\uppsi^*}(\Ed;\tetapi)\Bigr\}\,.
+ \end{equation}
+ Furthermore, let us  introduce the 
+ %\WARNING what is the name of 
+ %this space?? 
+ \RCR \emph{small Orlicz} space
+\[
+ \mathcal{M}^{\uppsi^*}(\Ed;\tetapi): = \biggl\{ y \in \rmL^1(\Ed;\tetapi)\, : \ \forall\, \ell> 0 \ \iint_{\Ed} \uppsi^*\left(\frac{y(x,y)}{\ell}\right) \, \tetapi(\dd x \dd y) <+\infty\biggr\}\\,
+ \]
+and, accordingly,  
+  \begin{equation}
+ \label{X-M-Orli}
+ \mathcal{X}^{\uppsi^*}: = \Bigl\{ \varphi \in \Bb(V)\,: \ \overline{\nabla}\varphi \in \mathcal{M}^{\uppsi^*}(\Ed;\tetapi)\Bigr\}\,.
+ \end{equation}
+Clearly, $\mathcal{M}^{\uppsi^*}(V;\pi)$ is a  subspace of $\rmL^{\uppsi^*}(\Ed;\tetapi)$, so that $ \mathcal{X}^{\uppsi^*}\subset \rmX^{\uppsi^*}$. 
+ If, in addition,
+the Young function satisfies the so-called $\Delta_2$ condition (cf.\ \cite[\S 2.3, Definition 1]{RaoRen}), 
+then $\mathcal{M}^{\uppsi^*}(V;\pi) =\rmL^{\uppsi^*}(\Ed;\tetapi)$.
+We are not going to impose $\Delta_2$-regularity on $\uppsi^*$ but, still, we will be able to show that, in the present context, the spaces
+ $ \rmX^{\uppsi^*}$ and $ \mathcal{X}^{\uppsi^*}$ coincide (cf.\ Corollary \ref{cor:identical-spaces}). 
+ %
+%by 
+%  slightly strengthening our conditions on $\uppsi^*$. Namely, we  require that, in addition to 
+%  Assumption \ref{Ass:D} $\uppsi^*$ complies with
+%  \begin{assumption}
+% \label{Ass:D-additional}
+% The  dual dissipation density  $\uppsi^*: \R \to [0,+\infty)$ is  non-decreasing and $\uppsi^*(\xi) \simeq |\xi|^2 
+% $ as $\xi \to 0$, i.e.
+% \begin{equation}
+% \label{quadratic-at-0}
+% \lim_{\xi \to 0} \frac{\uppsi^*(\xi)}{|\xi|^2} =c_0 \in ]0,+\infty[\,.
+% \end{equation}
+% \end{assumption}
+We will also show  in 
+Lemma \ref{l:Lipb-r-nice}
+that, for every $\varphi 
+ \in \Lipb (V)$, $\overline\nabla \varphi 
+ \in  \mathcal{M}^{\uppsi^*}(\Ed;\tetapi)$, so that $\Lipb(V)\subset   \mathcal{X}^{\uppsi^*}$.
+ This makes  our additional assumption  meaningful.
+  \begin{assumption}
+ \label{Ass:F-bis} 
+ The space $\Lipb(V)$ is dense in $\mathcal{X}^{\uppsi^*}$ in the following sense: for every $\varphi \in \mathcal{X}^{\uppsi^*}$
+ there exists a sequence $(\varphi_n)_n \subset \Lipb(V)$ such that as $n\to \infty$
+ \begin{enumerate}
+ \item $\varphi_n\to\varphi$ in $\rmL^1(V;\pi)$;
+ \item $\overline\nabla \varphi_n \to \overline\nabla \varphi$ in $\rmL^{\uppsi^*}(\Ed;\tetapi)$.
+ \end{enumerate}
+ \end{assumption}
+\noindent
+ We postpone a discussion on 
+the  validity of Assumption \ref{Ass:F-bis} 
+  to  Section \ref{s:lip}. 
+ \TODOR{\EEE I have had to strengthen the previous weak convergence in $
+\rmL^1(V)$ to  strong  convergence in view of the cut-off argument of Lemma \ref{l:cutoff} but, if we decide to kill it, then we can go back to weak convergence...}
+\EEE
+
+ 
+% \TODOR{First of all, what we really need is that $\Lip_{\mathrm{b}}(V) $ is dense in $\mathcal{X} \cap \Bb(V)$  w.r.t.\ the topology induced by $\|\cdot\|_{ \rmL^{\upphi^*}(V;\pi)} $.
+% For this, would be sufficient to have that  $\Lip(V) $ is dense in $\mathcal{X} $?????  I would expect so...
+% 
+% Moreover,
+%  based on the examples that we can make, wouldn't it make more
+% sense to directly require that  $\Lip(V) $ is dense in  $ \rmL^{\upphi^*}(V;\pi)$???} \EEE
+ %%%
+ \par
+ We are in a position to state  the main result of this paper.
+\begin{theorem}
+\label{th:main}
+Under  Assumptions \ref{Ass:V},  \ref{Ass:E},  \ref{Ass:D}, \ref{Ass:flux-density}, and  \RCR \ref{Ass:F-bis},
+ %\ref{Ass:F}, 
+   suppose that 
+%either $\pi$ is atomic, or
+ the function 
+$\mathrm{D}_\upphi: \R_+\times \R_+ \to [0,+\infty]  $
+ is convex.  \EEE
+ Let $(\rho_n^0)_n, \rho^0
+ \in \calM^+(V)$ satisfy %as $n\to\infty$
+ \begin{subequations}
+ \label{initial-thm:main}
+ \begin{equation}
+ \label{initial-conds-rhoj}
+ \begin{cases}
+% &
+ %\displaystyle \sup_{n \in \N} \scrE(\rho_n^0) \doteq \mathsf{E}_0<+\infty, 
+ &
+ \rho_n^0 \to \rho \text{ setwise in } \calM^+(V) \text{ as } n \to \infty\,,
+ \\
+ & 
+ \RNEW  \scrE(\rho_n^0)  \to \scrE(\rho)  \text{ as } n \to \infty\,. \EEE
+ \end{cases}
+ \end{equation}
+ and
+  \begin{equation}
+  \label{strong-initial}
+  \exists\, 0 \leq \underline{U} < \overline{U} \quad \forall\, n \in \N \text{ for $\pi$-a.a.\ $x\in V$:} \qquad 
+  \underline{U} \leq u_n^0(x) \leq \overline{U}
+\end{equation}
+\end{subequations}
+ Then,
+ \begin{enumerate}
+ \item
+  There exist $(\rho,\bj) \in \CE 0T$ and (a not relabeled) subsequence such that the following convergences hold as $n\to\infty$
+\begin{align}
+\label{DBL}
+&
+\rho_t^{\ej}\to \rho_t  && \text{setwise in } \calM^+(V) \quad \text{for all } t\in [0,T];
+\\
+& 
+\label{cvg-j}
+\bj_{\Lebone}^{\ej}\to \bj_\Lebone \RNEW =\bj_t \Lebone \EEE  && \text{vaguely in } \Mloc([0,T]{\times}\Ed);
+\end{align}
+the measure $\rho$ satisfies
+$\rho_t  = u_t \pi$  for all $t\in [0,T]$, 
+for some $u\in \rmL^1(0,T;\rmL^1(V;\pi))$ such that 
+\begin{equation}
+\label{inherited-bounds-for-u}
+\underline U \leq u(t,x) \leq \overline U   \text{ for $(\scrL{\otimes}\pi)$-a.a.\ $(t,x)\in (0,T) \times V$},
+\end{equation}
+and the pair  $(\rho,\bj)$ is \RBS  a  solution of the $(\scrE,\scrR,\scrR^*)$ evolution system in the sense of Definition \ref{def:R-Rstar-balance}. 
+\item
+\RCR If, in addition, \eqref{strong-initial} holds with a constant $\underline{U}>0$, then   $(\rho,\bj)$ is an \emph{enhanced} solution of the $(\scrE,\scrR,\scrR^*)$ evolution system,  namely 
+the Energy-Dissipation balance \eqref{R-Rstar-balance} holds in pointwise form
+\begin{equation}
+\label{enh-EDB}
+\scrR(\rho_t, \bj_t) + \Fish(\rho_t) = -\frac{\dd }{\dd t}  \calS(\rho_t)    = -\iint_{E'}\overline\nabla (\phi'(u_t) )\,  \bj_t (\dd x \dd y)  \qquad \foraa\, t \in (0,T).
+\end{equation}
+\end{enumerate}
+ \EEE
+\end{theorem}
+In fact, as it will be clear from the proof, in case \textbf{(2)} we will also be able to show that  $(\rho,\bj)$ solves the continuity equation
+in an enhanced sense, namely
+ for a bigger set of test functions than $\Lipb(V)$, cf.\ Proposition \ref{prop:ENH-CE}. 
+ %%
+\TODOR{At this point we might add a remark on the difference between \eqref{R-Rstar-balance}  and \eqref{enh-EDB}}
+\EEE
+
+%
+%\TODOH{We should add  a second result: if we replace \eqref{strong-initial} by}
+%\RBS  \begin{equation}
+%  \label{weak-initial}
+%  \exists\, 0  <\overline{U} \quad  \forall\, n \in \N \text{ for $\pi$-a.a.\ $x\in V$:} \qquad 
+%  0 \leq u_n^0(x) \leq \overline{U}
+%\end{equation} \EEE
+%\TODOH{then we obtain solutions in the sense of Def.\ \ref{def:R-Rstar-balance}.}
+%Main theorem: convergence to a solution of the $R$-$R^*$ formulation.
+\paragraph{\bf 
+Outline of the proof.} In Sec.\ \ref{s:5} we are going to prove  convergences \eqref{DBL}\&\eqref{cvg-j} to a pair $(\rho,\bj):[0,T]\to \calM^+(V)\times \Mloc(\Ed)$ satisfying the 
+\begin{description}
+\item[\textbf{upper energy-dissipation estimate}]
+\begin{equation}
+\label{UEDE}
+\int_0^t \left( \scrR(\rho_r, \bj_r) + \Fish(\rho_r) \right) \dd r+ \calS(\rho_t)   \leq \calS(\rho_0)   \qquad \text{Efor all } t\in [0,T]\,.
+\end{equation}
+\end{description}
+We will conclude the proof in Sec.\ \ref{s:6} by showing that the curve $(\rho,\bj) $ satisfies the continuity equation in the sense of 
+Def.\ \ref{def:CE}  and fulfills the 
+\begin{description}
+\item[\textbf{lower energy-dissipation estimate}]
+\begin{equation}
+\label{LEDE}
+\int_0^t \left( \scrR(\rho_r, \bj_r) + \Fish(\rho_r) \right) \dd r+ \calS(\rho_t)   \geq \calS(\rho_0)   \qquad \text{for all } t\in [0,T]\,.
+\end{equation}
+\end{description}
+%%%%%
+%%%%%%
+\section{Compactness and Upper energy-dissipation inequality}
+\label{s:5}
+\RNEW Preliminarily,  for the reader's convenience  we recall a refined version of the Ascoli-Arzel\`a theorem in metric spafes that will be used later on.
+\begin{theorem}{\cite[Prop.\ 3.3.1]{AGS08}}
+\label{thm:Ascoli}
+Let $(\mathscr{S}, \mathsf{d})$ be a complete  metric space, also endowed with a topology $\serifsigma$ compatible with $\mathsf{d}$ in the sense that
+for all $(x_n)_n,\, (y_n)_n \subset \mathscr{S}$ there holds
+\begin{equation}
+\label{compatibility-top-metr}
+(x_n,y_n) \stackrel{\serifsigma}{\longrightarrow} (x,y) \ \Longrightarrow  \ \liminf_{n\to\infty} \mathsf{d}(x_n,y_n) \geq \mathsf{d}(x,y)\,. 
+\end{equation}
+Let $\mathsf{K}$ be a $\serifsigma$-sequentially compact subset of  $\mathscr{S}$, and let
+$(v_n)_n$
+be a sequence of curves  $v_n : [0,T]\to \mathscr{S}  $ such that 
+\begin{subequations}
+\label{conditions-for-Ascoli}
+\begin{align}
+\label{compactness}
+& v_n(t) \in \mathsf{K} && \text{for all } t \in [0,T], \ n \in \N,
+\\
+& 
+\label{equicontinuity}
+\limsup_{n\to\infty} \mathsf{d}(v_n(t),v_n(s)) \leq \omega(s,t) && \text{for all } s,\, t \in [0,T]
+\end{align}
+\end{subequations}
+where  $\omega : [0,T]{\times}[0,T]\to [0,\infty)$ is a   symmetric function for which there exists an (at most) countable subset $\mathscr{C}$ of $[0,T]$ such that
+\[
+\lim_{(s,t) \to (r,r)}\omega(s,t) = 0 \quad \text{for all } r\in [0,T]{\setminus}\mathscr{C}.
+\]
+Then, there exist an increasing subsequence $(n_k)_k$ and a limit curve $v: [0,T]\to \mathscr{S}$ such that 
+\[
+v_{n_k}(t) \stackrel{\serifsigma}{\to} v(t) \text{ for all } t \in [0,T] \ \text{ and } \ v: [0,T]\to \mathscr{S} \text{ is } \mathsf{d}\text{-continuous on } [0,T]{\setminus}\mathscr{C}\,. 
+\]
+\end{theorem}
+
+
+
+
+
+
+
+
+\par
+Furthermore, 
+we record an observation that will be used several times in what follows.
+
+%\TODO{In fact, in the statement below we might just have setw cvg in $\calM([0,T]{\times}E)$ for $(\eeta_n)$, see the upcoming comments}
+\begin{lemma}
+\label{l:obvious-useful}
+Let $(\eeta_n)_n,\eeta \subset   \calM([0,T]{\times}E)$ fulfill
+\[
+\eeta_n \to \eeta \qquad \text{setwise in }  \RNEW \calM([0,T]{\times}E)\,, \RNEW
+\]
+and set $\zzeta_n: =  \frac1{1{\wedge}\dpi} \eeta_n$.
+%for some  Borel function $\ell \colon E \to [0,\infty)$  such that $\lim_{d(x,y) \to \infty} \ell(x,y) =\infty$. 
+ Then,
+\[
+\zzeta_n \to \zzeta  :=\frac1{1{\wedge}\dpi} \eeta  \qquad \text{vaguely in }  \calM([0,T]{\times}E')\,.
+\]
+\end{lemma}
+\begin{proof}
+For the measures $\zzeta_n$
+ let us consider cylindrical  test functions $\varphi$, i.e.,
+  $\varphi(t,x,y) = \phi(t) \gamma(x,y)$ with  $\eta\in \Cc([0,T])$ and $\gamma \in \Cc(E')$.
+ We have
+\[
+\begin{aligned}
+\iiint_{[0,T]{\times}\Ed} \varphi\, \zzeta_n(\dd t \dd x \dd t ) &  = 
+\iiint_{[0,T]{\times}\Ed} \phi(t)  \frac{\gamma(x,y)}{1{\wedge}\dpi(x,y)} (1{\wedge}\dpi(x,y)) \,  \zzeta_n(\dd t \dd x \dd t )
+\\
+& = \iiint_{[0,T]{\times}\Ed} \phi(t)  \frac{\gamma(x,y)}{1{\wedge}\dpi(x,y)}\, \eeta_n (\dd t \dd x \dd t )
+\\
+& \stackrel{(1)}{\longrightarrow}
+\iiint_{[0,T]{\times}\Ed} \phi(t)  \frac{\gamma(x,y)}{1{\wedge}\dpi(x,y)} \eeta(\dd t \dd x \dd t )
+\\
+& \qquad = \iiint_{[0,T]{\times}\Ed} \varphi\,  \zzeta(\dd t \dd x \dd t ) 
+\end{aligned}
+\]
+where  convergence 
+{\footnotesize (1)} follows from the fact that $\gamma$ has compact support in $\Ed$ and thus 
+ $\gamma/(1{\wedge}\dpi) $ extends to a function in $ \Bb(E)$. 
+\end{proof}
+\EEE
+%%%
+\subsection{Compactness}
+\label{ss:compactness}
+%%
+We now address the  compactness properties of the sequence  $(\rho^{\ej},\bj^{\ej})_n $.
+With the short-hand notation $ \tetapien : = \teta_{\kappa_{\eps_n}}$,
+we write   
+\begin{equation}
+\label{absolute-continuity-n}
+\rho^{\ej} = u^{\ej} \pi
+\text{ and  } 2\bj^{\ej} = w^{\ej} \tetapien 
+\end{equation}
+ (since $\rho_t^{\ej} \ll \pi$ and $\bj_t^{\ej} \ll \tetapien$
+for $\scrL$-a.a.\ $t\in (0,T)$, by 
+ \eqref{nice-representation})
+for some $(u^{\ej})_n  \subset
+\rmL^1(0,T; \rmL^1(V,\pi)) $ and  \RNEW $(w^{\ej})_n \subset \rmL^1(0,T; \rmL^1(E,\tetapien)) $.   \EEE
+From the $(\scrE,\scrR_{\eps_n},\scrR_{\ej}^*)$  energy-dissipation balance written on the interval $[0,t]$ for any $t\in [0,T]$
+\begin{equation}
+\label{EDB-n}
+\int_0^t \left( \scrR^{\ej}(\rho_r^{\ej}, \bj_r^{\ej}) + \Fish^{\ej}(\rho_r^{\ej}) \right) \dd r+ \calS(\rho_t^{\ej})   \leq \calS(\rho^0_n) 
+\end{equation}
+  it immediately follows that 
+ \begin{align}
+  \label{energy-bounded}
+  &
+ \sup_{n\in \N }\sup_{t\in [0,T]} \scrE(\rho_t^{\ej})    \leq \sup_{n\in \N }\scrE(\rho_n^0) =\mathsf{E}_0,
+ \\
+ \label{action-bounded}
+ &
+ \sup_{n\in \N} \int_0^T \scrR_{\eps_n}(\rho^{\ej}, \bj^{\ej}) \dd t \leq \mathsf{E}_0\,,
+ \\
+  \label{Fisher-bounded}
+ &
+ \sup_{n\in \N} \int_0^T \scrD_{\eps_n}(\rho^{\ej}) \dd t \leq \mathsf{E}_0\,,
+ \end{align}
+\par
+For later convenience we remark that the action 
+integrals $ \int_0^T \scrR_{\eps_n}(\rho^{\ej}, \bj^{\ej}) \dd t $ rewrite
+taking into account that, by  \eqref{action-bounded}
+ we have for $\scrL$-a.a.\ $t\in (0,T)$
+ \begin{equation}
+ \label{def-set-Eeps}
+ |\bj_t^{\ej} |(E\setminus E_t^{\ej}) =0 \qquad \text{with }  E_t^{\ej} =  \{ (x,y)\in E\, : \ \upalpha(u_t^{\ej}(x),u_t^{\ej}(y))>0\}
+ \end{equation}
+ and hence
+ \[
+ \scrR(\rho_t^{\ej},\bj_t^{\ej})  = 
+    \displaystyle
+    \frac12\iint_{E_t^{\ej}}% {_\upalpha(u)}
+    \uppsi\Bigl(\frac{w_t^{\ej}(x,y)}{\upalpha(u_t^{\ej}(x),u_t^{\ej}(y))}\Bigr)\upalpha(u_t^{\ej}(x),u_t^{\ej}(y))\,\tetapien(\dd
+    x,\dd y) \EEE 
+     \quad \text{for $\scrL$-a.a.\ $t\in (0,T)$.} 
+ \] 
+ \RBS We emphasize that the compactness result below holds under the sole conditions \eqref{initial-thm:main}. In particular, we may allow for the constant $\underline{U}$ in 
+ \eqref{strong-initial}  to be zero. \EEE
+\begin{proposition}[Compactness]
+\label{prop:compactness}
+There exist  
+a curve $\rho: [0,T]\to \calM^+(V)$, continuous in the $\nbl{\cdot}$-norm, \RNEW a curve  $u \in \rmL^\infty(0,T; \rmL^\infty(V; \pi))$
+satisfying \eqref{inherited-bounds-for-u}, 
+and  $\bj_\Lebone \in \Mloc([0,T]{\times}\Ed)$, 
+such that 
+\begin{equation}
+\label{disintegration-props-rho-j}
+\begin{cases}
+\rho_t(\dd x) = u_t\,   \pi(\dd x)  & \text{for } \Lebone\text{-a.a.\ } t \in (0,T),
+\\
+\bj_\Lebone(\dd t \dd x \dd y) = \bj_t(\dd x \dd y) \,\Lebone(\dd t) & \text{for a measurable family } \bj = (\bj_t)_{t\in[0,T]} \subset \Mloc(E')
+\end{cases}
+\end{equation}
+such that, along a (not relabeled) subsequence, convergences \eqref{DBL} and \eqref{cvg-j} hold. Moreover, the curves $(u^{\ej})_n$ from 
+\eqref{absolute-continuity-n} fulfill
+\begin{equation}
+\label{added-cvg-u}
+u^{\ej} \weaksto u \quad \text{in }  \rmL^\infty(0,T; \rmL^\infty(V; \pi)).
+\end{equation}
+% as $n\to\infty$:
+\end{proposition}
+%\TODO{In the proof of Prop.\ \ref{prop:compactness} I have used  $\underline{U} \leq u_n^0 \leq \overline{U}$ to simplify the proof, but it shouldn't be necessary..  }
+\begin{proof}
+Clearly, by \eqref{initial-conds-rhoj} we have that $\sup_n  \rho_n^0(V)  \leq M_1$ for some $M_1>0$. Now, 
+from the continuity equation we deduce the mass conservation property
+\[
+\rho_t^{\ej}(V) = \rho_0^{\ej}(V) = \rho_n^0(V)  \qquad \text{for all } t \in [0,T] \text{ and } j \in \N.
+\]
+In fact,  \RNEW by \eqref{boundedness}  \EEE  we also have 
+\begin{equation}
+\label{boundedness-un}
+0 \leq  \underline{U} \leq u_t^{\ej}(x) \leq \overline{U} \qquad \text{for } (\scrL{\times}\pi)\text{-a.a. } (t,x) \in (0,T){\times}V\,,
+\end{equation}
+\RNEW so that there exists $u \in   \rmL^\infty(0,T; \rmL^\infty(V; \pi))$  such that convergence \eqref{added-cvg-u} holds (along a not relabeled subsequence). 
+Clearly, $u$ inherits the bounds \eqref{boundedness-un}.
+\EEE
+We will now address the proof of some claims. 
+\medskip
+\paragraph{\bf Claim $1$:}
+{\sl Consider the families of measures $\bg_{\Lebone}^{\ej} (\dd x \dd y \dd t) =   \bg_t^{\ej}(\dd x \dd y) \Lebone(\dd t) \in  \calM([0,T]{\times}E)$, with 
+$\bg_t^{\ej}:=(1\wedge \dpi)\, \jj_t^{\ej}.$ Then,
+there exists \RNEW  $\bG \in \calM((0,T){\times}E)$ \EEE such that, up to a not relabeled subsequence, there holds as $n\to\infty$}
+\begin{equation}
+\label{setwise-g}
+ \bg_{\Lebone}^{\ej}  \to \bG \qquad \text{setwise  in }    \RNEW \calM([0,T]{\times}E)\,. \EEE 
+\end{equation}
+{\sl The measure  $\bG$ can be disintegrated as $\bG(\dd t\,\dd x\,\dd y)= \bg_\Lebone(\dd t\,\dd x\,\dd y)
+=  \bg_t(\dd x\,\dd y)\,\Lebone (\dd t) $  \EEE for a measurable family $ \bg = (\bg_t)_{t\in[0,T]} \subset \calM(E).$}
+\\
+%Following an estimate in Remark~\ref{rem:flux_finite}, 
+We start by observing that, for every $\beta>0$  and    for $\Lebone$-a.a.\ $t\in (0,T)$
+%
+%\TODO{I have replaced $\Ed$ by $E$ in estimate \eqref{calc1} and in \eqref{for-setwise-convergence}, it seems to me that we don't need to restrict to $\Ed$, correct? On the other hand, I have replaced $w_t^{\ej}(x,y)  $ by $|w_t^{\ej}(x,y) | $ }
+%and Borel set $A\subset \Ed$
+    \begin{equation}
+    \label{calc1}
+    \begin{aligned}
+      |\bg_t^\varepsilon|(\RNEW E) \EEE 
+        &= \RNEW \frac12  \iint_{E} \EEE \frac1\beta (1{\wedge}\dpi(x,y)) |w_t^{\ej}(x,y) |  \tetapien (\dd x \dd y )
+        \\
+        & 
+        \stackrel{(1)}{=} \RNEW \frac12 \EEE \iint_{E_t^{\ej}}    \frac1\beta (1{\wedge}\dpi(x,y)) \frac{|w_t^{\ej}(x,y)|}{\upalpha(u_t^{\ej}(x), u_t^{\ej}(y))} \upalpha(u_t^{\ej}(x), u_t^{\ej}(y))
+        \,   \tetapien  (\dd x \dd y )
+       \\
+       &    \stackrel{(2)}\leq  \frac1\beta 
+       \Big[
+   \RNEW \frac12 \EEE \iint_{E_t^{\ej}}   \uppsi\left(  \frac{w_t^{\ej}(x,y)}{\upalpha(u_t^{\ej}(x), u_t^{\ej}(y))}\right) \upalpha(u_t^{\ej}(x), u_t^{\ej}(y)) \,   \tetapien  (\dd x \dd y )
+  \\
+  & \qquad \qquad + \RNEW \frac12 \EEE  \iint_{E_t^{\ej}}   \uppsi^*\left( \beta  (1{\wedge}\dpi(x,y)) \right) \upalpha(u_t^{\ej}(x), u_t^{\ej}(y)) \,   \tetapien  (\dd x \dd y ) \Big]
+  \\
+  & 
+    \stackrel{(3)}\leq  \frac1\beta 
+       \Big[
+\scrR_{\ej} (\rho_t^{\ej}, \bj_t^{\ej})
++ \RNEW \frac12 \EEE\psih(\beta) \iint_{E_t^{\ej}}   \left( 1{\wedge}\dpi^2(x,y) \right) \upalpha(u_t^{\ej}(x), u_t^{\ej}(y)) \,  \tetapien  (\dd x \dd y ) \Big]\,.
+  \end{aligned}
+  \end{equation}
+ Indeed,
+     {\footnotesize (1)} is due to the fact that $|\bj_t^{\ej}|(E {\setminus} E_t^{\ej}) = 0$ (cf.\ \eqref{def-set-Eeps}),  while 
+     \RNEW
+     {\footnotesize (2)} follows from the fact that $\uppsi$ is even, and eventually
+      the estimate 
+      {\footnotesize (3)} for $\uppsi^*$ in terms of $\psih$  follows from \eqref{needed-control}\,. \EEE
+     Now, in order to estimate the second integral in the above formula, we use that, 
+     \RCR by the concavity (and, a fortiori, continuity) of $\upalpha$,
+%     for  fixed $(c,c') \in \mathrm{dom}(\upalpha^*)$ there holds
+%     \[
+%     \upalpha(r,s) \leq c r + c' s - \upalpha^*(c,c')\,.
+%     \]
+%     with $\upalpha^*(c,c') = \inf_{(r,s)\in \R_+\times\R_+} (c r +c's -\upalpha(r,s))$ the concave conjugate of $\upalpha$. Observe that $\upalpha^*\leq 0$. 
+%     Therefore, 
+     by \eqref{boundedness-un} we have for  $\pi$-a.a.\ $x,y\in V$
+     \begin{equation}
+     \label{for-later-use-uppalpha}
+      \upalpha(u_t^{\ej}(x), u_t^{\ej}(y))\leq %c  u_t^{\ej}(x) +   c' u_t^{\ej}(y)-   \upalpha^*(c,c') \leq  (c{+}c')\overline{U}  - \upalpha^*(c,c')\doteq
+       C_{\overline{U}}\,
+     \end{equation}
+     for some $ C_{\overline{U}}>0$. \EEE
+     Also taking into account that 
+       \[
+   \iint_{E}  ( 1{\wedge}\dpi^2(x,y))\, \tetapien(\dd x \dd y )  \leq   \iint_{E}  ( 1{\wedge}\dpi^2(x,y))\, \tetapi(\dd x \dd y )  \leq c_k \pi(V)
+   \]
+   by \eqref{mitigation of singularity}, we thus obtain 
+      \begin{equation}
+    \label{calc2}
+     \begin{aligned}
+      \iint_{E_t^{\ej}}   \left( 1{\wedge}\dpi^2(x,y)) \right) \upalpha(u_t^{\ej}(x), u_t^{\ej}(y)) \,  \tetapien  (\dd x \dd y ) \leq   C_{\overline{U}}  c_\kappa \pi(V)  \doteq \overline{C}\,.
+%     \\ & 
+%     \leq   c   \iint_{E_t^{\ej}}   u_t^{\ej}(x)( 1{\wedge}\dpi^2(x,y)) \,  \tetapien  (\dd x \dd y )+ 
+%      c'   \iint_{E_t^{\ej}}   u_t^{\ej}(y)( 1{\wedge}\lambda^2(x,y)) \,   \tetapien  (\dd x \dd y )
+%      \\
+%      & \quad 
+%      - \upalpha^*(c,c') \iint_{E_t^{\ej}}   \left( 1{\wedge}\lambda^2(x,y)) \right) \,   \tetapien  (\dd x \dd y )
+%    \\ &    \stackrel{(1)}\leq (c{+}c')   \iint_{E_t^{\ej}}   u_t^{\ej}(x) ( 1{\wedge}\lambda^2(x,y)) \,  \tetapien  (\dd x \dd y )    - \upalpha^*(c,c') \iint_{E_t^{\ej}}   \left( 1{\wedge}\lambda^2(x,y)) \right) \,   \tetapien  (\dd x \dd y )
+%    \\
+%    &  \stackrel{(1)}\leq
+    \end{aligned}
+  \end{equation}
+%    where for {\footnotesize (1)} we have used the detailed balance condition \eqref{DBC} and  the symmetry of $\lambda$
+%    \RNEW (cf.\ Remark \ref{rmk:lambda}),  \EEE
+%     while  {\footnotesize (2)} follows the fact that 
+%%    from \eqref{boundedness-un} and \eqref{mitigated-bound}, which yields
+%  . \EEE
+ %  \int_V \int_{V{\setminus}\{x\}} ( 1{\wedge}\lambda^2(x,y)) \kappa_{\ej}( x \dd y ) \, \pi(\dd x) 
+ \par
+    Mimicking the above calculations we conclude that 
+    for every Borel subset \RNEW $A \subset [0,T]\times E$  \EEE and every $\beta>0$
+    \[
+    \begin{aligned}
+|\bg_{\Lebone}^{\ej}|(A)  & =  \RNEW \frac12 \EEE    \iiint_{A} \frac1\beta (1{\wedge}\dpi(x,y)) w_t^{\ej}(x,y)\,\tetapien(\dd x \dd y ) \dd t 
+\\
+& \leq \frac1\beta 
+       \Big[
+\int_0^T \scrR_{\ej} (\rho_t^{\ej}, \bj_t^{\ej}) \dd t 
++ \RNEW \frac12 \EEE\psih(\beta)    \iiint_{A}   \left( 1{\wedge}\dpi^2(x,y)) \right) \upalpha(u_t^{\ej}(x), u_t^{\ej}(y)) \,\tetapien(\dd x \dd y )  \dd t
+\Big]\,
+\\
+& \leq \frac1\beta \mathsf{E}_0
++ \frac{\psih(\beta)}\beta  \frac{C_{\overline{U}}}2  \iiint_{A}
+  \left( 1{\wedge}\dpi^2(x,y)) \right)\,\tetapien(\dd x \dd y ) \dd t \,,
+%  \\
+%  & \leq \frac1\beta \mathsf{E}_0
+%+ M_2 \frac{\psih(\beta)}\beta   \iiint_{A} 
+%  \left( 1{\wedge}\dpi^2(x,y)) \right) \tetapi(\dd x \dd y ) \dd t 
+  \end{aligned}
+    \]
+    where we have 
+    %used the place-holder $M_2=\RNEW \tfrac12 \EEE(c{+}c')\overline{U}  - \upalpha^*(c,c') $ and  
+     relied on estimate \eqref{action-bounded}.
+    % and ultimately used that
+    %$ \tetapi_{\ej} \leq \teta$ 
+    %since 
+    %$\kappa_{\ej}(x,\cdot) \leq \kappa(x,\cdot)$. 
+   In this way, exploiting the arbitrariness of $\beta$  we may prove that 
+   \begin{equation}
+   \label{for-setwise-convergence}
+   \forall\, \eta>0 \ \exists\, \delta>0 \, : \ \RNEW A \in \mathfrak{B}([0,T]\times E), \EEE \ \teta_\Lebone^{\dpi}  (A)<\delta \ \Longrightarrow \ \sup_n |\bg_{\Lebone}^{\ej}|(A) <\eta
+   \end{equation}
+   where we have used the place-holder $\teta_\Lebone^{\dpi}$ for the positive finite measure $ (1{\wedge}\dpi^2)(\tetapi)_\Lebone$.
+   Therefore, we have shown that the sequence $(\bg_{\Lebone}^{\ej})_n$ is relatively compact w.r.t.\ setwise convergence in \RNEW $\calM((0,T){\times} E)$. \EEE
+   \par
+   \RNEW It remains to show that $\bG = \bg_t \Lebone$ for a measurable family $(\bg_t)_{t\in[0,T]} \subset \calM(E)$.
+   For this, it is sufficient to 
+    apply the disintegration result from  \cite[Cor.\ 10.4.15]{Bogachev07}. Hence, we need to 
+   show that the first marginal  of $\bG$, i.e.\ the push-forward measure $(\pi_0)_{\#}\bG$ via the projection $\pi_0: [0,T]{\times}E
+   \to [0,T]$, is absolutely continuous w.r.t.\ the Lebesgue measure $\Lebone$. 
+    It is immediate to deduce this property from  
+  estimates \eqref{calc1}--\eqref{calc2}, 
+  which yield for all $I\subset [0,T]$ and $\beta>0$
+  \[
+  ((\pi_0)_{\#}\bG) (I) \leq \liminf_{n\to\infty} \int_I   |\bg_t^{\ej}|(\Ed)  \dd t 
+  \leq \frac1{\beta} \sup_n \int_I \scrR_{\ej} (\rho_t^{\ej}, \bj_t^{\ej}) \dd t +  \overline{C} \frac{ \psih(\beta)}{ 2\beta} \Lebone(I) \,.
+  \]
+   All in all, we have shown
+   {\bf Claim $1$}.  \EEE
+  % \RRR Possibly, give more details on the disintegration of $\bG$, which gives the disintegration of $\bj$.. \EEE
+  \medskip
+  \paragraph{\bf Claim $2$:}  {\sl  Convergence \eqref{DBL} holds along a further, not relabeled, subsequence, \RNEW and
+ $ \rho_t(\dd x) = u_t\,   \pi(\dd x) $ with $u$ from \eqref{added-cvg-u}.} \EEE 
+  \\
+  Indeed,
+  \RNEW on the one hand, it follows from \eqref{boundedness-un} that 
+  \begin{equation}
+  \label{setwise-compact}
+     \forall\, \eta>0 \ \exists\, \delta>0 \, : \  A \in \mathfrak{B}(V),  \pi (A)<\delta \ \Longrightarrow \ \sup_n \sup_{t\in [0,T]} \rho_t^{\ej} (A) <\eta\,.
+  \end{equation}
+  \RNEW This shows that the family $( \rho_t^{\ej} )_{t\in [0,T],\, n \in \N}$ fulfills the analogue of property 
+  \eqref{eq:73} with respect to the measure $\gamma =\pi$, which characterizes (sequential) compactness w.r.t.\ setwise convergence, \RCR and thus the setwise 
+  topology, 
+   in $\calM(V)$. 
+   Therefore, the `compactness' condition   \eqref{compactness}  in Theorem \ref{thm:Ascoli}  holds with $\mathsf{K} $ a setwise  compact subset of $\calM(V) $. \EEE
+%%   
+%%   In turn, since setwise convergence is 
+%%  equivalent to convergence w.r.t.\ the weak topology of $(\calM(V),  \|\cdot\|_{\mathrm{TV}})$, we conclude  that   
+%%  \TODOBS{\EEE Just a caveat: is weak compactness equivalent to sequential weak compactness in  $\calM(V) $?? because, in order to apply  Theorem \ref{thm:Ascoli}
+%%  we need a topology! Otherwise, we should argue as in \cite{PRST22} and argue with the densities $u$, instead of the measures $\rho$ }
+    \par
+  On the other hand, \EEE
+   estimate
+  \eqref{est:ct-eq-BL}	 (which holds, all the more, along the solutions $(\rho^{\ej}, \bj^{\ej}) \in \ENHCE 0T$ of the continuity equation), guarantees that 
+  \[
+     \nbl{\rho_{t_2}^{\ej}- \rho_{t_1}^{\ej}} \leq 
+  \int_{t_1}^{t_2} \RNEW  |\bg_t^{\ej}|(E) \EEE \, \dd t \qquad \text{for  }\Lebone\text{-a.a. }  t_1 \leq t_2 \in [0,T]\,,
+  \]
+    \RNEW cf.\ \eqref{nbl-norm} for the definition of $\nbl{\cdot}$. \EEE
+  Combining it with estimates \eqref{calc1}--\eqref{calc2} we conclude that for all $\beta>0$
+  \begin{equation}
+  \label{Ascoli}
+  \begin{aligned}
+    \nbl{ \rho_{t_2}^{\ej} {-} \rho_{t_1}^{\ej}} &  \leq 
+   \frac1\beta 
+       \Big[ \int_{t_1}^{t_2}
+\scrR_{\ej} (\rho_t^{\ej}, \bj_t^{\ej}) \dd t 
++ \psih(\beta) \int_{t_1}^{t_2}  \frac{C_{\overline{U}}}2 c_\kappa \pi(V)  \dd t \Big]
+\\
+& 
+\leq \frac1\beta (\mathsf{E}_0 +   C_{\overline{U}} c_\kappa \pi(V) \psih(\beta)|t_2{-}t_1| )\,.
+\end{aligned}
+  \end{equation}
+  By \eqref{Ascoli}, the equicontinuity  condition \eqref{equicontinuity} holds  with 
+the function $\omega: [0,T]{\times}[0,T]\to [0,+\infty)$ given by \EEE
+\[
+\omega(r,s): = \inf_{\beta>0} \frac1\beta (\mathsf{E}_0 +   C_{\overline{U}} c_\kappa \pi(V) \psih(\beta)|r{-}s| )\,,
+\]
+which 
+satisfies $\lim_{(r,s)\to (t,t} \omega(r,s)=0$ for all $t\in[0,T]$.
+%  \TODOR{We need to settle this:
+% is there a topology inducing setwise convergence? or, can we rely on the weak topology of $(\calM(V), \|\cdot\|_{TV})$ thanks to the characterization of 
+%setwise convergence on page  \pageref{eq:70}?}
+\par
+\RNEW All in all,
+we are in a position to apply Theorem \ref{thm:Ascoli} to the sequence $(\rho_n)_n$, in the space $\mathscr{S} :=\calM(V) $ endowed with the 
+\RCR setwise topology on 
+ $\calM(V)$  \EEE
+ %{\color{red} the 
+%topology (???)} of setwise convergenc
+ and with the metric
+$\mathsf{d}$ induced by $\nbl{\cdot}$, for which the compatibility condition  \eqref{compatibility-top-metr} clearly holds.
+%Thanks to \eqref{setwise-compact}, 
+%he sequence $(\rho_n)_n$ satisfies condition \eqref{compactness} with $\mathsf{K} $ a setwise compact subset of $\calM(V) $. In turn, by 
+%\eqref{Ascoli} the equicontinuity  condition \eqref{equicontinuity} holds  with 
+%the function $\omega: [0,T]{\times}[0,T]\to [0,+\infty)$ given by \EEE
+%\[
+%\omega(r,s): = \inf_{\beta>0} \frac1\beta (\mathsf{E}_0 +  M_2 c_\kappa \pi(V) \psih(\beta)|r{-}s| )\,,
+%\]
+%which 
+%satisfies $\lim_{(r,s)\to (t,t} \omega(r,s)=0$ for all $t\in[0,T]$.
+ Hence, by 
+\RNEW Theorem \ref{thm:Ascoli} we  conclude  convergence \eqref{DBL} along a suitable subsequence. 
+ A straightforward argument yields   $ \rho_t(\dd x) = u_t\,   \pi(\dd x) $ for $\Lebone$-a.a.\ $t\in (0,T)$.  We thus \EEE
+conclude \textbf{Claim~$2$}.
+\medskip
+
+\paragraph{\bf Claim $3$:} {\sl define $\bj_{\Lebone}\in \Mloc([0,T]{\times}\Ed)$ by 
+\[
+\bj_{\Lebone}(\dd t \dd x \dd y) = \frac1{1{\wedge}\dpi(x,y)} \bg_{\Lebone}( \dd t \dd x \dd y)
+\]
+ Then, convergence \eqref{cvg-j} \RNEW and the disintegration property \eqref{disintegration-props-rho-j} (with $\bj_t (\dd x \dd y)=  \frac1{1{\wedge}\dpi(x,y)} \bg_t(\dd x \dd y) \in \Mloc(\Ed)$) hold.}
+\\
+\RNEW It suffices to apply Lemma \ref{l:obvious-useful} to with the choices 
+$\eeta_n: = \bg_{\Lebone}^{\ej}$ and 
+$\zzeta_n: = \bj_{\Lebone}^{\ej}$. \EEE
+%%%%
+\RNEW This finishes the proof of Prop.\ \ref{prop:compactness}. 
+\end{proof}
+\medskip
+As an immediate consequence of convergences  \eqref{DBL} and \eqref{cvg-j} we have the following
+\begin{corollary}
+The pair $(\rho,\bj) $ satisfies   the continuity equation on the interval  $[0,T]$  in the sense of Def.\ \ref{def:CE}. 
+\end{corollary}
+
+
+
+\par
+\RNEW For later use in the proof of Lemma \ref{l:UEDE}, we also record the following convergences. \EEE
+\begin{corollary}
+ Consider the measures $(\ssigma_t^{\ej})_{t\in [0,T]} \subset \calM^+(E)$ defined by
+\[
+\ssigma_t^{\ej} (\dd x \dd y) =  \frac{1\wedge \dpi^2(x,y)}{\ej + (1{\wedge}  \dpi^2(x,y))} \upalpha(u_t^{\ej}(x),u_t^{\ej}(y) ) \, \tetapi(\dd x \dd y)\,,
+    \]
+     and let $\ssigma_{\Lebone}^{\ej} \subset \calM([0,T]{\times}E)$ be given by 
+    $\ssigma_{\Lebone}^{\ej} (\dd t \dd x \dd y) = \ssigma_t^{\ej} (\dd x \dd y) \, \Lebone(\dd t)$.
+\RNEW    Then, there exists $ \ssigma_\Lebone \in   \Mloc^+([0,T]{\times}\Ed)$, with 
+$\ssigma_\Lebone(\dd t \dd x \dd y )= \ssigma_t (\dd x \dd y) \Lebone (\dd t)$ for some $\ssigma = (\ssigma_t)_{t\in[0,T]} \subset \Mloc^+(\Ed)$, such that 
+\begin{equation}
+\label{key-absolute-continuity}
+\ssigma_t (A) \leq  \bnu_{\rho_t}(A) =  \Aalpha[\teta_{\rho_t}^-,\teta_{\rho_t}^+|\tetapi](A)  \qquad \text{for  all } A \in  \mathfrak{B}_{\mathrm{c}}(\Ed),  \
+ \text{for }\Lebone\text{-a.a.\ } t \in (0,T),
+\end{equation}
+and 
+        \begin{align}
+    \label{vague-signa}
+  \ssigma_{\Lebone}^{\ej} \to \ssigma_\Lebone   && \text{vaguely in }  \Mloc([0,T]{\times}\Ed)\,.
+\end{align}
+\end{corollary}  
+%    
+%        Then, there exist
+%    and
+%      $\ssigma_{\Lebone} = \frac1{1\wedge\lambda^2} \nnu_{\Lebone} \in \Mloc^+([0,T]{\times}\Ed)$ such that, up to a (not relabeled) subsequence,
+%    \begin{align}
+%  \label{setwise-mu}
+%&  \nnu_{\Lebone}^{\ej} \to    \nnu_\Lebone&& \text{setwise in }  \calM([0,T]{\times}\Ed),
+%\\
+%&
+%  \label{vague-signa}
+%  \ssigma_{\Lebone}^{\ej} \to \ssigma_\Lebone   && \text{vaguely in }  \Mloc([0,T]{\times}\Ed)\,.
+%\end{align}
+%
+%\TODO{do $\nn$ and $\bss$ disintegrate?}
+\begin{proof}
+\RNEW Let 
+    $(\nnu_{t}^{\ej})_{t \in [0,T]} \in \calM^+([0,T]{\times}E)$ \RNEW be given by
+   \[
+    \nnu_{t}^{\ej}(\dd x \dd y) = (1{\wedge} \dpi^2(x,y))\ssigma_t^{\ej} (\dd x \dd y)  \quad \text{and set} \qquad \nnu_{\Lebone}^{\ej}  = \nnu_t^{\ej} \, \Lebone\,.
+    \]
+By repeating the very same calculations as in \eqref{calc2}, we find for any $A\in \frB(E)$,
+\begin{equation}
+\label{crucial-for-nnu}
+\begin{aligned}
+\nnu_t^{\ej}(A)  & = \iint_A (1{\wedge} \dpi^2(x,y)) \,\ssigma_t^{\ej}(\dd x \dd y) \\ & \leq \iint_A (1{\wedge} \dpi^2(x,y))
+ \upalpha(u_t^{\ej}(x),u_t^{\ej}(y) ) \, \tetapi(\dd x \dd y) 
+ \leq  C_{\overline{U}}  \iint_A (1{\wedge} \dpi^2(x,y)) \tetapi(\dd x \dd y)\,.
+ \end{aligned}
+\end{equation}
+Then, a further integration of  \eqref{crucial-for-nnu} w.r.t.\ the Lebesgue measure
+$\Lebone$ reveals that 
+ the sequence $(\nnu^{\ej})_n$ enjoys the analogue of estimate \eqref{for-setwise-convergence}.
+Thus there exists   $\nnu \in \calM^+([0,T]{\times}E)$ % with $\nnu_\Lebone(\dd t \dd x \dd y )= \nnu_t (\dd x \dd y) \Lebone (\dd t)$ for some $\nnu = (\nnu_t)_{t\in[0,T]} \subset \calM^+(\Ed)$,
+ such that   
+$ \nnu_{\Lebone}^{\ej} \to    \nnu $ setwise in $  \calM([0,T]{\times}E) $  \RNEW
+ along a suitable subsequence.
+From \eqref{crucial-for-nnu}  we also infer  for every $I \subset [0,T]$
+\[
+((\pi_0)_{\#} \nnu) (I) \leq \liminf_{n\to\infty} \int_I \nnu_t^{\ej}(E') \dd t \leq M_2 \,  \Lebone(I) \, \iint_{E'} (1{\wedge} \dpi^2(x,y)) \tetapi(\dd x \dd y)  \,,
+\]
+which shows that  the first marginal of $\nnu$ is absolutely continuous w.r.t.\ $\Lebone$. Then, again by \cite[Cor.\ 10.4.15]{Bogachev07}
+  $\nnu$ can be disintegrated w.r.t.\ $\Lebone$ in terms of a family   $(\nnu_t)_{t\in [0,T]} \subset \calM^+(E)$. 
+%  
+%  \TODO{same comment as for Claim $1$ in the proof of Prop.\ \ref{prop:compactness}:  for $\nnu^{\ej}$, we could replace setwise convergence in $  \calM([0,T]{\times}\Ed) $ by 
+%  setw cvg  in $  \calM([0,T]{\times}E)$, correct? We should be consistent with that...}
+ \par
+ Clearly,
+ applying  Lemma \ref{l:obvious-useful} with  %$\ell = \lambda^2$, 
+ $\eeta_n = \nnu_{\Lebone}^{\ej} $
+ and $\zzeta_n = \ssigma_{\Lebone}^{\ej} $ we infer convergence  \eqref{vague-signa}. 
+ It remains to prove 
+ \eqref{key-absolute-continuity}.
+ For this, we will indeed first show that 
+ \begin{equation}
+ \label{intermediate-inequality}
+ \int_a^b  \nnu_t(A) \, \dd t \leq \int_a^b \iint_A  (1{\wedge} \dpi^2(x,y)) \, \bnu_{\rho_t} (\dd x \dd y) \dd t \qquad \text{for all } A \in \mathfrak{B}(E) \text{ and  }  (a,b) \subset (0,T)\,.
+ \end{equation}
+ Indeed, we  have 
+ \[
+ \begin{aligned}
+  \int_a^b  \nnu_t(A) \, \dd t \stackrel{(1)}{=} \lim_{n\to\infty} \int_a^b \nnu_t^{\ej}(A) \, \dd t  
+  &  \stackrel{(2)}{\leq} \limsup_{n\to\infty}\iiint_{(a,b){\times}A}
+ \upalpha(u_t^{\ej}(x),u_t^{\ej}(y) ) \, \teta_\Lebone^{ \dpi}(\dd t \dd x \dd y) 
+ \\
+ &
+  \stackrel{(3)}{\leq} \iiint_{(a,b){\times}A}
+ \upalpha(u_t(x),u_t(y)) \, \teta_\Lebone^{ \dpi}(\dd t \dd x \dd y) 
+\end{aligned}
+ \]
+ where {\footnotesize (1)}  follows from the setwise convergence $ \nnu_{\Lebone}^{\ej} \to    \nnu $,  {\footnotesize (2)} is due to  \eqref{crucial-for-nnu} (recall that 
+  $\teta_\Lebone^{\dpi}$ is a place-holder for  $ (1{\wedge}\dpi^2)(\tetapi)_\Lebone$). % \RCR and {\footnotesize (3)}  ensues from the Fatou Lemma. \EEE
+  Finally, 
+ {\footnotesize (3)}  ensues from combining  the fact that, in fact, 
+ \[
+ u^{\ej} \weaksto u \text{ in } \rmL^\infty((0,T){\times}V;  \teta_\Lebone^{ \dpi})
+ \]
+ (cf.\ \eqref{added-cvg-u}) due to  \eqref{boundedness}, with a variant of the Ioffe theorem, cf.\ \cite[Thm.\ 21, p.\ 171]{Valadier90}. Hence, \eqref{intermediate-inequality} 
+ follows, implying that 
+ \begin{equation}
+ \label{localized-test-functions}
+ \begin{aligned}
+ \int_a^b \iint_{E} \phi(x,y) \, \nnu_t(\dd x \dd y) \dd t  & \leq  \int_a^b \iint_{E} (1{\wedge} \dpi^2(x,y)) \phi(x,y) \, \bnu_{\rho_t} (\dd x \dd y) \dd t 
+ \\ & 
+  \qquad \text{for all } \phi \in \Bb(E) \quad \text{with } \phi \geq 0 \text{ and all }  (a,b) \subset (0,T).
+  \end{aligned}
+  \end{equation}
+ Let us now fix an arbitrary  test function $\varphi \in \Cc(\Ed)$ with $\varphi \geq 0$: we have that 
+ \[
+ \begin{aligned}
+ \int_a^b \iint_{E} \varphi(x,y) \, \ssigma_t(\dd x \dd y)\,  \dd t  &  =  \int_a^b \iint_{E} \frac{\varphi(x,y)}{1{\wedge} \dpi^2(x,y)} \, \nnu_t(\dd x \dd y)\,  \dd t  
+ \\
+ & 
+ \stackrel{(1)}{\leq} 
+  \int_a^b \iint_{E} \frac{\varphi(x,y)}{1{\wedge} \dpi^2(x,y)} (1{\wedge} \dpi^2(x,y))  \, \bnu_{\rho_t} (\dd x \dd y)   \dd t  
+  \\
+  &
+  = 
+ \int_a^b \iint_{E} \varphi(x,y) \, \bnu_{\rho_t} (\dd x \dd y)   \dd t \,,
+ \end{aligned}
+\]
+ where {\footnotesize (1)} follows from \eqref{localized-test-functions}, since $ \frac{\varphi(x,y)}{1{\wedge} \dpi^2(x,y)} $ extends to a function in $\Bb(E)$. Therefore, 
+ \eqref{key-absolute-continuity} follows. 
+ 
+   \end{proof} \EEE
+\subsection{Upper energy-dissipation inequality}
+\label{ss:5.2}
+Ultimately, we are in a position to prove the following 
+\begin{lemma}
+\label{l:UEDE}
+The pair $(\rho,\bj)$ satisfies the upper energy-dissipation estimate \eqref{UEDE}. 
+\end{lemma}
+\RBS Again, we emphasize that so far we have relied on the sole conditions \eqref{initial-thm:main} where, in particular, \eqref{strong-initial}  may hold with
+$\underline{U}=0$. \EEE
+\begin{proof}
+We take the limit as $n\to\infty$ in \eqref{EDB-n}. By \eqref{DBL} we have 
+\begin{equation}
+\label{lsc-energies}
+\scrE(\rho_t) \leq \liminf_{n\to\infty} \scrE(\rho_t^{\ej}) \qquad \text{for all } t \in [0,T].
+\end{equation}
+\par
+Next, we
+rewrite $\int_0^t \scrR^{\ej}(\rho^{\ej}, \jj^{\ej}) \dd r$  in terms of the measure $(\ssigma_t^{\ej})_t$.
+In what follows, we use the place-holder $m^{\ej} = \tfrac{1{\wedge} \dpi^2}{\ej +(1{\wedge} \dpi^2)}$:
+we find  for  $\scrL$-a.a.\ $t\in (0,T)$ and  for all  $ (x,y)\in E_t^{\ej} $
+\[
+\frac{w_t^{\ej}(x,y)}{\upalpha(u_t^{\ej}(x),u_t^{\ej}(y))} = \frac{w_t^{\ej}(x,y) \, m^{\ej}(x,y)}{\upalpha(u_t^{\ej}(x),u_t^{\ej}(y)) \, m^{\ej}(x,y)} =
+\frac{\dd (\RNEW 2\bj_t^{\ej})}{\dd \ssigma_t^{\ej}} (x,y) \,.
+\]
+Therefore
+ \[
+ \begin{aligned}
+ \scrR(\rho_t^{\ej},\bj_t^{\ej})   & 
+ = \frac12\iint_{E_t^{\ej}}% {_\upalpha(u)}
+    \uppsi\Bigl(\frac{w_t^{\ej}(x,y)}{\upalpha(u_t^{\ej}(x),u_t^{\ej}(y))}\Bigr) \upalpha(u_t^{\ej}(x),u_t^{\ej}(y))\,\tetapi \dd
+    x,\dd y)
+    \\
+     & =  \frac12\iint_{E_t^{\ej}}% {_\upalpha(u)}
+    \uppsi\Bigl( 2\frac{\dd \bj_t^{\ej}}{\dd \ssigma_t^{\ej}} (x,y)  \Bigr)\frac1{m^{\ej}(x,y)}\upalpha(u_t^{\ej}(x),u_t^{\ej}(y))\, m^{\ej}(x,y) \,\tetapi(\dd
+    x,\dd y)
+    \\ &  \geq  \frac12\iint_{E_t^{\ej}}% {_\upalpha(u)}
+    \uppsi\Bigl( 2 \frac{\dd \bj_t^{\ej}}{\dd \ssigma_t^{\ej}} (x,y)  \Bigr)\,\ssigma_t^{\ej}(\dd
+    x,\dd y)\,.
+\end{aligned}
+\]
+where we have used that $1/m^{\ej} \geq 1$. 
+All in all, %using the short-hand $\Upsilon(v):= \frac12 \uppsi(2v)$, 
+we have 
+\begin{equation}
+\label{lsc-R}
+\begin{aligned}
+\liminf_{n\to\infty} \int_0^t 
+ \scrR(\rho_r^{\ej},\bj_r^{\ej}) \dd r  & =  \frac12 \liminf_{n\to\infty}  \iiint_{[0,t]{\times}\Ed} \uppsi \left(2\frac{\dd \jj_{\Lebone}^{\ej}}{\dd \ssigma_{\Lebone}^{\ej}}  \right)  \ssigma_{\Lebone}^{\ej} (\dd r \dd x \dd y) \\ & 
+  = \liminf_{n\to\infty}  \calF_{\uppsi}\left( \jj_{\Lebone}^{\ej}|\ssigma_{\Lebone}^{\ej} \right) 
+  \\
+  &
+  \geq 
+   \frac12 \calF_{\uppsi}\left( 2\jj_{\Lebone}|\ssigma_{\Lebone} \right) 
+ = \frac12 \iiint_{[0,t]{\times}\Ed} \uppsi \left(2\frac{\dd \jj_{\Lebone}}{\dd \ssigma_{\Lebone}}  \right)  \ssigma_{\Lebone} (\dd r \dd x \dd y)
+ \\
+ & \qquad \qquad \qquad = \frac12 \int_0^t \iint_{\Ed} \uppsi \left( 2\frac{\dd \jj_{r}}{\dd \ssigma_{r}}  (x,y) \right) \,  \ssigma_r (\dd x \dd y)\, \dd r
+ \end{aligned}
+ \end{equation}
+ since $ \jj_{\Lebone}^{\ej} \to \jj_\Lebone$, $ \ssigma_{\Lebone}^{\ej} \to \ssigma_\Lebone$
+ \RNEW vaguely in $\Mloc([0,T]{\times}\Ed)$, 
+  and $\mathcal{F}_{\uppsi}$ is lower semicontinuous w.r.t.\ vague convergence by Lemma 
+ \ref{l:crucial-F}. 
+ Now,
+ since $\bj_t \leq \bnu_{\rho_t}$ for $\Lebone$-a.a.\ $t\in (0,T)$ by \eqref{key-absolute-continuity}, recalling the monotonicity property
+ \eqref{AC-monotonicity} from Lemma \ref{l:crucial-F}
+  we have that 
+ \[
+ \begin{aligned}
+ \frac12 \int_0^t \iint_{\Ed} \uppsi \left(2\frac{\dd \jj_{r}}{\dd \ssigma_{r}}  (x,y) \right) \,  \ssigma_r (\dd x \dd y)\, \dd r  & \geq \frac12  \int_0^t 
+  \iint_{\Ed} \uppsi \left(2\frac{\dd \jj_{r}}{\dd \bnu_{\rho_r}}  (x,y) \right) \,  \bnu_{\rho_r}(\dd x \dd y)\, \dd r 
+  \\
+  & 
+  =
+ \int_0^t \scrR(\rho_r,\bj_r) \dd r\,.
+ \end{aligned}
+ \] \EEE
+ \par
+Finally, in order to take the limit as $n\to\infty$ in the Fisher information term, we use that, by \eqref{Fisher-bounded}, 
+ \[
+ \begin{aligned}
+\Fish(\rho_t^{\ej})  = \frac12 \iint_{E'}  \mathrm{D}_\upphi(u_t^{\ej}(x),u_t^{\ej}(y)) \, \tetapien(\dd x \dd y)
+\end{aligned}
+\]
+Therefore, introducing the measures $\teta_{\Lebone}^{\rho^{\ej},\pm}(\dd t \dd x \dd y) = \teta_{\rho^{\ej},t}^{\pm} (\dd x \dd y) \, \Lebone (\dd t)$ and 
+$\teta_{\ej,\Lebone}(\dd t \dd x \dd y) = \teta_{\ej}(\dd x \dd y) \, \Lebone (\dd t)$, we rewrite
+\[
+\begin{aligned}
+\int_0^t \Fish(\rho_r^{\ej}) \dd r  & = 
+\frac12 \iiint_{[0,t]{\times}E'}   \mathrm{D}_\upphi\left( \frac{\dd \teta_{\Lebone}^{\rho^{\ej},-}}{\dd \teta_{\ej,\Lebone}}, \frac{\dd \teta_{\Lebone}^{\rho^{\ej},+}}
+{\dd \teta_{\ej,\Lebone}}\right)\, 
+\teta_{\ej,\Lebone}(\dd r \dd x \dd y) \doteq   \calF_{\Xi} (\bbeta_\Lebone^{\ej}|\teta_{\ej,\Lebone}) 
+\end{aligned}
+\]
+where the convex functional $\Xi: \R_+ \times \R_+ \to [0,+\infty]$ is defined by $\Xi(w,z) = \tfrac12 \mathrm{D}_\upphi(w,z)$ and we have used the place-holder
+$\bbeta_\Lebone^{\ej} =(\teta_{\Lebone}^{\rho^{\ej},-},\teta_{\Lebone}^{\rho^{\ej},+})$. 
+Now, it can be immediately checked that the setwise convergence of $\rho_t^{\eps_n}$ to $\rho_t$ for 
+all $t\in [0,T]$
+ gives that 
+\[
+(1{\wedge} \dpi^2) \teta_{\Lebone}^{\rho^{\ej},\pm} \to (1{\wedge} \dpi^2) \teta_{\Lebone}^{\rho,\pm}  \qquad \text{setwise in }  \calM([0,t]{\times}\Ed)
+\]
+with 
+\[
+\teta_{\Lebone}^{\rho,\pm} (\dd t \dd x \dd y)  = \teta_{\rho_t}^{\pm} (\dd x \dd y) \, \Lebone(\dd t)\,.
+\]
+Thus, \RNEW by Lemma \ref{l:obvious-useful} we have \EEE
+\[
+ \teta_{\Lebone}^{\rho^{\ej},\pm} \to  \teta_{\Lebone}^{\rho,\pm}  \qquad \text{vaguely in }  \Mloc([0,t]{\times}\Ed)\,.
+\]
+Since we also have $\teta_{\ej,\Lebone} \to \teta_{\Lebone}$ vaguely in $ \Mloc([0,t]{\times}\Ed)$, again by Lemma  \ref{l:crucial-F} we conclude that 
+(with the place-holder $\bbeta_\Lebone =(\teta_{\Lebone}^{\rho,-},\teta_{\Lebone}^{\rho^,+})$) 
+\[
+\begin{aligned}
+\liminf_{n\to\infty} \int_0^t \Fish(\rho_r^{\ej}) \dd r 
+&  \geq    \calF_{\Xi} (\bbeta_\Lebone|\teta_{\Lebone}) 
+%\frac12 
+ %\iiint_{[0,t]{\times}E'}   \Xi \left(\frac{\dd (\teta_{\Lebone}^{\rho,-},\teta_{\Lebone}^{\rho,+})}{\dd \teta_{\ej,\Lebone}} \right)\, \teta_{\Lebone}(\dd r \dd x \dd y)
+ \\
+ &
+=  \frac12 \iiint_{[0,t]{\times}E'}   \mathrm{D}_\upphi\left( \frac{\dd \teta_{\Lebone}^{\rho,-}}{\dd \teta_{\Lebone}}, \frac{\dd \teta_{\Lebone}^{\rho,+}}
+{\dd \teta_{\Lebone}}\right) \, \teta_{\Lebone}(\dd r \dd x \dd y)
+=\int_0^t \Fish(\rho_r) \dd r \,.
+\end{aligned}
+\]
+Taking into account that $\scrE(\rho_n^0)\to \scrE(\rho_0)$, the upper energy-dissipation inequality \eqref{UEDE} follows.
+\end{proof}
+
+\section{Chain rule and lower  energy-dissipation inequality}
+\label{s:6}
+%\TODOH{Outline of the section:
+%\\
+%1. extend the continuity equation, in such a way that $\varphi = -\dnabla (\phi' \circ u) $ can be chosen as test function for the CE
+%\\
+%2. deduce the validity}
+
+
+In this section
+\begin{enumerate}
+\item
+in Proposition \ref{prop:ENH-CE} below we will  
+show that the pair $(\rho,j)$ is in fact a solution of the continuity equation in an \emph{enhanced} sense,
+in comparison to that of Def.\ \ref{def:CE}.
+\end{enumerate}
+ Precisely in the proof of  Prop.\ \ref{prop:ENH-CE}, 
+\RCR  we will resort to the density property assumed in Assumption  \ref{Ass:F-bis}. \EEE
+%\WARNING or whatever condition we adopt 
+ We highlight that we
+will succeed in proving 
+Proposition \ref{prop:ENH-CE}  only under the additional condition that $u= \frac{\dd \rho}{\dd \pi}$ is bounded from above and away from zero, cf.\ 
+\eqref{strong-bounds} below. 
+Thus, Prop.\ \ref{prop:ENH-CE}  will apply to the pair
+$(\rho,\jj)\in\CE 0T$ obtained by the approximation procedure set forth in Section \ref{s:4}, only under the condition that the constant
+$\underline U$ from \eqref{strong-initial} is \emph{strictly positive}.
+ \begin{enumerate}
+     \setcounter{enumi}{1}
+     \item 
+Exploiting this improved continuity equation, in Proposition
+\ref{prop:CR} ahead
+ we will  show that, along solutions of the continuity equation satisfying \eqref{strong-bounds}, the chain rule identity holds.
+ \item
+ In this way, we will conclude the proof of part \textbf{(2)} of Theorem \ref{th:main}. 
+ \item
+Eventually,  we will  prove  part \textbf{(1)} via an approximation argument. 
+\end{enumerate}
+\subsection{An enhanced continuity equation}
+\label{s:6.1}
+In order to extend the class of test functions for the continuity equation, we will crucially rely on the information that the limit pair $(\rho,\bj) \in \CE0T$ constructed in Sec.\ \ref{s:5}
+have finite entropy and finite action:
+\begin{equation}
+\label{finite-entropy+action}
+    \sup\nolimits_{t\in [0,T]} \scrE(\rho_t) <\infty,\qquad \int_0^T \scrR(\rho_t,\bj_t)\, \dd t <\infty.
+\end{equation}
+{\color{gray} In view of \cite[Rmk.\ 4.12]{PRST22}, we may assume without loss of generality that for $\Lebone$-a.a.\ $t\in (0,T)$ the measure $\bj_t$ is skew-symmetric, i.e.\
+$s_{\#} \bj_t = -\bj_t$ with $s: E \to E$ the symmetry map $s(x,y) = (y,x)$.}
+\TODOR{We no longer need the gray part above, right?}
+ \EEE
+%Recall that a pair $(\rho,j)$ is said to satisfy the continuity equation if for all $\varphi\in \Lip_b(V)$:
+%\[
+%    \int_V \varphi(x)\,\rho_t(dx) - \int_V \varphi(x)\,\rho_s(dx) = \int_s^t \iint_\Ed \dnabla \varphi(x,y)\,\bj_r(dxdy)\,dr\qquad\text{for any $(s,t)\subset(0,T)$}.
+%\]
+%In order to prove the chain rule, we will need to extend the class of functions for $\varphi$ in the continuity equation. In particular, we will extend it to functions $\varphi\in B_b(V)$ for which
+
+%\TODO{Warning: in the proof of Prop.\ \ref{prop:ENH-CE} I have  used the bounds $\underline U \leq u(t,x) \leq \overline U $  }
+% that the initial condition $ 0< \underline{U} \leq  u^0 \leq \overline{U}$. I believe, indeed, that we also need $u^0 \geq \underline{U} >0$....}
+\begin{proposition}
+\label{prop:ENH-CE} 
+ Let $(\rho,\jj)\in\CE 0T$ fulfill \eqref{finite-entropy+action} \RBS  and
+ suppose that  $\rho_t = u_t \pi$ with 
+ \begin{equation}
+ \label{strong-bounds}
+\exists\, 0<\underline U \leq \overline U \, : \quad \underline U   \leq u_t(x) \leq \overline U   \text{ for $\pi$-a.a.\ $x \in V$ and for all } t\in [0,T].
+\end{equation}
+\EEE
+ %^ emanate from an initial datum $u^0 $ such that $ 0\leq u^0 (x) \leq \overline{U}$ for $\pi$-a.a.\ $x\in V$
+ %for some $\overline{U}>0$. \EEE
+% Further, let $\varphi\in B_b(V)$ satisfy \eqref{eq:test_extend}.
+ Then
+ \begin{equation}
+ \label{desired-CE}
+    \int_V \varphi(x)\,\rho_t(\dd x) - \int_V \varphi(x)\,\rho_s(\dd x) = \int_s^t \iint_\Ed \dnabla \varphi(x,y)\,\bj_r(\dd x \dd y)\,\dd r\qquad\text{for any $[s,t]\subset[0,T]$}.
+ \end{equation}
+ for all test functions
+ $\varphi \in \Bb(V)$ fulfilling
+  \begin{equation}
+  \label{eq:test_extend}
+    \int_0^T \iint_\Ed \uppsi^*(\dnabla \varphi(x,y))\,\upalpha(u_t(x),u_t(y))\,\tetapi(\dd x \dd y)\,\dd t <\infty.
+\end{equation}
+\end{proposition}
+%\TODO{I guess that, indeed, we may prove \eqref{desired-CE} for all test functions in $\Bb(V) \cap \mathcal{X}$, which is maybe easier to read...}
+
+%%%%\TODOR{Here the argument bifurcates.}
+%%%%\medskip
+%%%%
+%%%%\hrule
+%%%%\hrule
+%%%%\hrule
+%%%%\smallskip
+%%%%
+%%%%
+%%%%\noindent \RCR \textbf{Oliver's argument:} \EEE 
+%%%%\begin{proof}
+%%%%\RBS Preliminarily, we observe that, since $u$ satisfies   \eqref{strong-bounds}, showing \eqref{desired-CE} for all test functions $\varphi \in \Bb(V)$ fulfilling
+%%%%\eqref{eq:test_extend} is equivalent to showing it for all test functions  $\varphi \in \Bb(V) \cap \mathcal{X}$, with  $ \mathcal{X}$ from \eqref{X-subset}.  \EEE
+%%%%\par
+%%%%    The proof follows from an approximation argument.
+%%%%    \RNEW Since the measures $\bj_t$ may be supposed skew-symmetric, we may safely assume  \EEE that 
+%%%%    the function
+%%%%   \RNEW  $w:=d(2\jj)/d\tetapi$  \EEE fulfills  \RNEW $w_t(x,y)=-w_t(y,x)$ for all $(x,y) \in \Ed$ and $\Lebone$-a.a.\ $t\in (0,T)$. \EEE
+%%%%    Consider the regularized flux
+%%%%    \[
+%%%%      \RNEW  \jj_M^\Lebone  \EEE (\dd t\dd x \dd y):= w_t(x,y) \chi_{A_M}(t,x,y)\,(\tetapi)_\Lebone (\dd t \dd x \dd y)\qquad  M>0,
+%%%%    \]
+%%%%    where 
+%%%%    \[
+%%%%    A_M := \left\{(t,x,y)\in [0,T]\times \Ed : \frac{|w_t(x,y)|}{1{\wedge}  \dpi^2(x,y)} \le M, \right\}.
+%%%%    \]
+%%%%    Notice that for $\scrL{\otimes}\pi$-almost every $(t,x)\in(0,T)\times V$, we have
+%%%%    \[
+%%%%        \int_{V\setminus\{x\}} |w_t(x,y)| 1_{A_M}(t,x,y)\,\kappa(x,\dd y) \le M \int_{V\setminus\{x\}}( 1{\wedge}  \dpi^2(x,y) ) \,\kappa(x,\dd y) \le c_\kappa M.
+%%%%    \]
+%%%%    In particular, the function
+%%%%    \[
+%%%%        \textsf{G}_M(t,x) := \int_{V\setminus\{x\}} w_r(x,y) 1_{A_M}(t,x,y)\,\kappa(x,\dd y)
+%%%%    \]
+%%%%    is an element of $ \rmL^\infty((0,T){\times} V;\scrL\otimes\pi)$ for every $M>0$,  \RNEW and $\bj_{\Lebone}^M$ extends to a \emph{finite} measure in $\calM([0,T]{\times}E)$. \EEE
+%%%%    
+%%%% %   Now consider the associated regularized curve obtained from solving the continuity equation   
+%%%%     \RNEW It can be calculated
+%%%%     (cf.\ also \cite[Thm.\ 6.5]{PRST22}),
+%%%%      that the curve 
+%%%%     $\rho^M:[0,T]\to \calM(V)$ defined by  \EEE
+%%%%    %More precisely, we set fo 
+%%%%       \begin{align}\label{eq:approximation}
+%%%%   \rho_t^M := u_t^M \pi \quad \text{with }      u_t^M(x) := u_0(x) -2\int_0^t \textsf{G}_M(r,x) \dd r
+%%%%    \end{align}
+%%%%    fort $\pi$-almost every $x\in V$ and all $t\in [0,T]$ solves the continuity equation,  with flux $j^M$,
+%%%%  %  \RNEW in the enhanced sense of Definition \ref{def:CE-enh}. \EEE
+%%%%     Moreover, since $G_M\in \rmL^\infty((0,T){\times} V;\scrL{\otimes} \pi)$
+%%%%     \RNEW we immediately find that $u_t^M\in \rmL^\infty(V;\pi)$. Indeed,
+%%%%%     
+%%%%%     
+%%%%%     \RNEW and since   $\scrE(\rho^0)<+\infty$, so that  $u_0\in \rmL^\upphi(V,\pi)$,   the Orlicz space defined from the Young function $\upphi$, \EEE
+%%%%%      we easily deduce that
+%%%%%   for all $t\in [0,T]$ we have  $u_t^M\in \rmL^\upphi(V;\pi)$.
+%%%%%   \RNEW Furthermore, 
+%%%%%   again   
+%%%%   by \cite[Thm.\ 6.5]{PRST22} we have that 
+%%%%   \begin{equation}
+%%%%   \label{uM-above-bounded}
+%%%%  0\leq  u_t^M(x) \leq \overline{U} \quad \text{for } \pi\text{-a.a.\ $x\in V$ and every } t \in [0,T]\,.
+%%%%   \end{equation}   
+%%%%  %  \TODOR{Note that I have had to assume $u^0$ bounded from above in order to obtain \eqref{uM-above-bounded}, which is used to have weak$^*$ compactness of the $u^M$... }
+%%%%   
+%%%%   
+%%%%   
+%%%%%. We then consider the {\color{red} reflexive Banach?} space
+%%%%   %\[
+%%%%   % \mathcal{X} := \left\{ \varphi\in \rm\rmL^{\upphi^*}(V,\pi) : \iint_\Ed \uppsi^*(\dnabla\varphi)\,\dd\teta <\infty \right\} \subset \rm\rmL^{\upphi^*}(V,\pi),
+%%%%  % \]
+%%%%  % equipped with the norm
+%%%%   %\[
+%%%%   % \|\varphi\|_\mathcal{X} := \|\varphi\|_{\rm\rmL^{\upphi^*}(V,\pi)} + \|\dnabla\varphi\|_{\rm\rmL^{\uppsi^*}(\Ed,\teta)}.
+%%%%   %\]
+%%%%\par
+%%%% \RNEW    Testing \eqref{eq:approximation} with $\varphi \in \mathcal{X}$ we find 
+%%%% \[
+%%%% \langle u_t^M{-}u_s^M, \varphi\rangle_{\rmL^1(V;\pi)} = 2 \int_s^t \langle  \textsf{G}_M(r,\cdot), \varphi \rangle_{\rmL^1(V;\pi)} \,\dd r\, \quad \text{for all } 0 \leq s \leq t \leq T.
+%%%% \]
+%%%% Therefore,  estimating from above,
+%%%%    \RNEW we obtain
+%%%%    \begin{align}
+%%%%    \label{first-step-ascoli}
+%%%%       \left |  \langle u_t^M{-}u_s^M,\varphi \rangle_{\rmL^1(V;\pi)} \right| &\le 
+%%%%        & \stackrel{(1)}{=}  \iiint_{A_M {\cap} (s,t){\times}\Ed} \left| w_r(x,y)  ({-}\dnabla \varphi(x,y))\right|   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)\,,
+%%%%                \end{align}    
+%%%%                where for {\footnotesize (1)} we have used that 
+%%%%                \[
+%%%%                \begin{aligned}
+%%%%   &   \iiint_{A_M {\cap} (s,t){\times}\Ed} w_r(x,y)  \varphi(x)   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)  
+%%%%   \\
+%%%%   &   = \frac12    \iiint_{A_M {\cap} (s,t){\times}\Ed} w_r(x,y)  \varphi(x)   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)       
+%%%%   +   \frac12    \iiint_{A_M {\cap} (s,t){\times}\Ed} w_r (y,x)  \varphi(y)   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)  
+%%%%      \\
+%%%%        &   = \frac12    \iiint_{A_M {\cap} (s,t){\times}\Ed} w_r(x,y)  \varphi(x)   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)  -     
+%%%%      \frac12    \iiint_{A_M {\cap} (s,t){\times}\Ed} w_r (x,y)  \varphi(y)   \, (\tetapi)_\Lebone (\dd r \dd x \dd y)   
+%%%%      \end{aligned}
+%%%%                \]
+%%%%                by the skew-symmetry of $w_r(\cdot,\cdot)$ combined with the detailed balance condition, cf.\ \eqref{DBC}. 
+%%%%                Next, arguing as for 
+%%%%                \eqref{calc1} we estimate  with Young's inequality 
+%%%%                \begin{align}
+%%%%                 &  \int_s^t \iint_{\Ed}\left| w_r(x,y)  ({-}\dnabla \varphi(x,y))\right|   \, \tetapi (\dd x \dd y) \dd r
+%%%%                   \nonumber
+%%%%             \\ &     \leq \int_s^t  \iint_{E_\upalpha^r}    \frac{|w_r(x,y)|}{\upalpha(u_r(x), u_r(y))} \upalpha(u_r(x), u_r(y))
+%%%%        \,   \tetapi  (\dd x \dd y ) \dd r 
+%%%%        \nonumber
+%%%%       \intertext{with the set $E_\upalpha^r = \{ (x,y)\in \Ed\, : \ \upalpha(u_r(x), u_r(y))>0 \} $ fulfilling $|\bj_r|(\Ed{\setminus}E_\upalpha^r )=0$ for 
+%%%%       $\Lebone$-a.a.\ $r\in (0,T)$, cf.\ \eqref{nice-representation},}
+%%%%       &   \leq    \int_s^t \iint_{E_\upalpha^r}   \uppsi\left(  \frac{w_r(x,y)}{\upalpha(u_r(x), u_r(y))}\right) \upalpha(u_r(x), u_r(y)) \,   \tetapi  (\dd x \dd y )\dd r \nonumber
+%%%%     \\
+%%%%     & \qquad   +
+%%%%  \int_s^t \iint_{E_\upalpha^r}   \uppsi^*\left( \dnabla \varphi(x,y)\right) \upalpha(u_r(x), u_r(y)) \,   \tetapi  (\dd x \dd y ) \dd r           \nonumber
+%%%%              \\
+%%%%              & \leq \int_s^t \scrR (\rho_r, \bj_r)  \dd r +   C_{\overline{U}} (t{-}s) \iint_{\Ed}   \uppsi^*\left( \dnabla \varphi(x,y)\right) \tetapi(\dd x \dd y) \,.         \nonumber
+%%%%               \end{align} 
+%%%%              Inserting this into \eqref{first-step-ascoli} we find that 
+%%%%               \begin{equation}
+%%%%               \label{equicontinuity-M}
+%%%%               \widehat{\mathsf{d}}(u_t^M,u_s^M) \leq \omega(s,t) \qquad \text{for all } s,t\in [0,T]
+%%%%               \end{equation}
+%%%%               with $\omega(s,t): =  \int_s^t \scrR (\rho_r, \bj_r)  \dd r +   C_{\overline{U}} (t{-}s) $ and $\widehat{\mathsf{d}}$ {\color{red} the distance???}  on $\rmL^\upphi(V;\pi)$ defined by 
+%%%%               \[
+%%%%                \widehat{\mathsf{d}}(u_0,u_1): = \sup_{\varphi \in \mathcal{X},  \, \|\dnabla\varphi\|_{\rmL^{\uppsi^*}(\Ed;\tetapi)}\leq 1}  \left |  \langle u_1 {-}u_0, \varphi \rangle_{\rmL^1(V;\pi)} \right| \,.
+%%%%               \]
+%%%%    %%  
+%%%%           \TODO{This is exaclty the point where I need that $\mathcal{X}$ is sequentially dense in $\rmL^1$ w.r.t.\ the weak topology of $\rmL^1$: to ensure that 
+%%%%            $  \widehat{\mathsf{d}}$ is a distance, in particular that $  \widehat{\mathsf{d}}(u_0,u_1)=0$ yields $u_0=u_1$....
+%%%%           }
+%%%%    \par           
+%%%%Ultimately, we are in a position to apply Theorem \ref{thm:Ascoli} to the sequence $(u^M)_M \subset \rmL^\infty (V;\pi)$ (hereafter we assume that $M\in \N$), choosing
+%%%%\emph{(i)} as $\serifsigma$ the weak$^*$ topology in $ \rmL^\infty (V;\pi)$: then, \eqref{uM-above-bounded} guarantees condition \eqref{compactness});
+%%%%\emph{(ii)}  the distance $ \widehat{\mathsf{d}}$: then, \eqref{equicontinuity-M} guarantees the equicontinuity estimate \eqref{equicontinuity}. We thus conclude that  there exists
+%%%%$\bar u \in  \rmL^\infty(0,T;\rmL^\infty (V;\pi))$ such that, along a (not relabeled) subsequence, there holds
+%%%%\[
+%%%%u_t^M \weaksto \bar{u}_t \quad \text{weakly$^*$ in } \rmL^\infty(V;\pi) \quad\text{for all } t \in [0,T]\,. 
+%%%%\]
+%%%%A fortiori, setting $\rho_t =  \bar{u}_t  \pi$ we have that 
+%%%%\begin{equation}
+%%%%\label{setwise-rhoM}
+%%%%\rho_t^M \to \bar\rho_t  \quad \text{setwise} \quad\text{for all } t \in [0,T]\,. 
+%%%% \end{equation}
+%%%%
+%%%%%\TODO{This is the point where I have used \eqref{uM-above-bounded}. it seems to me that it is cleaner to apply the Ascoli theorem on the level of densities, instead of measures..}
+%%%%               
+%%%%
+%%%%%        
+%%%%%        &  \|u_0\|_{\rmL^{\upphi}(V;\pi)}\|\varphi\|_{\rmL^{\upphi^*}(V;\pi)} +2\int_0^t \iint_{\Ed} \psi^*(\varphi(x,y))   \alpha(u_r(x), u_r(y)) \,  \tetapi(\dd x \dd y) \dd r 
+%%%%%        + 2\int_0^t  \iint_{\Ed}\psi^* \left( \frac{w_r(x,y)}{\alpha(u_r(x), u_r(y))}  \right)  \alpha(u_r(x), u_r(y)) \,  \tetapi(\dd x \dd y) \dd r 
+%%%%%        \\
+%%%%%         \|u_0\|_{\rmL^{\upphi}(V;\pi)}\|\varphi\|_{\rmL^{\upphi^*}(V;\pi)} +2  \|\varphi\|_{\rmL^{\upphi^*}(V;\pi)} 
+%%%%%        
+%%%%%        
+%%%%%        
+%%%%%         \int_0^t \iint_\Ed  \uppsi(w_r)\,\tetapi\,\dd r\right)\|\varphi\|_\mathcal{X}\,.
+%%%%%    \end{align*}
+%%%%%   .
+%%%%%   
+%%%%%   
+%%%%%   
+%%%%%    $\sup_{t\in[0,T]}\|u_t^M\|_{\mathcal{X}'} <\infty$, from which one easily concludes via an application of the Ascoli--Arzel\`a yheorem the existence of a (not relabelled) subsequence and a limit curve $\bar u:[0,T]\to \mathcal{X}'$ such that
+%%%%%    \[
+%%%%%        u_t^M\to \bar u_t\quad\text{in $\mathcal{X}'$ for all $t\in[0,T]$}.
+%%%%%    \]
+%%%%%%    \TODO{I have 2 issues with the above lines: 
+%%%%%%    1. we should first of all observe that 
+%%%%%%    \[
+%%%%%%    \int_0^t \iint_\Ed  \uppsi(w_r^M (x,y))\,\tetapi(\dd x \dd y)\,\dd r \leq    \int_0^t \iint_\Ed  \uppsi(\frac{w_r (x,y))\,\tetapi(\dd x \dd y)\,\dd r
+%%%%%%    <+\infty
+%%%%%%    \]
+%%%%%%    but I can no longer reconstruct the last bound. Shouldn't we rather estimate 
+%%%%%% \begin{align*}
+%%%%%%        \left|\langle \varphi,u_t^M\rangle_{\rmL^\upphi(V;\pi)}\right| &\le |\langle \varphi,u_0\rangle_{\rmL^\upphi(V;\pi)}| +  2\int_0^t |\langle \varphi, \textsf{G}_M(r,\cdot)\rangle_{\rmL^\upphi(V;\pi)}|\,\dd r \\
+%%%%%%        &\le  %2\left(\|u_0\|_{\upphi} +  t + \int_0^t \iint_\Ed  \uppsi(w_r)\,\tetapi\,\dd r\right)\|\varphi\|_\mathcal{X}\,.
+%%%%%%    \end{align*}
+%%%%%%    2. in order to apply the  Ascoli--Arzel\`a Theorem, I guess that we should also provide an estimate for  }
+%%%%%%    
+%%%%%    
+%%%%%    
+%%%%%    
+%%%%%    
+%%%%%    Furthermore, by an approximation argument {\color{red}[as below]}, one establishes
+%%%%
+%%%%\par
+%%%%We now send $M\to \infty $ in the continuity equation
+%%%%    \[
+%%%%        \int_V\varphi(x)\,\rho_t^M (\dd x) - \int_V\varphi(x)\, \rho_s^M  (\dd x) = \iiint_{[s,t]{\times}\Ed} \dnabla\varphi(x,y)\, \jj_\Lebone^M(\dd r \dd x \dd y)\quad\text{for all $\varphi\in \Bb(V) \cap \mathcal{X}$}.
+%%%%    \]
+%%%%    Clearly, thanks to \eqref{setwise-rhoM}
+%%%%  we have
+%%%%    \[
+%%%%        \int_V \varphi \,\dd\rho_t^M \longrightarrow \int_V \varphi \,\dd\bar\rho_t\qquad\text{for all $t\in[0,T]$}.
+%%%%    \]
+%%%%    For the right-hand side, we use that 
+%%%%\[
+%%%%\iiint_{A_M {\cap} [s,t]{\times}\Ed } w_r(x,y) \dnabla\varphi(x,y) (\tetapi)_\Lebone (\dd r \dd x \dd y)  \longrightarrow 
+%%%%\int_s^t \iint_{\Ed } w_r(x,y) \dnabla\varphi(x,y) \tetapi (\dd x \dd y)\, \dd r  
+%%%%\]    
+%%%%    by the  Dominated Convergence Theorem: indeed for $\tetapi$-a.a.\ $(x,y) \in \Ed$ and almost all $r\in (s,t)$ we have 
+%%%%    \[
+%%%%  |  \chi_{A_M}(r,x,y)  w_r(x,y) \dnabla\varphi(x,y) | \leq \uppsi \left(\frac{w_r(x,y)}{\upalpha(u_r(x),u_r(y))} \right) \upalpha(u_r(x),u_r(y))  + \uppsi^*(\dnabla\varphi(x,y)) \upalpha(u_r(x),u_r(y))
+%%%%    \]
+%%%%    and by  \eqref{finite-entropy+action}  and \eqref{eq:test_extend}  the above right-hand side provides an admissible 
+%%%%     dominating function. \EEE
+%%%%  %   \TODO{exploiting the fact that $ \upalpha(u_r(x),u_r(y)) \leq C$, we could extend the above argument to all $\varphi\in \mathcal{X} \cap \Bb(V)$}
+%%%%     
+%%%%     
+%%%%   \RNEW   Altogether, we then obtain that the pair $(\bar\rho, \jj)$ satisfies the continuity equation for all test functions in $\Bb(V)$ such that \eqref{eq:test_extend} holds.
+%%%%   A fortiori, exploiting the fact that $u$ satisfies   \eqref{strong-bounds}, we conclude that 
+%%%%    \[
+%%%%        \int_V\varphi\,\dd\bar\rho_t - \int_V\varphi\,\dd\bar\rho_s = \iiint_{[s,t]\times\Ed} \dnabla\varphi\,\dd\jj_\Lebone \quad\text{for all $\varphi\in \mathcal{X} \cap \Bb(V)$}.
+%%%%    \]
+%%%%    Finally, we claim that $\bar\rho = \rho$. \RNEW  Taking into account that  the pair $(\rho,\bj)$ satisfies the continuity equation in the sense of Def.\ \ref{def:CE}, we 
+%%%%    gather that 
+%%%%      \[
+%%%%        \int_V\varphi\,\dd\rho_t - \int_V\varphi\,\dd\rho_s = \iiint_{[s,t]\times\Ed} \dnabla\varphi\,\dd\jj_\Lebone \quad\text{for all $\varphi\in  \Lip_\textrm{b}(V)$}.
+%%%%    \]
+%%%%  \RBS  Then, we gather that 
+%%%%      \[
+%%%%        \int_V \varphi(x)\, \bar\rho_t (\dd x) = \int_V \varphi(x) \, \rho_t (\dd x)  \qquad\text{for all $\varphi \in  \Lip_{\mathrm{b}}(V)$ and $t\in[0,T]$}.
+%%%%    \]
+%%%%\RBS   Since, by assumption, $\Lip_{\mathrm{b}}(V)$ is sequentially dense in $ \mathcal{X} \cap \Bb(V)$ w.r.t.\ the weak topology of
+%%%%$\rmL^1(V;\pi)$, 
+%%%%we 
+%%%%then conclude
+%%%%    \[
+%%%%        \int_V \varphi(x)\, \bar\rho_t (\dd x) = \int_V \varphi(x) \, \rho_t (\dd x)  \qquad\text{for all $\varphi\in \mathcal{X} \cap \Bb(V)$ and $t\in[0,T]$}.
+%%%%    \]
+%%%%    Then,  we have proven the 
+%%%%validity of the continuity equation for all $\varphi \in \Bb(V) $ fulfilling \eqref{eq:test_extend}.
+%%%%\end{proof}
+%%%%\medskip
+%%%%
+%%%%\hrule
+%%%%\hrule
+%%%%\hrule
+%%%%\medskip
+%%%%
+%%%%
+%%%%\noindent \RCR \textbf{Jasper's argument:} 
+
+\RCR Prior to carrying out the proof of Prop.\ \ref{prop:ENH-CE} we need to derive a key estimate  from
+%We start by  deriving from %Assumption  \ref{Ass:D-additional}
+the asymptotic condition
+ $\uppsi^*(\xi) \simeq |\xi|^2 
+ $ as $|\xi| \to 0$.
+\begin{lemma}
+Let $\uppsi^*$ comply with Assumption \ref{Ass:D}.  Then,
+\begin{equation}
+\label{Olli-est}
+\forall\, \beta>0 \ \forall\, M>0  \ \exists\, C_{\beta,M}>0: \quad \uppsi^*(\beta\xi)\leq C_{\beta,M} \uppsi^*(\xi)\qquad\forall\, \xi \in [{-}M,M].
+\end{equation}
+\end{lemma}
+\begin{proof}
+Clearly,
+if $|\beta|\leq 1$ then $\uppsi^*(\beta \xi) \leq \uppsi^*(\xi)$ since $\uppsi^* $ is non-decreasing. Now let $|\beta | \geq 1$ and let $r>0$
+be as in  \eqref{easy-conseq}.
+%%%
+We  estimate $\uppsi^*(\beta \xi)$ distinguishing two cases:
+\begin{enumerate}
+\item $|\beta \xi| \leq r$: then $|\xi| \leq \tfrac{r}{|\beta|} <r$, since $|\beta|>1$. By  \eqref{easy-conseq}  we have
+\begin{equation}
+\label{easy-case1}
+\uppsi^*(\beta \xi) \leq  \frac32 c_0 |\beta\xi|^2  \leq  \frac32 c_0 |\beta|^2  \frac{2}{c_0} \uppsi^*(\xi) = 3  |\beta|^2 \uppsi^*(\xi) \,.
+\end{equation}
+\item $|\beta \xi| > r$: then, $|\xi|> \frac r\beta$, so that, by monotonicity of $\uppsi^*$, we find $\uppsi^*(\tfrac r{\beta}) 
+\leq \uppsi^*(\xi)$, and thus
+\begin{equation}
+\label{easy-case2}
+\uppsi^*(\beta \xi) \leq  \frac{\uppsi^*(\xi)}{\uppsi^*(\tfrac r{\beta}) }\uppsi^*(\beta \xi) \leq \frac{\uppsi^*(\xi)}{\uppsi^*(\tfrac r{\beta}) }\uppsi^*(\beta M)
+\,,
+\end{equation}
+where for the last estimate we have used that $|\xi| \leq M$.
+\end{enumerate}
+ Combining \eqref{easy-case1} and \eqref{easy-case2} we conclude estimate \eqref{Olli-est}
+with
+ $
+C_{\beta,M}= \max\left\{ 3  |\beta|^2, \frac{\uppsi^*(\beta M)}{\uppsi^*(\tfrac r{\beta}) }\right\}\,.
+$
+\end{proof}
+As an immediate consequence of this result, we have that the spaces introduced in \eqref{X-L-Orli} and \eqref{X-M-Orli}  do coincide.
+\begin{corollary}
+\label{cor:identical-spaces}
+Let $\uppsi^*$ comply with Assumption \ref{Ass:D}.
+Then,  $\mathcal{X}^{\uppsi^*} =  \rmX^{\uppsi^*}$.
+\end{corollary}
+\begin{proof}
+Clearly, it suffices to prove that $  \rmX^{\uppsi^*} \subset \mathcal{X}^{\uppsi^*}$. For this, let us fix 
+$\varphi \in  \rmX^{\uppsi^*}$. Since $\varphi \in \Bb(V)$, we have that $\overline\nabla \varphi 
+\in \Bb(E)$ and thus we can apply estimate \eqref{Olli-est} with $M = \sup_{(x,y)\in E}|\overline \nabla \varphi(x,y)|$, which then ensures that 
+\[
+\forall\, \beta>0: \ \ \iint_{\Ed} \uppsi^*(\beta \overline\nabla \varphi (x,y)) \tetapi(\dd x \dd y )\leq C_{\beta,M} \iint_{\Ed} \uppsi^*(\overline\nabla \varphi (x,y)) \tetapi(\dd x \dd y )<\infty\,.
+\]
+Hence, $\overline \nabla \varphi \in \mathcal{M}^{\uppsi^*}(\Ed;\tetapi)$, and thus $\varphi \in  \mathcal{X}^{\uppsi^*}$.
+\end{proof}
+\par
+We now verify that  bounded Lipschitz functions belong to the space $\mathcal{X}^{\uppsi^*} $. 
+%
+\begin{lemma}
+\label{l:Lipb-r-nice}
+Let $\uppsi^*$ comply with Assumption \ref{Ass:D}.  Then, $\Lipb(V) \subset \mathcal{X}^{\uppsi^*} $.
+\end{lemma}
+\begin{proof}
+Let us fix an arbitrary $\varphi \in \Lipb(V)$, with norm  $\lambda:=\| \varphi \|_{\Lip_{\mathrm{b}}(V)}$. 
+ Recall
+\eqref{easy-conseq}. Then, by the monotonicity of $\uppsi^*$ we have that 
+\[
+\begin{aligned}
+&
+\iint_{\Ed} \uppsi^*(\overline \nabla \varphi(x,y)) \tetapi (\dd x \dd y ) 
+\\
+& \leq \iint_{\Ed} \uppsi^*(\lambda (1{\wedge}d(x,y))) \tetapi (\dd x \dd y )
+\\ & 
+=  \iint_{A_r} \uppsi^*(\lambda (1{\wedge}d(x,y))) \tetapi (\dd x \dd y ) + \iint_{\Ed{\setminus}A_r} \uppsi^*(\lambda (1{\wedge}d(x,y))) \tetapi (\dd x \dd y ) 
+\doteq I_1+I_2\,,
+\end{aligned}
+\]
+with 
+$A_r = \{ (x,y)\in \Ed\, : \ \lambda (1{\wedge}d(x,y)) \leq r\} $. Now, by \eqref{easy-conseq}
+\[
+I_1 \leq  \frac{3}2 c_0 \iint_{A_r} \lambda^2 (1{\wedge}d(x,y))^2 \,  \tetapi (\dd x \dd y )<+\infty\,,
+\]
+while, again by the monotonicity of $\uppsi^*$  and condition \eqref{mitigation of singularity}, we have 
+\[
+I_2 \leq \uppsi^*(\lambda)\, \tetapi (\Ed{\setminus}A_r) <+\infty\,.
+\]
+All in all, we have shown that $\iint_{\Ed} \uppsi^*(\overline \nabla \varphi(x,y))\, \tetapi (\dd x \dd y )<+\infty$, so that $\varphi \in \rmX^{\uppsi^*}$. 
+In view of Corollary \ref{cor:identical-spaces}, we conclude that 
+$\varphi \in \mathcal{X}^{\uppsi^*}$.
+\TODO{Shorten prove above!}
+\end{proof}
+\par
+Finally, prior to  carrying out the proof of Prop.\ \ref{prop:ENH-CE}, we pin down a key fact: for any $(\xi_n)_n \subset \rmL^{\uppsi^*} (\Ed; \tetapi)$ we have that 
+\begin{equation}
+\label{characterization-of-Orlicz}
+\|\zeta_n \|_{ \rmL^{\uppsi^*} (\Ed; \tetapi)} \to 0 \quad \text{if and only if} \quad \lim_{n\to\infty}\iint_{\Ed} \uppsi^*(\beta \,  \zeta_n(x,y)) \, \tetapi (\dd x \dd y) =0 \text{ for all } \beta >0\,.
+ \end{equation}
+ \TODOR{\EEE Which reference for \eqref{characterization-of-Orlicz}? I have found it only in the (unpublished) lecture notes by C.\ L\'eonard...}
+ %Indeed, we have 
+% \begin{equation}
+ %\label{cvg-small-Orl}
+% \lim_{n\to\infty} \iint_{\Ed}   \uppsi^* \big[ \beta \big(\overline\nabla \widehat{\varphi}_n(x,y){-} \overline\nabla \varphi(x,y)\big) \big]  \, \tetapi (\dd x \dd y) =0\qquad \text{for all } \beta>0\,.
+ %\end{equation
+%%%
+\begin{proof}[Proof of Proposition \ref{prop:ENH-CE}]
+Preliminarily, we observe that, since $u$ enjoys the bounds   \eqref{strong-bounds}, showing \eqref{desired-CE} for all test functions $\varphi \in \Bb(V)$ fulfilling
+\eqref{eq:test_extend} is equivalent to showing it for all test functions  $\varphi \in  \rmX^{\uppsi^*}$. Thus, let us fix  $
+\varphi \in  \rmX^{\uppsi^*}=  \mathcal{X}^{\uppsi^*}$. By Assumption \ref{Ass:F-bis}, there exists a sequence $(\varphi_n)_n \subset 
+\Lipb(V)$ suitably 
+approximating $\varphi$.
+% Furthermore, by Lemma \ref{l:cutoff}  we may suppose  that 
+%\begin{equation}
+%\label{unifornly-bounded-varphin} 
+%\exists M>0\, \  \forall\, n \in \N \ \forall\, (x,y)\in E\,: \qquad  |\overline \nabla (\varphi_n{-}\varphi)(x,y)| \leq M 
+%\end{equation}
+%%
+ We now send $n\to \infty$ in  the continuity equation tested by $\varphi_n$, i.e.\ in 
+  \[
+        \int_V\varphi_n(x)\,\rho_t (\dd x) - \int_V\varphi_n(x)\, \rho_s  (\dd x) = \iiint_{[s,t]{\times}\Ed} \dnabla\varphi_n(x,y)\, \jj_\Lebone(\dd r \dd x \dd y)  \text{ for all } 0\leq s \leq t\leq T\,.
+            \]
+            Since $\varphi_n \weakto \varphi$ in $\rmL^1(V;\pi)$, we pass to  the limit on the left-hand side. 
+            As for the right-hand side, 
+            we will show that 
+            \begin{equation}
+            \label{RHSto0}
+             \iiint_{[s,t]{\times}\Ed}  \dnabla\varphi_n(x,y)  \, \jj_\Lebone(\dd r \dd x \dd y)  \longrightarrow      \iiint_{[s,t]{\times}\Ed}   \dnabla\varphi(x,y)  \, \jj_\Lebone(\dd r \dd x \dd y) \,.
+            \end{equation}
+          For this, we use that 
+            \[
+            \begin{aligned}
+          & \iiint_{[s,t]{\times}\Ed}   \left|\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) \right|  \, \jj_\Lebone(\dd r \dd x \dd y) 
+         \\
+         & =\frac1{\beta}\int_s^t  \iint_{E_\upalpha^r} \beta  \left|\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) \right|
+          \frac{w_r(x,y)}{\upalpha(u_r(x), u_r(y))} \upalpha(u_r(x), u_r(y)) \tetapi(\dd x \dd y ) \, \dd r
+         \\
+         & \stackrel{(1)}\leq \frac1{\beta}\int_s^t  \iint_{E_\upalpha^r} \uppsi^*(\beta (\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) )) \upalpha(u_r(x), u_r(y)) \tetapi(\dd x \dd y ) \, \dd r
+        \\
+        & \quad 
+         +  \frac1{\beta}\int_s^t  \iint_{E_\upalpha^r} \uppsi\left( \frac{w_r(x,y)}{\upalpha(u_r(x), u_r(y))} \right) \upalpha(u_r(x), u_r(y)) \tetapi(\dd x \dd y ) \, \dd r
+         \end{aligned}
+                     \]
+          with the set $E_\upalpha^r = \{ (x,y)\in \Ed\, : \ \upalpha(u_r(x), u_r(y))>0 \} $ fulfilling $|\bj_r|(\Ed{\setminus}E_\upalpha^r )=0$ for 
+       $\Lebone$-a.a.\ $r\in (0,T)$, cf.\ \eqref{nice-representation}, and {\footnotesize (1)} due to Young's inequality.
+       Now, for every fixed $\beta>0$ we have
+       \[
+       \begin{aligned}
+       &
+       \int_s^t  \iint_{E_\upalpha^r} \uppsi^*(\beta (\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) )) \upalpha(u_r(x), u_r(y)) \, \tetapi(\dd x \dd y ) \, \dd r
+       \\
+       & 
+       \leq C_{\overline U}   (t{-}s)  \iint_{\Ed} \uppsi^*(\beta (\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) )) \, \tetapi(\dd x \dd y ) \, \dd r \doteq  C_{\overline U} (t{-}s) I_n
+       \end{aligned}
+       \]
+       with $ C_{\overline U}$ from \eqref{for-later-use-uppalpha}.
+       % and  $C_{\beta,M}$ from \eqref{Olli-est}, where $M$ fulfills \eqref{unifornly-bounded-varphin}. 
+       All in all, we conclude that for every $\beta>0$
+       \[
+       \begin{aligned}
+       &
+   \limsup_{n\to \infty}     \iiint_{[s,t]{\times}\Ed}   \left|\dnabla\varphi_n(x,y){-} \dnabla\varphi(x,y) \right|  \, \jj_\Lebone(\dd r \dd x \dd y) 
+\\ &    \leq  C_{\overline U}  (t{-}s) \lim_{n\to\infty} I_n + \frac1{\beta}\int_s^t   \scrR(\rho_r,\bj_r)\, \dd r
+   =   \frac1{\beta}\int_s^t   \scrR(\rho_r,\bj_r)\, \dd r\,,
+   \end{aligned}
+       \]
+       since $I_n \to 0$ by Assumption \ref{Ass:F-bis}(2) and the characterization of Orlicz convergence provided by \eqref{characterization-of-Orlicz}. 
+         By the arbitrariness of $\beta$, we conclude \eqref{RHSto0}. We have thus shown that 
+        for all $ 0\leq s \leq t\leq T$
+         \[
+        \int_V\varphi(x)\,\rho_t (\dd x) - \int_V\varphi(x)\, \rho_s  (\dd x) = \iiint_{[s,t]{\times}\Ed} \dnabla\varphi(x,y)\, \jj_\Lebone(\dd r \dd x \dd y) \qquad \forall\, \varphi \in  \rmX^{\uppsi^*}\,,
+            \]
+       which
+        finishes the proof. 
+\end{proof}       
+       
+         
+           
+           
+
+
+
+
+
+\RBS 
+\subsection{A chain rule identity}
+Exploiting Proposition \ref{prop:ENH-CE}, we show that along a solution of the continuity equation satisfying bounds \eqref{finite-entropy+action} \emph{and} \eqref{strong-bounds}, the chain rule holds. 
+\begin{proposition}[Chain-rule]
+\label{prop:CR}
+ Let $(\rho,\jj)\in\CE 0T$ fulfill \eqref{finite-entropy+action}   and \eqref{strong-bounds}. Then,
+ \begin{equation}
+ \label{chain-rule}
+  -  \frac{\dd}{\dd t} \calS(\rho_t) =
+     \iint_{\Ed} ({-}\dnabla \phi'\circ u_t)(x,y)\, \jj_t(dxdy)
+     \leq  \scrR(\rho_t,\jj_t) + \scrD(\rho_t) \quad \foraa\, t \in (0,T)\,.
+ \end{equation} \EEE
+ In particular, the pair $(\rho,\jj)$ satisfies the lower energy-dissipation inequality \eqref{LEDE}. 
+\end{proposition}
+\begin{proof}
+    We begin by showing the absolute continuity of $t\mapsto \calS(\rho_t)$. 
+    \RBS Preliminarily, we recall that,  in view of \eqref{strong-bounds},
+    \begin{equation}
+    \label{needed-4-rigour}
+     \upalpha(u_t(x),u_t(y)) \geq \underline{\upalpha}: = \min_{(u,v)\in [\underline U, \overline U]{\times} [\underline U, \overline U]} \upalpha(u,v)>0
+     \quad \text{for } \pi\text{-a.a. } x,y \in V \quad \text{for all } t \in [0,T]\,.
+         \end{equation}
+  \EEE  Now, 
+    by convexity, we obtain for all $0\leq s \leq t \leq T$
+    \begin{align*}
+       &  \calS(\rho_t) - \calS(\rho_s)
+       \\
+        &\le \int_V \phi'(u_t(x)) [u_t(x)-u_s(x)]\,\pi(\dd x) \\
+        &\stackrel{(1)}{=} \int_s^t \iint_{\RBS E'} (\dnabla \phi'\circ u_t)(x,y)\,\jj_r(\dd x \dd y) \dd r \\
+        &\stackrel{(2)}{=} \int_s^t \iint_{\RBS E'}  \RBS  \frac1{\upalpha(u_r(x),u_r(y))} \EEE (\dnabla \phi'\circ u_t)(x,y) 
+        \RBS \upalpha(u_r(x),u_r(y)) \EEE
+        \,\jj_r(\dd x \dd y) \dd r \\ 
+        &\stackrel{(3)}\le \int_s^t \scrR(\rho_r,\jj_r)\,dr + \int_s^t \iint_{\RBS E'}  \uppsi^*({-}\dnabla (\phi'\circ u_t)(x,y))\,\upalpha(u_r(x),u_r(y))\,\tetapi(\dd x \dd y) \dd r \\
+        &\le \int_s^t \scrR(\rho_r,\jj_r)\,dr + \int_s^t \iint_{\RBS E'}  \uppsi^*((\dnabla \phi'\circ u_t)(x,y))\, \upalpha(u_t(x),u_t(y)) \frac{\upalpha(u_r(x),u_r(y))}{\upalpha(u_t(x),u_t(y))}
+        \,\tetapi(\dd x \dd y) \dd r  \\
+        &\le \int_s^t \scrR(\rho_r,j_r)\,dr + \RBS \frac{C_{\overline{U}}}{ \underline{\upalpha}} \EEE  \Fish(\rho_t)|t-s|\,.
+    \end{align*}
+    \RBS Here,
+    {\footnotesize (1)} follows from choosing the test function $\varphi =  \phi'\circ u_t $ in the continuity equation, thanks to Proposition \ref{prop:ENH-CE}; 
+    {\footnotesize (2)}     is justified by \eqref{needed-4-rigour}, while     {\footnotesize (3)}  ensues from Young's inequality and from the fact that $\uppsi^*$ is an even function.
+Analogously, we have 
+    \begin{align*}
+         \calS(\rho_t) - \calS(\rho_s)
+        &\geq \int_V \phi'(u_s(x)) [u_t(x)-u_s(x)]\,\pi(\dd x) 
+        \\
+        &  = - \int_s^t \iint_{\RBS E'} {-}\dnabla (\phi'\circ u_s)(x,y)\,\jj_r(\dd x \dd y) \dd r
+       % \\
+      %  & \geq  - \int_s^t \scrR(\rho_r,\jj_r)\,dr - \int_s^t \iint_{\RBS E'}  \uppsi^*({-}\dnabla (\phi'\circ u_s)(x,y))\, \upalpha(u_t(x),u_t(y)) \frac{\upalpha(u_r(x),u_r(y))}{\upalpha(u_t(x),u_t(y))}
+        %\,\tetapi(\dd x \dd y) \dd r 
+        \\
+        & \geq - \int_s^t \scrR(\rho_r,j_r)\,dr -  \frac{C_{\overline{U}}}{ \underline{\upalpha}}   \Fish(\rho_s)|t-s|\,.
+\end{align*}
+All in all, we obtain
+\[
+    |\calS(\rho_t) - \calS(\rho_s)| \le \int_s^t \scrR(\rho_r,j_r)\,dr + \frac{C_{\overline{U}}}{ \underline{\upalpha}}\Bigl( \Fish(\rho_t)+ \Fish(\rho_s)\Bigr)|t-s| \qquad \text{for all } 0 \leq s \leq t \leq T\,.
+\]
+Applying \cite[Lemma 1.2.6]{AGS08}, we infer that the mapping 
+$[0,T]\ni t \mapsto \calS(\rho_t)$ is in $W^{1,1}(0,T)$. 
+\par
+Let us  now fix a point $t$, out of a negligible set, where $\frac{\dd}{\dd t}  \calS(\rho_t)$ exists.
+With the same calculations as above 
+we obtain
+\begin{align*}
+    \frac{1}{h}\bigl[\calS(\rho_t) - \calS(\rho_{t+h})\bigr] &  \leq \frac1h \int_V \phi'(u_t(x)) [u_t(x)-u_{t+h}(x)]\,\pi(\dd x) 
+    \\
+    &
+    = -  \int_{t}^{t+h} \iint_{E'} {-}\dnabla (\phi'\circ u_t)(x,y)\,\jj_r(\dd x \dd y) \dd r 
+    \end{align*}
+    and, analogously,
+    \[
+     \frac{1}{h}\bigl[\calS(\rho_t) - \calS(\rho_{t+h})\bigr] \geq   \int_{t}^{t+h} \iint_{E'} {-}\dnabla (\phi'\circ u_{t+h}))(x,y)\,\jj_r(\dd x \dd y) \dd r 
+    \]
+    Dividing both inequalities by $h>0$ and letting $h\down0$ we conclude that 
+    \[
+   -  \frac{\dd}{\dd t} \calS(\rho_t) =
+     \iint_{\Ed} {-}\dnabla (\phi'\circ u_t)(x,y)\, \jj_t(dxdy)\,,
+\] 
+   whence \eqref{chain-rule}.
+%    
+%    
+%    \le \frac{1}{h}\int_t^{t+h} \calR(\rho_r,j_r)\,dr + \frac{1}{h}\int_t^{t+h} \iint_\Ed \uppsi^*(-(\dnabla \phi'\circ u_t)(x,y))\,\upalpha_r(x,y)\,\teta(dxdy)\,dr.
+%\end{align*}
+%Passing to the limit $h\to 0^+$ gives
+%\begin{align*}
+%    -\frac{d}{dt} \calS(\rho_t) &\le \calR(\rho_t,j_t) + \iint_E \uppsi^*(-(\dnabla \phi'\circ u_t)(x,y))\,\upalpha_t(x,y)\,\teta(dxdy) 
+%    = \calR(\rho_t,j_t) + \calD(\rho_t)
+%\end{align*}
+%
+\end{proof}
+
+\subsection{The lower energy-dissipation inequality and conclusion of the proof}
+We now extend the validity of \eqref{LEDE}.
+\begin{proposition}
+\label{prop:LEDE}
+ Let $(\rho,\jj)\in\CE 0T$ fulfill \eqref{finite-entropy+action} 
+and suppose that for $u_t = \frac{\dd \rho_t}{\dd \pi}$ the upper bound
+\[
+\exists\, \overline U>0 \, : \quad 0 \leq  u_t(x) \leq \overline U \quad \text{for } \pi\text{-a.a. } x \in V \quad \text{for all } t \in [,T]
+\]
+holds.
+Then, the pair $(\rho,\jj)$ satisfies the lower energy-dissipation inequality 
+\begin{equation}
+\label{LEDE-t}
+\int_0^t  \left(  \scrR(\rho_r,\jj_r) + \scrD(\rho_r) \right) \dd r + \calS(\rho_t)  \geq   \calS(\rho_0) \qquad\text{for all } t \in [0,T]\,.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Let us use $\mathcal{L}_{[0,t]}(\rho,\jj) $ as a place-holder for the left-hand side of \eqref{LEDE-t} and consider the curve of measures
+$\rho^\theta: [0,T] \to\calM^+(V)$
+\[
+\rho_t^\theta: = (1{-}\theta)\rho_t+ \theta \pi \quad t \in [0,T], \ \theta \in [0,1]\,. 
+\]
+Clearly, $(\rho^\theta, (1{-}\theta) \jj) \in \CE 0T$; furthermore, by convexity of $\calS$ and $\scrR$, 
+\[
+\begin{cases}
+\displaystyle     \sup\nolimits_{t\in [0,T]} \scrE(\rho_t^\theta) \leq (1{-}\theta)   \sup\nolimits_{t\in [0,T]} \scrE(\rho_t)<+\infty,
+\smallskip
+\\
+\displaystyle  \int_0^T \scrR(\rho_t^\theta, (1{-}\theta) \bj_t)\, \dd t \leq (1{-}\theta)\int_0^T \scrR(\rho_t, \bj_t)\, \dd t <+\infty.
+\end{cases}
+\]
+What is more, $u_t^\theta =\frac{\dd \rho_t^\theta}{\dd \pi} $ satisfies \eqref{strong-bounds}. Therefore, Proposition \ref{prop:CR} applies, yielding 
+$  \calS(\rho_0^\theta) \leq \mathcal{L}_{[0,t]}(\rho^\theta, (1{-}\theta)\jj)$. Thus, by convexity of $ \mathcal{L}_{[0,t]}$ we infer
+\[
+ \calS(\rho_0^\theta) \leq \mathcal{L}_{[0,t]}(\rho^\theta, (1{-}\theta)\jj) \leq (1{-}\theta) \mathcal{L}_{[0,t]}(\rho, \jj) + \theta \mathcal{L}_{[0,t]}(\pi, \boldsymbol{0}) = (1{-}\theta) \mathcal{L}_{[0,t]}(\rho, \jj)  +\theta  \calS(\pi)
+\]
+since we can immediately check that $ \mathcal{L}_{[0,t]}(\pi, \boldsymbol{0}) = \calS(\pi)$. Then, it suffices to send $\theta \downarrow 0$ in the above inequality, and \eqref{LEDE-t} ensues.
+\end{proof}
+\par
+We are now in a position to conclude the 
+\underline{\textbf{proof of Theorem \ref{th:main}.}} 
+\begin{itemize}
+\item[-]
+As for \text{part (1)}, we  apply Proposition \ref{prop:LEDE} to the pair $(\rho,\jj) \in \CE0T$ obtained in Section \ref{s:5}. 
+Since $(\rho,\jj)$ also satisfies the upper energy-dissipation estimate thanks to Lemma \ref{l:UEDE}, we conclude that $(\rho,\jj)$ is a solution of the $(\calS,\scrR,\scrR^*)$
+system in the sense of Definition \ref{def:R-Rstar-balance}. 
+\item[-] As for \text{part (2)}, it suffices to apply Proposition \ref{prop:CR}. 
+\end{itemize}
+\QED
+
+\EEE
+\section{More on Assumption \ref{Ass:F-bis}}
+\label{s:lip} 
+
+\TODOR{For the time being I have moved Lemma \ref{l:cutoff} here....}
+%%
+\RCR
+First of all, we  improve the approximation property
+required in  Assumption \ref{Ass:F-bis}. Namely,  Lemma  \ref{l:cutoff} below we show that, if   Assumption \ref{Ass:F-bis} holds,
+we can indeed
+construct a sequence $(\widehat{\varphi}_n)_n $ such that, in addition to the convergences
+in Ass.\ \ref{Ass:F-bis}, we have that 
+$\|\overline\nabla \widehat{\varphi}_n \|_\infty = \sup_{x,y\in V} |\overline\nabla\widehat{\varphi}_n(x,y)|$ is uniformly bounded. 
+%As we will see, for  $ \overline\nabla \widehat{\varphi}_n$ we will be able to obtain convergence to $ \overline\nabla\varphi$
+%in the \emph{small} Orlicz space  $\mathcal{X}^{\uppsi^*}$,
+%cf.\ \eqref{cvg-small-Orl} below which, indeed, comes as no surprise in view of Corollary \ref{cor:identical-spaces}.
+%%%%
+\begin{lemma}
+\label{l:cutoff}
+Under Assumptions \ref{Ass:D} and \ref{Ass:F-bis}, 
+for every $\varphi \in \mathcal{X}^{\uppsi^*}$
+ there exists a sequence $(\widehat{\varphi}_n)_n \subset \Lipb(V)$ such that as $n\to \infty$
+ \begin{enumerate}
+  \item $ \sup_{n
+\in \N} \|\overline\nabla \widehat{\varphi}_n \|_\infty
+ \leq 4\|\varphi\|_{\infty}$;
+ \item $\widehat{\varphi}_n\to\varphi$ in $\rmL^1(V;\pi)$;
+ \item $\overline\nabla \widehat{\varphi}_n \to \overline\nabla \varphi$ in $\rmL^{\uppsi^*}(\Ed;\tetapi)$. 
+ %Indeed, we have 
+% 
+ \end{enumerate}
+ \end{lemma}
+% \TODOBS{\EEE It would be sufficient indeed to have $\sup_{n
+%\in \N} \|\overline\nabla \widehat{\varphi}_n \|_\infty<\infty$, but I don't know how to prove this...}
+\begin{proof}
+Obviously, we may suppose that $\varphi \not\equiv 0$. 
+Let us introduce the truncation operator
+\[
+\tau_\ell: \R \to \R, \quad 
+\tau_\ell(x):= \begin{cases}
+x & \text{if } |x|\leq \ell,
+\\
+\ell & \text{if } x >\ell,
+\\
+-\ell  &  \text{if } x <-\ell,
+\end{cases}
+\quad \text{with  the place-holder } \ell:= 2\|\varphi\|_{\infty},
+\]
+and let us  define 
+\begin{equation}
+\label{truncated-phin}
+\widehat{\varphi}_n(x):= \tau_\ell(\varphi_n(x))\,.
+\end{equation}
+Clearly, $ \widehat{\varphi}_n \subset \Lipb(V)$, with   $ \sup_{n
+\in \N} \|\overline\nabla \widehat{\varphi}_n \|_\infty
+\leq 2\ell$.  We now check the remaining items of the statement in separate claims.  
+\smallskip
+
+\par
+\noindent
+{\sl \textbf{Claim $1$:} we have  $\widehat{\varphi}_n\to\varphi$ in $\rmL^1(V;\pi)$.}
+\\
+Since $\ell =2 \|\varphi\|_{\infty}$, we have that 
+\[
+A_n:= \{ x\in V\, : \ |\varphi_n(x) | >\ell \} \subset\left \{ x\in V\, : \ |\varphi_n(x){-} \varphi(x) | >\frac{\ell}2 \right \}\,.
+\]
+Therefore, since $\varphi_n \to \varphi$ in $\rmL^1(V;\pi)$, we infer that 
+\[
+\lim_{n\to \infty} \pi (A_n) \leq \lim_{n\to \infty} \pi \left(\left\{ x\in V\, : \ |\varphi_n(x){-} \varphi(x) | >\frac{\ell}2 \right \}\right) =0,
+\]
+so that 
+\[
+ \int_{A_n} |\widehat{\varphi_n}{-}\varphi(x)| \, \pi(\dd x) \longrightarrow  0 \text{ as } n \to \infty\,.
+\]
+In this way, we have that 
+\[
+\lim_{n\to\infty}\| \widehat{\varphi}_n{-} \varphi\|_{\rmL^1(V;\pi)} = \lim_{n\to\infty} \int_{V{\setminus}A_n} |\varphi_n(x){-}\varphi(x)| \, \pi(\dd x) =0\,.
+\]
+\smallskip
+
+\par
+\noindent
+{\sl \textbf{Claim $2$:} we have 
+\begin{equation}
+ \label{cvg-small-Orl}
+ \lim_{n\to\infty} \iint_{\Ed}   \uppsi^* \big[ \beta \big(\overline\nabla \widehat{\varphi}_n(x,y){-} \overline\nabla \varphi(x,y)\big) \big]  \, \tetapi (\dd x \dd y) =0\qquad \text{for all } \beta>0\,.
+ \end{equation}
+%$\overline\nabla \widehat{\varphi}_n \to \overline\nabla \varphi$ in $\rmL^{\uppsi^*}(\Ed;\tetapi)$;
+}
+\\
+First of all, we observe that, since $\widehat{\varphi}_n\to \varphi$ $\pi$-almost everywhere in $V$, by Lemma \ref{l:properties-tetakappa}
+we have 
+\begin{equation}
+\label{pointwise-cvg-gradients}
+\overline\nabla \widehat{\varphi}_n  \to  \overline\nabla \varphi \qquad \tetapi\text{-a.e.\ in } \Ed\,.
+\end{equation}
+A direct calculation shows that 
+$|\overline\nabla \widehat{\varphi}_n(x,y)| \leq |\overline\nabla \varphi_n (x,y)|$ for every $(x,y) \in \Ed$, therefore we have 
+\[
+f_n(x,y):= |\overline\nabla (\widehat{\varphi}_n {-} \varphi)(x,y)|  \leq  |\overline\nabla \widehat{\varphi}_n(x,y) |  +  |\overline\nabla \varphi(x,y)| 
+\leq  |\overline\nabla \varphi_n (x,y)| +  |\overline\nabla \varphi(x,y)|  \doteq g_n(x,y) \qquad \text{for all }(x,y) \in \Ed\,,
+\]
+and, a fortiori, since $\uppsi^*$ is non-decreasing on $[0,+\infty)$ we have 
+\begin{equation}
+\label{domination}
+\uppsi^* (\beta f_n(x,y)) \leq \uppsi^* (\beta g_n(x,y)) \qquad \text{for all }(x,y) \in \Ed\,,  \ \text{for all } \beta>0\,.
+\end{equation}
+Now, observe that, while $\beta f_n\to 0$ $\tetapi$-a.e.\ in $ \Ed$ by \eqref{pointwise-cvg-gradients}, we  have that 
+\[
+\beta g_n\to \beta g    \quad \tetapi\text{-a.e.\ in } \Ed \qquad \text{with }  g:=   2|\overline\nabla \varphi| \,.
+\]
+We will now prove that, indeed, 
+\begin{equation}
+\label{next-aim-gn}
+\lim_{n\to\infty} \iint_{\Ed} \left|  \uppsi^* (\beta g_n(x,y)){-}   \uppsi^* (\beta g(x,y)) \right|  \, \tetapi (\dd x \dd y) =0\qquad  \text{for all } \beta>0\,..
+\end{equation}
+Combining \eqref{domination} and  a modified version of the dominated convergence theorem (cf., e.g., \cite[\S 2, Thm.\ 2.8.8]{Bogachev07}), we 
+will then conclude that $\lim_{n\to\infty} \iint_{\Ed}  \uppsi^*(\beta f_n(x,y))  \, \tetapi (\dd x \dd y) =0$, namely the desired
+\eqref{cvg-small-Orl}.
+Let us then check \eqref{next-aim-gn}. First of all, we observe that 
+\[
+|g_n{-}g| = ||\overline\nabla \varphi_n|{-}|\overline\nabla \varphi|| \leq  |\overline\nabla \varphi_n{-}\overline\nabla \varphi|    \qquad \tetapi\text{-a.e.\ in } \Ed\,,
+\]
+hence $\uppsi^*( |g_n{-}g| ) \leq \uppsi^*(  |\overline\nabla \varphi_n{-}\overline\nabla \varphi| ) $  $\tetapi$-a.e.\ in $ \Ed$.  Hence, from
+$\overline\nabla \varphi_n \to \overline\nabla \varphi$ in  $\rmL^{\uppsi^*}(\Ed;\tetapi)$,
+taking into account the characterization of Orlicz convergence provided by \eqref{characterization-of-Orlicz}, 
+ we deduce that 
+\begin{equation}
+\label{only-this}
+\lim_{n\to\infty} \iint_{\Ed} \uppsi^*(\beta |g_n(x,y){-}g(x,y)| )  \, \tetapi (\dd x \dd y) =0 \qquad \text{for all } \beta>0\,.
+\end{equation}
+%\TODOBS{\EEE Caution! the convergence above CANNOT be improved to  $\lim_{n\to\infty} \iint_{\Ed} \uppsi^*(\beta |g_n(x,y){-}g(x,y)| )  \, \tetapi (\dd x \dd y) =0
+%$ for all $\beta>0$ because for $ g_n= |\overline\nabla \varphi_n | +  |\overline\nabla \varphi)| $ we have LOST the uniform
+%bounds granted by the truncation}
+%%in view of 
+%%\begin{equation}
+%%\label{rely-on-this}
+%%
+%%\end{equation}
+We now use the convexity inequality
+\begin{equation}
+\label{useful-convexity-ineq}
+ \uppsi^*(a ) \leq \alpha  \uppsi^*(\alpha^{-1} b) + (1{-}\alpha)  \uppsi^*((1{-}\alpha)^{-1} (a{-}b)) \qquad \text{for all } a,b \in [0,+\infty ), \  \alpha \in (0,1)\,.
+\end{equation}
+Plugging in $a= \beta g_n$ and $b= \beta g$ we obtain
+\[
+\begin{aligned}
+&  \iint_{\Ed}  \uppsi^*( \beta g_n )  \, \tetapi (\dd x \dd y) 
+\\
+& \leq  \alpha  \iint_{\Ed}  \uppsi^*(\alpha^{-1} \beta g )  \, \tetapi (\dd x \dd y) 
+ + (1{-}\alpha)   \iint_{\Ed}   \uppsi^*((1{-}\alpha)^{-1} \beta(g_n{-}g)) \, \tetapi (\dd x \dd y) \,.
+ \end{aligned}
+\]
+so that, in view of \eqref{only-this}, we infer 
+\[
+\limsup_{n\to\infty} \iint_{\Ed}  \uppsi^*( \beta g_n )  \, \tetapi (\dd x \dd y)  \leq \alpha  \iint_{\Ed}  \uppsi^*(\alpha^{-1} \beta g )  \, \tetapi (\dd x \dd y)  \quad \text{for all } \alpha \in (0,1)\,.
+\]
+Plugging then  $a= \beta g$ and $b= \beta g_n$ in  \eqref{useful-convexity-ineq}
+we get 
+\[
+\iint_{\Ed}  \uppsi^*( \beta g )  \, \tetapi (\dd x \dd y)  \leq \alpha \liminf_{n\to\infty} \iint_{\Ed}  \uppsi^*( \alpha^{-1} \beta g_n )   \quad \text{for all } \alpha \in (0,1)\,,
+\]
+so that, letting $
+\alpha \uparrow 1$ we conclude 
+\[
+\lim_{n\to\infty} \iint_{\Ed}  \uppsi^*( \beta g_n )  \, \tetapi (\dd x \dd y) =   \iint_{\Ed}  \uppsi^*( \beta g )  \, \tetapi (\dd x \dd y)  \quad \text{for all } \alpha \in (0,1)\,.
+\]
+Similarly, \eqref{next-aim-gn} follows from the enhanced convexity inequality 
+\begin{equation}
+\label{enhanced-convexity-ineq}
+| \uppsi^*(a ){-} \uppsi^*(b )|  \leq \alpha  \uppsi^*(\alpha^{-1} b) - \uppsi^*(b ) + 
+\alpha  \uppsi^*(\alpha^{-1} a) - \uppsi^*(a ) +
+(1{-}\alpha)  \uppsi^*((1{-}\alpha)^{-1} |a{-}b|)
+\end{equation}
+for all $a,b \in [0,+\infty )$, $ \alpha \in (0,1)$: it suffices to choose $a= \beta g_n$ and $b= \beta g$ in  \eqref{enhanced-convexity-ineq}, and then to send first   $n\to \infty$
+and the $\alpha 
+\uparrow 1$. 
+%\TODOBS{\EEE Caution!  But we cannot deduce that $\lim_{n\to\infty}   \iint_{\Ed}   \uppsi^*((1{-}\alpha)^{-1} \beta(g_n{-}g)) =0$ because we only have \eqref{only-this}!
+%This is regardless of $\beta$! Even if we set $\beta=1$ we still have $  \iint_{\Ed}   \uppsi^*((1{-}\alpha)^{-1} (g_n{-}g)) \, \tetapi (\dd x \dd y) 
+%$ for which we have no information... }
+
+
+%%%Finally, we  verify item $\# 2$ of the statement. 
+%%%{\color{red} My idea to show
+%%%\[
+%%%\lim_{n\to\infty} \| \overline\nabla \widehat{\varphi}_n{-} \overline\nabla\varphi   \|_{\rmL^{\uppsi^*}(\Ed;\tetapi)}   =0,
+%%%\]
+%%%would be to split the above integral by partitioning $E'$ in the subsets corresponding to the various cases, and then use the dominated convergence theorem
+%%%(since we have pointwise convergence). But I only have one-sided inequalities, below, and $\tetapi$ is a singular measures.. so the $\rmL^\infty$ bounds that we have 
+%%% won't work...}
+%%%%\begin{equation}
+%%%%\label{last-partproof}
+%%%% \uppsi^*(\beta \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y) ) \leq \uppsi^*(\beta \overline\nabla [\varphi_n{-} \varphi] (x,y) ) \qquad \text{for all } (x,y) \in \Ed \text{ and all } \beta>0
+%%%%\,.
+%%%%\end{equation}
+%%%Indeed, we calculate 
+%%%\[
+%%%\begin{aligned}
+%%%& \displaystyle \text{if } |\varphi_n(x)|,  \  |\varphi_n(y)| \leq \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y) && \hspace{-0,3cm}  =     \overline\nabla [\varphi_n{-} \varphi] (x,y)  
+%%%\\
+%%%& \displaystyle \text{if } \varphi_n(x)>\ell,  \  |\varphi_n(y)| \leq \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = \varphi_n(y) -\ell + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} > \varphi_n(y) - \varphi_n(x)  + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) 
+%%% \\
+%%% & \displaystyle \text{if } \varphi_n(x)<-\ell,  \  |\varphi_n(y)| \leq \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = 
+%%% \varphi_n(y) +\ell + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} < \varphi_n(y) - \varphi_n(x) + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) 
+%%% \\
+%%% & \displaystyle \text{if } \varphi_n(y)>\ell,  \  |\varphi_n(x)| \leq \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = \ell -\varphi_n(x)  + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} < \varphi_n(y) - \varphi_n(x)  + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) 
+%%% \\
+%%% & \displaystyle \text{if } \varphi_n(y)<-\ell,  \  |\varphi_n(x)| \leq \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = 
+%%%-\ell -  \varphi_n(x)  
+%%% + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} > \varphi_n(y) - \varphi_n(x) + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) 
+%%% \\
+%%% & \displaystyle \text{if } \varphi_n(y)>\ell,  \  \varphi_n(x)<- \ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = 
+%%%2\ell -  \varphi_n(x)  
+%%% + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} > \varphi_n(y) - \varphi_n(x) + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) 
+%%% \\
+%%% & \displaystyle \text{if } \varphi_n(y)<-\ell,  \  \varphi_n(x)>\ell \qquad && \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)   &&   \hspace{-0,3cm} = 
+%%%-2\ell -  \varphi_n(x)  
+%%% + \varphi(x) -  \varphi(y)  
+%%%\\ & && 
+%%% &&  \hspace{-0,3cm} < \varphi_n(y) - \varphi_n(x) + \varphi(x) -  \varphi(y)  =  \overline\nabla [\varphi_n{-} \varphi] (x,y) \,.
+%%%\end{aligned}
+%%%\]
+%%%{\color{red}....... how to proceed??}
+%%%
+%%%Finally, in the cases. $[ \varphi_n(y)>\ell, \,  \varphi_n(x)>\ell]$ and  $[ \varphi_n(y)<-\ell, \,  \varphi_n(x)<-\ell]$ we have 
+%%%\[
+%%%\left|  \overline\nabla [\widehat{\varphi}_n{-} \varphi] (x,y)\right| = | \varphi] (x,y)|
+%%%\]
+%%%and then we can use the dominated convergence theorem.....
+\end{proof}
+
+
+
+
+\EEE
+
+\section{Applications}
+
+\TODO{maybe this section could be moved right BEFORE the sections with the proof...}
+
+
+\appendix 
+
+
+\section{Proof of Lemma \ref{l:crucial-F}}
+\label{s:a.1}
+\RNEW
+\noindent For statements \textbf{(1)} \& \textbf{(2)} we refer to the proof of the analogous items in  \cite[Lemma 2.3]{PRST22}. 
+We only address here \EEE the proof of  \textbf{(3)}, by adapting the argument carried out for $V=\R^d$ 
+in the proof of \cite[Thm.\ 2.34]{AmFuPa05FBVF}.
+Exploiting \cite[Prop.\ 2.31, Lemma 2.31]{AmFuPa05FBVF} we  sequences $(a_j)_j \subset \R^m$ and $(b_j)_j \subset \R$ such that, setting $L_j (x) :=
+\pairing{}{}{a_j}x +b_j$ for all $x\in \R^m$, we have the representation formulae
+\begin{equation}
+\label{representation-AFP}
+\uppsi(x) = \sup_{j\in \N} L_j(x), \qquad \uppsi^\infty(x) = \sup_{j\in \N}\pairing{}{}{a_j}x \qquad \text{for all } x\in \R^m.
+\end{equation}
+Let us now consider sequences $(\mu_n)_n\, \mu \in \Mloc(Y;\R^m)$ 
+and $(\nu_n)_n,\, \nu \in  \Mloc^+(Y)$ such that 
+$\mu_n \to \mu$ and $\nu_n \to \nu$ vaguely and 
+$ \liminf_{n\to\infty}  \calF_\uppsi(\mu_n|\nu_n)<\infty$;
+  let 
+$g_n: = \frac{\dd \mu_n}{\dd \nu_n}$, $g = \frac{\dd \mu}{\dd \nu} $, $h_n = \frac{\dd \mu_n^\perp}{\dd |\mu_n^\perp|} $
+and $h: =\frac{\dd \mu^\perp}{\dd |\mu^\perp|}$.  
+Furthermore, let $(A_j)_{j=0}^k$, $k\in \N$, be pairwise disjoint open subsets of $V$ with compact closure. For any family  of functions
+$(\phi_j)_{j=0}^k$ such that $\phi_j \in \mathrm{C}_{\mathrm{c}}^1(A_j;\R)$ and $0\leq \phi_j \leq 1$ for all $j=\{0,\ldots, k\}$ there holds
+\[
+\int_{A_j} b_j \phi_j \, \dd \nu_n + \left\langle a_j, \int_{A_j} \phi_j \, \dd \nu_n  \right \rangle 
+\leq \int_{A_j} \uppsi(g_n) \, \dd \nu_n + \int_{A_j} \uppsi^\infty(h_n) \, \dd |\mu_n^\perp| 
+\]
+so that, since $\mu_n \to \mu$ and $\nu_n \to \nu$ vaguely, we have  
+\[
+\sum_{j=0}^k \int_{A_j} b_j \phi_j \, \dd \nu+ \left\langle a_j, \int_{A_j} \phi_j \, \dd \nu \right \rangle 
+\leq \liminf_{n\to\infty} \sum_{j=0}^k\int_{A_j} b_j \phi_j \, \dd \nu_n + \left\langle a_j, \int_{A_j} \phi_j \, \dd \nu_n  \right \rangle
+\leq \liminf_{n\to\infty}  \calF_\uppsi(\mu_n|\nu_n)\,.
+\]
+We now introduce the functions $f_j : \R \to \R$ defined by 
+\[
+f_j (v) : = \begin{cases}
+L_j(g(v)) & \text{if } v \in V\setminus N,
+\\
+\pairing{}{}{a_j}{h(v)} & \text{if } v \in N,
+\end{cases}
+\text{ with $N$ a $\nu$-negligible set where $|\mu^\perp|$ is concentrated,}
+\]
+and rewrite the above estimate as 
+\begin{equation}
+\label{estimate-AFP}
+\sum_{j=0}^k \int_{A_j} f_j \phi_j \, \dd \eta \leq 
+ \liminf_{n\to\infty}  \calF_\uppsi(\mu_n|\nu_n) \qquad \text{with } \eta: = \nu+|\mu^\perp\,.
+\end{equation}
+Now, let us set $D_j : = \{ v\in A_j\, : \ f_j(v)>0\}$ and let $\mathbf{1}_{D_j}$ be its characteristic function. It follows from \eqref{estimate-AFP} that 
+$\eta(D_j)<\infty$ for all $j=0,\ldots, k$. Now, 
+by
+the inner regularity property 
+\eqref{inner-regularity}, for every $j \in \{0,\ldots, k\}$ we find   compact sets $K_j \subset D_j \subset A_j$ such that  $\eta(D_j) \setminus \eta(K_j) \leq \frac1j $. Let now 
+$O_j$ be open sets such that $K_j \subset  O_j \subset A_j$, and let us pick functions $\overline{\phi}_j  \in  \mathrm{C}_{\mathrm{c}}^1(A_j;\R)$ such that 
+$0 \leq \overline{\phi}_j  \leq 1$ and 
+\[
+\overline{\phi}_j(v) \begin{cases}
+\equiv 1  & \text{if } v \in K_j,
+\\
+\equiv 0 & \text{if } v \in A_j \setminus O_j\,.
+\end{cases}
+\]
+From \eqref{estimate-AFP} we deduce 
+\begin{equation}
+\label{almost-final-step}
+\sum_{j=0}^k \int_{A_j} (f_j)^+ \, \dd \eta  = \sum_{j=0}^k \int_{A_j} f_j \, \sup_{j \in \N} \overline{\phi}_j  \, \dd \eta \leq  \liminf_{n\to\infty}  \calF_\uppsi(\mu_n|\nu_n) \,.
+\end{equation}
+Let now
+\[
+f(v): =  \begin{cases}
+\uppsi(g(v)) & \text{if } v\in V\setminus N,
+\\
+\uppsi_\infty(h(v)) & \text{if } v \in N,
+\end{cases}
+\]
+and observe  that $f  =\sup_{j\in \N}   f_j  $ by \ref{representation-AFP} and hence $f = \sup_{j\in \N} f_j^+$. Since the family $(A_j)_{j=0}^k$ is arbitrary in the family 
+$\mathcal{A}$ of pairwise disjoint open subsets of $V$ with compact closure
+of all 
+from \eqref{almost-final-step} we deduce  that 
+\[
+\calF_\uppsi(\mu|\nu) = \int_{V} f \, \dd \eta \stackrel{(1)}= \sup_{(A_j)_{j=0}^k \in \mathcal{A}} \sum_{j=0}^k \int_{A_j} (f_j)^+ \, \dd \eta \stackrel{(2)}\leq  \liminf_{n\to\infty}  \calF_\uppsi(\mu_n|\nu_n) 
+\]
+with {\footnotesize (1)} from \cite[Lemma 2.35]{AmFuPa05FBVF} and  {\footnotesize (2)}  due to \eqref{almost-final-step}. This concludes the proof. 
+\QED
+
+{\small
+
+\markboth{References}{References}
+
+
+
+
+\bibliographystyle{alpha}
+
+%\bibliographystyle{alpha_AMs}
+\bibliography{ricky_lit}
+}
+
+
+
+\end{document}
+
+
+
+
